@@ -15,7 +15,7 @@ $(function () {
       }
     } else {
       // Not localhost
-      if (url_hostname.indexOf("smellpgh") >= 0) {
+      if (url_hostname.indexOf("smelltestwebsite") >= 0) {
         // Not localhost, is smell pgh
         src = "https://api.smelltestwebsite.org/visualization?";
       } else if (url_hostname.indexOf("smellmycity") >= 0) {
