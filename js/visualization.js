@@ -17,10 +17,10 @@ $(function () {
       // Not localhost
       if (url_hostname.indexOf("smellpgh") >= 0) {
         // Not localhost, is smell pgh
-        src = "https://api.smellpittsburgh.org/visualization?";
+        src = "https://api.smelltestwebsite.org/visualization?";
       } else if (url_hostname.indexOf("smellmycity") >= 0) {
         // Not localhost, is smell my city
-        src = "https://api.smellpittsburgh.org/visualization?client_token=c4f780294f2cef34b4b9be3fa82c6e7e&";
+        src = "https://api.smelltestwebsite.org/visualization?client_token=c4f780294f2cef34b4b9be3fa82c6e7e&";
       }
     }
     src += window.location.search.split("?")[1];
