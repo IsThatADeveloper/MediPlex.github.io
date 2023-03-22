@@ -43,17 +43,60 @@
           <div class="flex-item flex-column">
             <h2>Most Recent News</h2>
             <hr>
-           
-            <div class="news-list">
-              <ul>
-                <li>Home</li>
-                <li>Menu1</li>
-                <li>Menu2</li>
-                <li>Menu3</li>
-                <li>Menu4</li>
-                <li>Menu5</li>
-              </ul>
+            
+            <!------------------------------------------->
+
+            <style>
+              /* Style for the dropdown button */
+              .dropdown-btn {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+              }
+
+              /* Style for the dropdown menu */
+              .dropdown-menu {
+                display: none;
+                position: absolute;
+                z-index: 1;
+              }
+
+              /* Show the dropdown menu when the button is clicked */
+              .dropdown-btn:hover .dropdown-menu {
+                display: block;
+              }
+
+              /* Style for the dropdown options */
+              .dropdown-option {
+                background-color: #f1f1f1;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+              }
+
+              /* Style for the selected dropdown option */
+              .dropdown-option.active {
+                background-color: #4CAF50;
+                color: white;
+              }
+            </style>
+
+            <!-- HTML code for the dropdown -->
+            <div class="dropdown-btn">Dropdown
+              <div class="dropdown-menu">
+                <a href="#" class="dropdown-option active">Option 1</a>
+                <a href="#" class="dropdown-option">Option 2</a>
+                <a href="#" class="dropdown-option">Option 3</a>
+              </div>
             </div>
+
+            <!------------------------------------------->
+
+              
             
             <select>
               <option value="option1" selected>Option 1</option>
