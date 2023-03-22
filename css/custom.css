@@ -2,6 +2,11 @@
  * Your custom CSS file
  *************************************************************************/
 
+#news-list {
+  margin: 0;
+  padding: 0;
+}
+
 #download-button-container {
   display: none;
 }
