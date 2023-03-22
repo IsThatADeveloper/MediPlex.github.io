@@ -47,12 +47,10 @@
             <p> 
              How this works for now, it searches based on letters typed, for now the array holds; page 1, page 2, Section 1, Section 2, TYPE IT IN AND EXPERIENCE THE HAPPINESS
             </p>
-
-              <form>
-                 <input type="text" placeholder="Search...">
-                 <button type="submit">Search</button>
-              </form>
-              
+            
+              <label for="search-input">Search for a drug:</label>
+              <input type="text" id="search-input">
+              <button id="search-btn">Search</button>
               <ul id="drug-list"></ul>
             
             </div>
@@ -91,22 +89,6 @@
 
   $(init);
   
-  const form = document.querySelector('form');
-  const links = document.querySelectorAll('ul li a');
-
-  form.addEventListener('submit', function(event) {
-    event.preventDefault();
-    const query = this.querySelector('input').value.toLowerCase();
-    links.forEach(function(link) {
-      if (link.innerText.toLowerCase().indexOf(query) !== -1) {
-        link.style.display = 'block';
-      } else {
-        link.style.display = 'none';
-      }
-    });
-  });
-  
-  
       const drugs = [
         { name: "Abilify", url: "/abilify-drug.htm" },
         { name: "Adderall", url: "/adderall-drug.htm" },
@@ -135,6 +117,21 @@
         listItem.appendChild(link);
         drugList.appendChild(listItem);
       });
+
+      const searchButton = document.getElementById("search-btn");
+      const searchInput = document.getElementById("search-input");
+
+      searchButton.addEventListener("click", () => {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        const foundDrug = drugs.find(drug => drug.name.toLowerCase() === searchTerm);
+
+        if (foundDrug) {
+          alert(`Found drug: ${foundDrug.name}\nURL: ${foundDrug.url}`);
+        } else {
+          alert(`Drug not found: ${searchTerm}`);
+        }
+      });
+
 
 </script>
 
