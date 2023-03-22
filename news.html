@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Pharmacy Drug News</title>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" media="screen" rel="stylesheet" type="text/css" />
+
+
+  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/widgets.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/widgets.js"></script>
+  <script src="js/data.js"></script>
+  
+  
+  <style>
+    .menu-analysis {
+      color: rgb(255, 255, 255) !important;
+      opacity: 1 !important;
+      font-weight: 700 !important;
+    }
+
+    .no-ul-margins {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="menu-container"></div>
+  <div class="content-container">
+    <div class="content">
+      <div class="content-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2>Data Analysis and Research</h2>
+            <hr>
+            <p class="text">  
+              
+            <!--text-->  
+              
+            </p>
+            
+            <h2> Header </h2>
+            <hr>
+            <p class="text">
+              Pharma drugs:
+            </p>
+            <p class="text">
+
+            </p>
+            <p class="text">
+
+            </p>
+            <p class="text">
+
+            </p>
+
+            <p class="text">
+ 
+            </p>
+            
+            <p class="text">
+
+            </p>
+            
+            <label for="input-bar">Enter text:</label>
+            <input type="text" id="input-bar" name="input-bar">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+  ga('create', 'UA-10682694-20', 'auto');
+  ga('send', 'pageview');
+
+  function init() {
+    widgets = new edaplotjs.Widgets();
+
+    // Create custom tabs
+    $(".custom-tab").each(function (i, element) {
+      widgets.createCustomTab({
+        selector: element
+      });
+    });
+  }
+
+  $(init);
+</script>
+
+</html>
