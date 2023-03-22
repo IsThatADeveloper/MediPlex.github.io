@@ -15,6 +15,8 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://momentjs.com/downloads/moment.min.js"></script>
+  <script src="https://momentjs.com/downloads/moment-timezone-with-data.min.js"></script>
   <script src="js/menu.js"></script>
   <script src="js/widgets.js"></script>
   <script src="js/data.js"></script>
@@ -99,31 +101,32 @@
               <option value="option3">Option 3</option>
             </select>
             
-            <h2> News Report </h2>
+            <h2> 
+              News Report 
+            </h2>
             <hr>
-
             
-            <p class="text">
-              Latest Pharmacy Drugs:
-            </p>
+            <h3>
+                <title>Display Current Day</title>
+            </h3>
+                <p>Today is <span id="currentDay"></span>.</p>
 
-            <p class="text">
+                <script>
+                  // Get the current date
+                  var today = new Date();
 
-            </p>
-            <p class="text">
+                  // Get the day of the week (0-6)
+                  var day = today.getDay();
 
-            </p>
-            <p class="text">
+                  // Define an array of weekday names
+                  var daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-            </p>
+                  // Use the day of the week to get the name of the current day
+                  var currentDay = daysOfWeek[day];
 
-            <p class="text">
- 
-            </p>
-            
-            <p class="text">
-            
-              
+                  // Update the content of the HTML element with the current day
+                  document.getElementById('currentDay').textContent = currentDay;
+                </script>
             
             <label for="input-bar" style="font-size: 16px; color: #000000;"> <b>Drug Name</b>:</label>
             <input type="text" placeholder="Drug name" value="Default text" id="input-bar" name="input-bar" style="padding: 10px; border: 2px solid #5b7073;">
