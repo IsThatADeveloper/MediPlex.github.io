@@ -86,7 +86,7 @@
   $(init);
   
       const drugs = [
-        { name: "Abilify", url: "/abilify-drug.htm" },
+        { name: "Abilify", url: "/abilify-drug.htm", description: "Abilify" },
         { name: "Adderall", url: "/adderall-drug.htm" },
         { name: "Adderall XR", url: "/adderall-xr-capsules-drug.htm" },
         { name: "Adrenaline", url: "/adrenalin-drug.htm" },
@@ -122,7 +122,7 @@
         const foundDrug = drugs.find(drug => drug.name.toLowerCase() === searchTerm);
 
         if (foundDrug) {
-          alert(`Found drug: ${foundDrug.name}\nURL: ${foundDrug.url}`);
+          alert(`Found drug: ${foundDrug.name}\nURL: ${foundDrug.url}\nDescription: ${foundDrug.description}`);
         } else {
           alert(`Drug not found: ${searchTerm}`);
         }
