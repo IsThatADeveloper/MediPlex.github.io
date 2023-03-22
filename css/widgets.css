@@ -40,11 +40,11 @@
 }
 
 .custom-tab .custom-tab-menu-item:hover {
-  background-color: #aebabf;
+  background-color: #2f7996;
 }
 
 .custom-tab .custom-tab-menu-item.active {
-  background-color: #aebabf;
+  background-color: #2f7996;
 }
 
 .custom-tab .custom-tab-content {
