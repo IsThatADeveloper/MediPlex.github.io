@@ -109,24 +109,10 @@
             <h3>
                 <title>Display Current Day</title>
             </h3>
-                <p>Today is <span id="currentDay"></span>.</p>
-
-                <script>
-                  // Get the current date
-                  var today = new Date();
-
-                  // Get the day of the week (0-6)
-                  var day = today.getDay();
-
-                  // Define an array of weekday names
-                  var daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-                  // Use the day of the week to get the name of the current day
-                  var currentDay = daysOfWeek[day];
-
-                  // Update the content of the HTML element with the current day
-                  document.getElementById('currentDay').textContent = currentDay;
-                </script>
+            <hr>
+            <p>
+                Today is <span id="currentDay"></span>.
+            </p>
             
             <label for="input-bar" style="font-size: 16px; color: #000000;"> <b>Drug Name</b>:</label>
             <input type="text" placeholder="Drug name" value="Default text" id="input-bar" name="input-bar" style="padding: 10px; border: 2px solid #5b7073;">
@@ -167,6 +153,21 @@
   }
 
   $(init);
+  
+  // Get the current date
+    var today = new Date();
+
+  // Get the day of the week (0-6)
+    var day = today.getDay();
+
+  // Define an array of weekday names
+    var daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+  // Use the day of the week to get the name of the current day
+    var currentDay = daysOfWeek[day];
+
+  // Update the content of the HTML element with the current day
+    document.getElementById('currentDay').textContent = currentDay;
 </script>
 
 </html>
