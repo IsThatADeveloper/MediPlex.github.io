@@ -21,7 +21,7 @@
 .custom-tab .custom-tab-menu {
   overflow: hidden;
   border: 1px solid #ccc;
-  background-color: #aebabf;
+  background-color: #f1f1f1;
   border-bottom: none;
   width: fit-content;
   width: -moz-fit-content;
@@ -40,11 +40,11 @@
 }
 
 .custom-tab .custom-tab-menu-item:hover {
-  background-color: #ddd;
+  background-color: #aebabf;
 }
 
 .custom-tab .custom-tab-menu-item.active {
-  background-color: #ccc;
+  background-color: #aebabf;
 }
 
 .custom-tab .custom-tab-content {
