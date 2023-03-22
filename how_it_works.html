@@ -2,189 +2,110 @@
 <html>
 
 <head>
-  <title>Pharmacy Drug Hub</title>
-  <div class="example">
-<h2>How to Figure out HTML </h2>
-<p>This is just the beginning.</p>
-<p>This is where we figure stuff out and make shit happen
-paragraph split between two lines.</p>
-</div>
-<div id="scroll-animate">
-  <div id="scroll-animate-main">
-    <div class="wrapper-parallax">
-      <header>
-        <h1>Header</h1>
-      </header>
+  <title>Pharmacy Drugs Analysis</title>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/widgets.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://momentjs.com/downloads/moment.min.js"></script>
+  <script src="https://momentjs.com/downloads/moment-timezone-with-data.min.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/widgets.js"></script>
+  <script src="js/data.js"></script>
+  <style>
+    .menu-analysis {
+      color: rgb(255, 255, 255) !important;
+      opacity: 1 !important;
+      font-weight: 700 !important;
+    }
 
-      <section class="content">
-        <h1>Content</h1>
-      </section>
+    .no-ul-margins {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
 
-      <footer>
-        <h1>Footer</h1>
-      </footer>
+<body>
+  <div class="menu-container"></div>
+  <div class="content-container">
+    <div class="content">
+      <div class="content-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2>Data Analysis and Research</h2>
+            <hr>
+            <p class="text">  
+              
+            <!--text-->  
+              
+            </p>
+            
+            <h2>Summary of Findings</h2>
+            <hr>
+            <p class="text">
+              Pharma drugs::
+            </p>
+            <p class="text">
+
+            </p>
+            <p class="text">
+
+            </p>
+            <p class="text">
+
+            </p>
+
+            <p class="text">
+ 
+            </p>
+            
+            <p class="text">
+
+            </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-#scroll-animate
-{
-  overflow: hidden;
-}
+</body>
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-#scroll-animate-main
-{
-  width: 100%;
-  left: 0;
-  position: fixed;
-}
+  ga('create', 'UA-10682694-20', 'auto');
+  ga('send', 'pageview');
 
-#heightPage,
-#heightScroll
-{
-  width: 10px;
-  top: 0;
-  position: absolute;
-  z-index: 99;
-}
+  function init() {
+    widgets = new edaplotjs.Widgets();
 
-#heightPage
-{
-  left: 0;
-}
-
-#heightScroll
-{
-  right: 0;
-}
-
-header
-{
-  width: 100%;
-  height: 100%;
-  background: url(https://raw.githubusercontent.com/hudsonmarinho/header-and-footer-parallax-effect/master/assets/images/bg-header.jpg) no-repeat 50% 50%;
-  top: 0;
-  position: fixed;
-  z-index: -1;
-}
-
-footer
-{
-  width: 100%;
-  height: 300px;
-  background: gray;
-  bottom: -300px;
-  position: fixed;
-  z-index: -1;
-}
-
-.content
-{
-  height: 1000px;
-  min-height: 1000px;
-  background: #ededed;
-  position: relative;
-  z-index: 1;
-}
-
-.wrapper-parallax {
-  margin-top: 100%;
-  margin-bottom: 300px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-}
-
-h1{
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  text-transform: uppercase;
-  text-align: center;
-  font-family: Helvetica;
-  font-size: 150px;
-  color: #fff;
-}
-
-header h1{}
-
-.content h1{
-  line-height: 1000px;
-  color: #999;
-}
-
-footer h1
-{
-  line-height: 300px;
-}
-
-header,
-footer,
-#scroll-animate-main
-{
-  -webkit-transition-property: all;
-     -moz-transition-property: all;
-      transition-property: all;
-
-  -webkit-transition-duration: 0.4s;
-     -moz-transition-duration: 0.4s;
-      transition-duration: 0.4s;
-
-  -webkit-transition-timing-function: cubic-bezier(0, 0, 0, 1);
-     -moz-transition-timing-function: cubic-bezier(0, 0, 0, 1);
-      transition-timing-function: cubic-bezier(0, 0, 0, 1);
-}
-  function scrollFooter(scrollY, heightFooter)
-{
-    console.log(scrollY);
-    console.log(heightFooter);
-
-    if(scrollY >= heightFooter)
-    {
-        $('footer').css({
-            'bottom' : '0px'
-        });
-    }
-    else
-    {
-        $('footer').css({
-            'bottom' : '-' + heightFooter + 'px'
-        });
-    }
-}
-
-$(window).load(function(){
-    var windowHeight        = $(window).height(),
-        footerHeight        = $('footer').height(),
-        heightDocument      = (windowHeight) + ($('.content').height()) + ($('footer').height()) - 20;
-
-    // Definindo o tamanho do elemento pra animar
-    $('#scroll-animate, #scroll-animate-main').css({
-        'height' :  heightDocument + 'px'
+    // Create custom tabs
+    $(".custom-tab").each(function (i, element) {
+      widgets.createCustomTab({
+        selector: element
+      });
     });
+  }
 
-    // Definindo o tamanho dos elementos header e conteúdo
-    $('header').css({
-        'height' : windowHeight + 'px',
-        'line-height' : windowHeight + 'px'
-    });
+  $(init);
+</script>
 
-    $('.wrapper-parallax').css({
-        'margin-top' : windowHeight + 'px'
-    });
-
-    scrollFooter(window.scrollY, footerHeight);
-
-    // ao dar rolagem
-    window.onscroll = function(){
-        var scroll = window.scrollY;
-
-        $('#scroll-animate-main').css({
-            'top' : '-' + scroll + 'px'
-        });
-        
-        $('header').css({
-            'background-position-y' : 50 - (scroll * 100 / heightDocument) + '%'
-        });
-
-        scrollFooter(scroll, footerHeight);
-    }
-});
+</html>
