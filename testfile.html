@@ -122,8 +122,7 @@
         const foundDrug = drugs.find(drug => drug.name.toLowerCase() === searchTerm);
 
         if (foundDrug) {
-          <!alert(`Found drug: ${foundDrug.name}\nURL: ${foundDrug.url}`);>
-          <a href="URL: ${foundDrug.url}">Link to Page '${foundDrug.url}`</a>
+          alert(`Found drug: ${foundDrug.name}\nURL: ${foundDrug.url}`);
         } else {
           alert(`Drug not found: ${searchTerm}`);
         }
