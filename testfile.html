@@ -42,16 +42,20 @@
         <div class="flex-row">
           <div class="flex-item flex-column">
             <h2>Test Page</h2>
-            <hr>
-            <p class="text">  
+            <hr> 
 
               <form>
                  <input type="text" placeholder="Search...">
                  <button type="submit">Search</button>
               </form>
               
-            </p>
-
+              <ul>
+                <li><a href="page1.html">Page 1</a></li>
+                <li><a href="page2.html">Page 2</a></li>
+                <li><a href="#section1">Section 1</a></li>
+                <li><a href="#section2">Section 2</a></li>
+              </ul>
+            
             </div>
           </div>
         </div>
@@ -87,6 +91,22 @@
   }
 
   $(init);
+  
+  const form = document.querySelector('form');
+  const links = document.querySelectorAll('ul li a');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const query = this.querySelector('input').value.toLowerCase();
+    links.forEach(function(link) {
+      if (link.innerText.toLowerCase().indexOf(query) !== -1) {
+        link.style.display = 'block';
+      } else {
+        link.style.display = 'none';
+      }
+    });
+  });
+
 </script>
 
 </html>
