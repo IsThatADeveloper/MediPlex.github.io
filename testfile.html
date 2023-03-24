@@ -109,7 +109,6 @@
         const listItem = document.createElement("li");
         const link = document.createElement("a");
         link.textContent = drug.name;
-        link.href = drug.type;
         listItem.appendChild(link);
         drugList.appendChild(listItem);
       });
@@ -120,8 +119,14 @@
       searchButton.addEventListener("click", () => {
         const searchTerm = searchInput.value.trim().toLowerCase();
         const foundDrug = drugs.find(drug => drug.name.toLowerCase() === searchTerm);
-        const foundType = drugs.find(drug => drug.type.toLowerCase() === searchTerm);
-        
+
+        if (foundDrug) {
+          alert(`Found drug: ${foundDrug.name}\nDescription: ${foundDrug.description}\nType:  ${foundDrug.description}`);
+        } else {
+          alert(`Drug not found: ${searchTerm}`);
+        }
+        });
+  
         let drugList = "<ul>";
         drugs.forEach(function(drug) {
           drugList += "<li><strong>" + drug.name + "</strong>: " + medication.description + "</li>";
@@ -133,14 +138,6 @@
         } else {
           alert(`Drug Type not found: ${searchTerm}`);
         }
-
-        if (foundDrug) {
-          alert(`Found drug: ${foundDrug.name}\nDescription: ${foundDrug.description}\nType:  ${foundDrug.description}`);
-        } else {
-          alert(`Drug not found: ${searchTerm}`);
-        }
-        });
-
 
 </script>
 
