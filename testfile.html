@@ -53,7 +53,7 @@
               <input type="text" placeholder="Drug Name" value="Drug Name" id="search-input" name="search-input" style="padding: 10px; border: 2px solid #5b7073;">
               <button id="search-btn">Search</button>
               <div id="drug-list" style="display:none;"></div>
-              <div id="drug-Information"</div>
+	            <div id="output"></div>
             
             </div>
           </div>
@@ -127,11 +127,13 @@
         const foundDrug = drugs.find(drug => drug.name.toLowerCase() === searchTerm);
 
       if (foundDrug) {
-      const drugInfo = document.getElementById("drug-Information");
-          drugInfo(`Found drug: ${foundDrug.name}\nDescription: ${foundDrug.description}\nType:  ${foundDrug.type}`);
+          alert(`Found drug: ${foundDrug.name}\nDescription: ${foundDrug.description}\nType:  ${foundDrug.type}`);
         } else {
           alert(`Drug not found: ${searchTerm}`);
         }
+        
+      const output = document.getElementById('output');
+      output.textContent = `Found drug: ${foundDrug.name}\nDescription: ${foundDrug.description}\nType:  ${foundDrug.type}`;
       });
 
 </script>
