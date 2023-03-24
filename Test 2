@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<div class="masterSub">
+    <nav>
+        <div class="wrapper">
+        	<h3>Drugs & Vitamins</h3>       	
+		    <a onclick="wmdTrack('tn-drug');>Drugs A-Z</a>
+                    <a onclick="wmdTrack('tn-drug');>Generic Drugs A-Z</a>
+			<a >Drugs by Classification</a>
+			<a >Drugs Comparison (Drug Vs. Drug)</a>
+<a onclick="wmdTrack('tn-vit');">Vitamins & Supplements</a>
+<a onclick="wmdTrack('tn-drugint');>Drug Interaction Checker</a>
+	        <a onclick="wmdTrack('tn-pillid');>Pill Identifier</a>
+        </div>
+        <div class="wrapper">
+        	<h3>Tools & Resources</h3>
+	        <a onclick="wmdTrack('tn-dt');>Diseases & Conditions</a>
+	        <a onclick="wmdTrack('tn-dict');>Medical Dictionary</a>
+	        <div class="stack">
+	        	<a>Media<span class="icon-arrow-right2"></span></a>        	
+	        	<div class="sideBar">
+	    		    <a onclick="wmdTrack('tn-ss');>Slideshows</a>
+				    <a onclick="wmdTrack('tn-ic');>Images</a>
+				    <a onclick="wmdTrack('tn-qz');>Quizzes</a>        		
+	        	</div>
+	        </div>
+	        <privacy-button text="Privacy &amp; Other Trust Info"></privacy-button>
+    	</div>
+    </nav>
+</div>
