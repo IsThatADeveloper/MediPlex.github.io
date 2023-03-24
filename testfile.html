@@ -109,7 +109,7 @@
         const listItem = document.createElement("li");
         const link = document.createElement("a");
         link.textContent = drug.name;
-        link.textContent = drug.type;
+        link.href = drug.type;
         listItem.appendChild(link);
         drugList.appendChild(listItem);
       });
