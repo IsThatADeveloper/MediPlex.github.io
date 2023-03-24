@@ -63,6 +63,15 @@
   </div>
 </body>
 <script>
+	
+  var input = document.getElementById("search-input");
+  input.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      document.getElementById("search-btn").click();
+    }
+  }
+	
   (function (i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r;
     i[r] = i[r] || function () {
