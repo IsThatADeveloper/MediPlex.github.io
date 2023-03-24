@@ -120,24 +120,12 @@
         const searchTerm = searchInput.value.trim().toLowerCase();
         const foundDrug = drugs.find(drug => drug.name.toLowerCase() === searchTerm);
 
-        if (foundDrug) {
-          alert(`Found drug: ${foundDrug.name}\nDescription: ${foundDrug.description}\nType:  ${foundDrug.description}`);
+      if (foundDrug) {
+          alert(`Found drug: ${foundDrug.name}\nDescription: ${foundDrug.description}\nType:  ${foundDrug.type}`);
         } else {
           alert(`Drug not found: ${searchTerm}`);
         }
-        });
-  
-        let drugList = "<ul>";
-        drugs.forEach(function(drug) {
-          drugList += "<li><strong>" + drug.name + "</strong>: " + medication.description + "</li>";
-        });
-        drugs += "</ul>";
-        
-        if (foundType) {
-          alert(drugList);
-        } else {
-          alert(`Drug Type not found: ${searchTerm}`);
-        }
+      });
 
 </script>
 
