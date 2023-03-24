@@ -127,12 +127,8 @@
         const foundDrug = drugs.find(drug => drug.name.toLowerCase() === searchTerm);
       	const output = document.getElementById('output');
 
-      function addLineBreak(text) {
-	  return `${text}\n`;
-      }
-
       if (foundDrug) {
-	  output.textContent = addLineBreak("\nFound drug: " + foundDrug.name + "\n\nDescription: " + foundDrug.description + "\n\nType: " + foundDrug.type);
+	  output.textContent = ("\nFound drug: " + foundDrug.name + "\n\nDescription: " + foundDrug.description + "\n\nType: " + foundDrug.type);
         } else {
 	  output.textContent = "Drug not found: " + searchTerm + "\nPlease try again.";
         }
