@@ -128,9 +128,9 @@
       	const output = document.getElementById('output');
 
       if (foundDrug) {
-	  output.textContent.innerHTML = "<br>Found drug: " + foundDrug.name + "<br>Description: " + foundDrug.description + "<br>Type: " + foundDrug.type;
+	  output.innerHTML = "<br>Found drug: " + foundDrug.name + "<br>Description: " + foundDrug.description + "<br>Type: " + foundDrug.type;
         } else {
-	  output.textContent.innerHTML = "Drug not found: " + searchTerm + "Please try again.";
+	  output.innerHTML = "Drug not found: " + searchTerm + "Please try again.";
         }
         
       });
