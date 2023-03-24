@@ -53,7 +53,7 @@
               <input type="text" placeholder="Drug Name" value="Drug Name" id="search-input" name="search-input" style="padding: 10px; border: 2px solid #5b7073;">
               <button id="search-btn">Search</button>
               <div id="drug-list" style="display:none;"></div>
-	            <div id="output"></div>
+	            <div id="output" style="border: 1px solid red; padding: 10px; font-size: 20px; color: #000000;">
             
             </div>
           </div>
@@ -92,22 +92,22 @@
   $(init);
 
       const drugs = [
-        { name: "Abilify", type: "generic", description: "Abilify: a medication used to treat schizophrenia, bipolar disorder, and depression. It works by affecting the activity of certain neurotransmitters in the brain, including dopamine and serotonin. It is also sometimes used to treat irritability associated with autism spectrum disorder." },
-        { name: "Adderall", type: "generic",  description: "Adderall: a stimulant medication used to treat ADHD and narcolepsy. It works by increasing the activity of certain chemicals in the brain. "},
-        { name: "Adderall XR", type: "generic", description: "Adderall XR: an extended-release version of Adderall that provides a longer duration of action than regular Adderall. " },
-        { name: "Adrenaline", type: "generic", description: "Adrenaline: also known as epinephrine, a hormone and medication used to treat severe allergic reactions and cardiac arrest. It works by increasing heart rate, constricting blood vessels, and relaxing smooth muscles. "},
-        { name: "Albuterol Sulfate", type: "generic", description: "Albuterol Sulfate: a bronchodilator medication used to treat asthma and other breathing disorders. It works by relaxing the muscles in the airways, making it easier to breathe. " },
-        { name: "Aldactone", type: "generic", description: "Aldactone: a diuretic medication used to treat high blood pressure and heart failure. It works by blocking the action of aldosterone, a hormone that promotes salt and water retention in the body. " },
-        { name: "Allegra", type: "generic", description: "Allegra: an antihistamine medication used to treat allergies. It works by blocking the action of histamine, a chemical that is released during an allergic reaction. " },
-        { name: "Ambien", type: "generic", description: "Ambien: a sedative medication used to treat insomnia. It works by slowing down brain activity to help you fall asleep and stay asleep. " },
-        { name: "Amikin", type: "generic", description: "Amikin: an antibiotic medication used to treat serious bacterial infections. It works by interfering with the production of bacterial proteins necessary for their growth and reproduction. " },
-        { name: "Amoxicillin", type: "generic", description: "Amoxicillin: an antibiotic medication used to treat a variety of bacterial infections. It works by interfering with the production of bacterial cell walls, causing the bacteria to die. " },
-        { name: "Antivert", type: "generic", description: "Antivert: an antihistamine medication used to treat vertigo and motion sickness. It works by blocking the action of histamine in the inner ear, reducing dizziness and nausea. " },
-        { name: "Aricept", type: "generic", description: "Aricept: a medication used to treat Alzheimer's disease. It works by increasing the level of a chemical called acetylcholine in the brain, which is important for memory and learning. " },
-        { name: "Armour Thyroid", type: "generic", description: "Armour Thyroid: a medication used to treat an underactive thyroid gland. It contains thyroid hormone, which is important for regulating metabolism and energy levels. " },
-        { name: "Atarax", type: "generic", description: "Atarax: an antihistamine medication used to treat anxiety and itching. It works by blocking the action of histamine in the body, reducing allergic reactions and anxiety symptoms. " },
-        { name: "Atenolol", type: "generic", description: "Atenolol: a beta blocker medication used to treat high blood pressure and angina. It works by blocking the action of adrenaline and other stress hormones, reducing heart rate and blood pressure. " },
-        { name: "Ativan", type: "generic", description: "Ativan: a medication used to treat anxiety and seizure disorders. It works by enhancing the activity of a chemical called GABA in the brain, which helps to calm nerve activity. " }
+        { name: "Abilify", type: "generic", description: "a medication used to treat schizophrenia, bipolar disorder, and depression. It works by affecting the activity of certain neurotransmitters in the brain, including dopamine and serotonin. It is also sometimes used to treat irritability associated with autism spectrum disorder." },
+        { name: "Adderall", type: "generic",  description: "a stimulant medication used to treat ADHD and narcolepsy. It works by increasing the activity of certain chemicals in the brain. "},
+        { name: "Adderall XR", type: "generic", description: "an extended-release version of Adderall that provides a longer duration of action than regular Adderall. " },
+        { name: "Adrenaline", type: "generic", description: "also known as epinephrine, a hormone and medication used to treat severe allergic reactions and cardiac arrest. It works by increasing heart rate, constricting blood vessels, and relaxing smooth muscles. "},
+        { name: "Albuterol Sulfate", type: "generic", description: "a bronchodilator medication used to treat asthma and other breathing disorders. It works by relaxing the muscles in the airways, making it easier to breathe. " },
+        { name: "Aldactone", type: "generic", description: "a diuretic medication used to treat high blood pressure and heart failure. It works by blocking the action of aldosterone, a hormone that promotes salt and water retention in the body. " },
+        { name: "Allegra", type: "generic", description: "an antihistamine medication used to treat allergies. It works by blocking the action of histamine, a chemical that is released during an allergic reaction. " },
+        { name: "Ambien", type: "generic", description: "a sedative medication used to treat insomnia. It works by slowing down brain activity to help you fall asleep and stay asleep. " },
+        { name: "Amikin", type: "generic", description: "an antibiotic medication used to treat serious bacterial infections. It works by interfering with the production of bacterial proteins necessary for their growth and reproduction. " },
+        { name: "Amoxicillin", type: "generic", description: "an antibiotic medication used to treat a variety of bacterial infections. It works by interfering with the production of bacterial cell walls, causing the bacteria to die. " },
+        { name: "Antivert", type: "generic", description: "an antihistamine medication used to treat vertigo and motion sickness. It works by blocking the action of histamine in the inner ear, reducing dizziness and nausea. " },
+        { name: "Aricept", type: "generic", description: "a medication used to treat Alzheimer's disease. It works by increasing the level of a chemical called acetylcholine in the brain, which is important for memory and learning. " },
+        { name: "Armour Thyroid", type: "generic", description: "a medication used to treat an underactive thyroid gland. It contains thyroid hormone, which is important for regulating metabolism and energy levels. " },
+        { name: "Atarax", type: "generic", description: "an antihistamine medication used to treat anxiety and itching. It works by blocking the action of histamine in the body, reducing allergic reactions and anxiety symptoms. " },
+        { name: "Atenolol", type: "generic", description: "a beta blocker medication used to treat high blood pressure and angina. It works by blocking the action of adrenaline and other stress hormones, reducing heart rate and blood pressure. " },
+        { name: "Ativan", type: "generic", description: "a medication used to treat anxiety and seizure disorders. It works by enhancing the activity of a chemical called GABA in the brain, which helps to calm nerve activity. " }
       ];
 
       const drugList = document.getElementById("drug-list");
