@@ -50,7 +50,7 @@
             <hr> 
             
               <label for="search-input" style="font-size: 16px; color: #000000;"> <b>Drug Name</b>:</label>
-              <input type="text" placeholder="Drug Name" value="" id="search-input" name="search-input" style="padding: 10px; border: 2px solid #5b7073; min-width: 200px;">
+              <input type="text" placeholder="Drug Name" value="" id="search-input" name="search-input" autocomplete="off" style="padding: 10px; border: 2px solid #5b7073; min-width: 200px;">
               <button id="search-btn" style="display:none;">Search</button>
               <div id="drug-list" style="display:none;"></div>
 
@@ -93,6 +93,8 @@
 
   $(init);
 
+     /*Drugs array */
+	
      const drugs = [
         { name: "Abilify", type: "generic", description: "a medication used to treat schizophrenia, bipolar disorder, and depression. It works by affecting the activity of certain neurotransmitters in the brain, including dopamine and serotonin. It is also sometimes used to treat irritability associated with autism spectrum disorder." },
         { name: "Adderall", type: "generic",  description: "a stimulant medication used to treat ADHD and narcolepsy. It works by increasing the activity of certain chemicals in the brain. "},
@@ -112,6 +114,8 @@
         { name: "Ativan", type: "generic", description: "a medication used to treat anxiety and seizure disorders. It works by enhancing the activity of a chemical called GABA in the brain, which helps to calm nerve activity. " }
      ];
 
+     /*drug list define*/
+	
       const drugList = document.getElementById("drug-list");
       drugs.forEach(drug => {
         const listItem = document.createElement("li");
@@ -120,9 +124,53 @@
         listItem.appendChild(link);
         drugList.appendChild(listItem);
       });
-
+	
+      /*-------------------------------------------------------------------------------*/
+	
       const searchButton = document.getElementById("search-btn");
       const searchInput = document.getElementById("search-input");
+	
+      const suggestionsList = document.getElementById("drug-list");
+      function showSuggestions(suggestions) {
+	// Clear previous suggestions
+	suggestionsList.innerHTML = "";
+
+      suggestions.forEach(suggestion => {
+         const listItem = document.createElement("li");
+         listItem.textContent = suggestion;
+         suggestionsList.appendChild(listItem);
+         });
+      }
+
+      function filterDrugs(searchText) {
+          // Filter the drugs array based on the search text
+          const filteredDrugs = drugs.filter(drug => drug.toLowerCase().includes(searchText.toLowerCase()));
+
+          // Show up to 5 suggestions
+          const suggestions = filteredDrugs.slice(0, 5);
+
+          // Show the suggestions
+          showSuggestions(suggestions);
+      } 
+	
+      drugSearchInput.addEventListener("input", event => {
+        const searchText = event.target.value;
+        if (searchText.length >= 2) {
+          filterDrugs(searchText);
+        } else {
+          // Clear the suggestions if the search text is too short
+          suggestionsList.innerHTML = "";
+        }
+      });
+	
+      // Hide the suggestions when the user clicks outside the input bar
+      document.addEventListener("click", event => {
+      if (!event.target.matches("#drug-search, #suggestions li")) {
+          suggestionsList.innerHTML = "";
+          }
+      });
+
+      /*Click enter to create search result and text that is inputted */
 	
       searchInput.addEventListener("keyup", function(event) {
 	  if (event.keyCode === 13) { 
