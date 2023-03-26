@@ -54,35 +54,40 @@
             <label for="search-input" style="font-size: 16px; color: #000000;"><b>Drug Name</b>:</label>
             <input type="text" placeholder="Drug Name" value="" id="search-input" name="search-input" autocomplete="on" style="padding: 10px; border: 2px solid #5b7073; min
 															       
-  </script>
-</body>
- (function (i, s, o, g, r, a, m) {
-    i['GoogleAnalyticsObject'] = r;
-    i[r] = i[r] || function () {
-      (i[r].q = i[r].q || []).push(arguments)
-    }, i[r].l = 1 * new Date();
-    a = s.createElement(o),
-      m = s.getElementsByTagName(o)[0];
-    a.async = 1;
-    a.src = g;
-    m.parentNode.insertBefore(a, m)
-  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+  <head>
+    <title>My Webpage</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      // Google Analytics code
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments);
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-10682694-20', 'auto');
-  ga('send', 'pageview');
+      ga('create', 'UA-10682694-20', 'auto');
+      ga('send', 'pageview');
 
-  function init() {
-    widgets = new edaplotjs.Widgets();
+      // Create custom tabs
+      function init() {
+        widgets = new edaplotjs.Widgets();
 
-    // Create custom tabs
-    $(".custom-tab").each(function (i, element) {
-      widgets.createCustomTab({
-        selector: element
+        $(".custom-tab").each(function (i, element) {
+          widgets.createCustomTab({
+            selector: element,
+          });
+        });
+      }
+
+      $(document).ready(function() {
+        init();
       });
-    });
-  }
-
-  $(init);
 
      /*Drugs array */
 	
