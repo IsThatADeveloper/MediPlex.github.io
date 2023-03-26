@@ -25,7 +25,7 @@
 <body>
   <div class="menu-container"></div>
   <div class="content-container">
-    <div class="banner" style="background: url('img_Banner.jpg') no-repeat center; background-size: cover; height: 260px;">
+    <div class="banner" style="background: img src="img_banner.jpg" no-repeat center; background-size: cover; height: 260px;">
       <div class="banner-table flex-column">
         <!-- Banner content goes here -->
       </div>
@@ -53,8 +53,7 @@
 
             <label for="search-input" style="font-size: 16px; color: #000000;"><b>Drug Name</b>:</label>
             <input type="text" placeholder="Drug Name" value="" id="search-input" name="search-input" autocomplete="on" style="padding: 10px; border: 2px solid #5b7073; min
-<script>
-    // JavaScript code goes here
+															       
   </script>
 </body>
 
@@ -148,8 +147,6 @@
         listItem.appendChild(link);
         drugList.appendChild(listItem);
       });
-	
-      /*-------------------------------------------------------------------------------*/
 	
       const searchButton = document.getElementById("search-btn");
       const searchInput = document.getElementById("search-input");
