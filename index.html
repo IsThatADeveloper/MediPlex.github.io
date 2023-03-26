@@ -25,7 +25,7 @@
 <body>
   <div class="menu-container"></div>
   <div class="content-container">
-    <div class="banner" style="background: img src="img_banner.jpg" no-repeat center; background-size: cover; height: 260px;">
+    <div class="banner" style="background: url'img_banner.jpg' no-repeat center; background-size: cover; height: 260px;">
       <div class="banner-table flex-column">
         <!-- Banner content goes here -->
       </div>
@@ -56,8 +56,7 @@
 															       
   </script>
 </body>
-
-  (function (i, s, o, g, r, a, m) {
+ (function (i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r;
     i[r] = i[r] || function () {
       (i[r].q = i[r].q || []).push(arguments)
@@ -82,7 +81,7 @@
       });
     });
   }
-		   
+
   $(init);
 
      /*Drugs array */
@@ -148,6 +147,8 @@
         drugList.appendChild(listItem);
       });
 	
+      /*-------------------------------------------------------------------------------*/
+	
       const searchButton = document.getElementById("search-btn");
       const searchInput = document.getElementById("search-input");
 
@@ -174,5 +175,5 @@
       });
 
 </script>
-<html>
 
+</html>
