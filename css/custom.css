@@ -2,72 +2,33 @@
  * Your custom CSS file
  *************************************************************************/
 
-#news-list {
-  margin: 0;
-  padding: 0;
+.custom-dropdown {
+  width: 240px;
 }
 
-#download-button-container {
+.custom-textbox {
+  width: 240px;
+}
+
+#dialog-1,
+#dialog-2,
+#dialog-3,
+#dialog-4,
+#share-dialog {
   display: none;
 }
 
-#download-button {
-  padding: 10px 20px;
-  margin: 5px 0 15px 0;
-  font-size: 16px;
-  width: 250px;
+#share-url {
+  width: 100%;
+  -webkit-touch-callout: default !important;
+  -webkit-user-select: text !important;
+  -khtml-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
 }
 
-#region-dropdown {
-  width: 250px;
-}
-
-#timezone-dropdown {
-  width: 250px;
-}
-
-#zipcode-input {
-  width: 250px;
-}
-
-#to-time-input,
-#from-time-input {
-  width: 110px;
-}
-
-#to-time-input:disabled,
-#from-time-input:disabled {
-  opacity: 0.5;
-}
-
-#to-time-txt {
-  margin: 0px 5px;
-}
-
-#demo-video {
-  max-width: 400px;
-}
-
-#zipcode-input-container {
+#share-url-copy-prompt {
   display: none;
-}
-
-.ui-datepicker.ui-widget.ui-widget-content {
-  border: 1px solid #7d7d7d;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.ui-datepicker td span,
-.ui-datepicker td a {
-  padding: 0.4em;
-}
-
-#demo-video {
-  max-width: 400px;
-}
-
-@media screen and (min-width: 900px) {
-  .flex-item-stretch-demo-video {
-    flex: 2.1;
-  }
+  color: #007bff;
 }
