@@ -14,7 +14,7 @@
 - [ ] ...
 
 # **Coding tips:**
-### [Test Code](https://www.w3schools.com/css/tryit.asp?filename=tryresponsive_styles)
-### [HTML Code Index](https://docs.google.com/document/d/1txJtKqCXBK68QiEDWXglem8-mzOtcNsh4MzIJLNIbrs/edit#)
+### ``` [Test Code](https://www.w3schools.com/css/tryit.asp?filename=tryresponsive_styles) ```
+### ``` [HTML Code Index](https://docs.google.com/document/d/1txJtKqCXBK68QiEDWXglem8-mzOtcNsh4MzIJLNIbrs/edit#) ```
 
 
