@@ -261,7 +261,7 @@ third value applies to bottom-right corner, and fourth value applies to bottom-l
 }
 
 .search-button {
-  display: none;
+  visibility: hidden;
 }
 
 .drug-list {
