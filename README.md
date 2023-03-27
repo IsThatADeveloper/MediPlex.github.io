@@ -8,4 +8,4 @@
 ##### Wallpaper pictures:  ```https://www.wallpaperflare.com/search?wallpaper=pharmacy```
 ##### Banner Dimentions: ```height: 860 px width: 3570 px```
 
-`#0969DA "hi"`
+The background color is `#ffffff` for light mode and `#000000` for dark mode.
