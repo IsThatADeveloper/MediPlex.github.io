@@ -7,6 +7,46 @@
  *************************************************************************/
 
 html,
+
+/*banner*/
+.banner {
+  position: relative;
+  font-size: 16px;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  overflow-x: auto;
+  background-color: #005cbf;
+  display: flex;
+}
+
+.banner .banner-table {
+  padding: 20px 10px;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 900px;
+  align-self: flex-end;
+}
+
+.banner h2,
+.banner h3,
+.banner p,
+.banner span {
+  color: white;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+  box-sizing: border-box;
+}
+
+/*body*/
+
 body {
   margin: 0;
   padding: 0;
