@@ -23,3 +23,11 @@
 
 # Types of Drugs we incorperate:
 ...
+
+# **Collaborators and Initial Template:**
+### ***Main Collaborators:***
+#### **SalenaJ**
+#### **IsThatADeveloper (EshaanS)
+
+### ***Template
+#### [Link](https://github.com/MultiX-Amsterdam/multix-amsterdam.github.io)
