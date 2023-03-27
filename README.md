@@ -32,9 +32,9 @@
 ------------------------------------
 
 # **Collaborators and Initial Template:**
-### ***Main Collaborators:***
+### **Main Collaborators:**
 #### **SalenaJ**
 #### **IsThatADeveloper (EshaanS)**
 
-### ***Template****
+### **Template**
 #### [Link](https://github.com/MultiX-Amsterdam/multix-amsterdam.github.io)
