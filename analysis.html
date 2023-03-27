@@ -41,39 +41,92 @@
       <div class="content-table flex-column">
         <div class="flex-row">
           <div class="flex-item flex-column">
-            <h2>Data Analysis and Research</h2>
+            <h2>Most Recent News</h2>
             <hr>
-            <p class="text">  
-              
-            <!--text-->  
-              
-            </p>
-            
-            <h2> Header </h2>
+
+            <!------------------------------------------->
+
+            <style>
+              /* Style for the dropdown button */
+              .dropdown-btn {
+                background-color: #bdd7db;
+                color: white;
+                padding: 10px;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+              }
+
+              /* Style for the dropdown menu */
+              .dropdown-menu {
+                display: none;
+                position: absolute;
+                z-index: 1;
+              }
+
+              /* Show the dropdown menu when the button is clicked */
+              .dropdown-btn:hover .dropdown-menu {
+                background-color: #a14040;
+                display: inline;
+              }
+
+              /* Style for the dropdown options */
+              .dropdown-option {
+                background-color: #f1f1f1;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+              }
+=
+
+            </style>
+
+            <!-- HTML code for the dropdown -->
+            <div class="dropdown-btn">Dropdown
+              <div class="dropdown-menu">
+                <a href="#" class="dropdown-option">Option 1</a>
+                <a href="#" class="dropdown-option">Option 2</a>
+                <a href="#" class="dropdown-option">Option 3</a>
+              </div>
+            </div>
+
+            <!------------------------------------------->
+
+            <select>
+              <option value="option1" selected>Option 1</option>
+              <option value="option2">Option 2</option>
+              <option value="option3">Option 3</option>
+            </select>
+
+            <h2> 
+              News Report 
+            </h2>
             <hr>
-            <p class="text">
-              Pharma drugs:
-            </p>
-            <p class="text">
 
-            </p>
-            <p class="text">
+            <h2>
+                Display Current Day
 
-            </p>
-            <p class="text">
+                Today is <span id="currentDay"></span>.
+            </h2>
 
-            </p>
+            <label for="input-bar" style="font-size: 16px; color: #000000;"> <b>Drug Name</b>:</label>
+            <input type="text" placeholder="Drug Name" value="Drug Name" id="input-bar" name="input-bar" style="padding: 10px; border: 2px solid #5b7073;">
 
-            <p class="text">
- 
-            </p>
-            
-            <p class="text">
 
-            </p>
-            
-            <label for="input-bar">Enter text:</label>
-            <input type="text" id="input-bar" name="input-bar">
+            <div class="custom-tab">
+              <div class="custom-tab-menu center">
+                <a class="custom-tab-menu-item active" data-content="2022">2022</a>
+                <a class="custom-tab-menu-item" data-content="2021">2021</a>
+                <a class="custom-tab-menu-item" data-content="2020">2020</a>
+                <a class="custom-tab-menu-item" data-content="2019">2019</a>
+                <a class="custom-tab-menu-item" data-content="2018">2018</a>
+                <a class="custom-tab-menu-item" data-content="2017">2017</a>
+              </div>
+            </div>
+
+
+            <a class="image center add-top-margin-small" style="max-width: 1000px;" href="white-pills-yellow-bottle-isolated-260nw-572701834.jpg"><img src="img/white-pills-yellow-bottle-isolated-260nw-572701834.jpg"><img </a>
 
             </div>
           </div>
@@ -110,6 +163,21 @@
   }
 
   $(init);
+
+  // Get the current date
+    var today = new Date();
+
+  // Get the day of the week (0-6)
+    var day = today.getDay();
+
+  // Define an array of weekday names
+    var daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+  // Use the day of the week to get the name of the current day
+    var currentDay = daysOfWeek[day];
+
+  // Update the content of the HTML element with the current day
+    document.getElementById('currentDay').textContent = currentDay;
 </script>
 
 </html>
