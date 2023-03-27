@@ -229,6 +229,21 @@ hr {
   color: black;
 }
 
+/*------------------- Curved banners -------------------*/
+.bannerNormal {
+  border-radius: 15px 50px 30px 5px;
+  background: #bde9f0;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+}
+
+.bannerImage {
+  border-radius: 25px;
+  padding: 20px; 
+}
+/*------------------- Curved banners end -------------------*/
+
 .flex-column {
   display: flex;
   flex-direction: column;
