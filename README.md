@@ -1,8 +1,11 @@
+# **About US**
 ### Our [Website](https://isthatadeveloper.github.io/pharmacyindex.github.io/index.html)
 
-## **About Website**
+
+#**About Website and Pictures**
 ### [Wallpaper pictures](https://www.wallpaperflare.com/search?wallpaper=pharmacy)
 ### Banner Dimentions: ```height: 860 px width: 3570 px```
+
 
 # **Action Plan:**
 
@@ -12,6 +15,7 @@
 - [ ] **Add News page**
 - [ ] **Create better search system (autosearch)**
 - [ ] ...
+
 
 # **Coding tips:**
 ##### [Test Code](https://www.w3schools.com/css/tryit.asp?filename=tryresponsive_styles)
