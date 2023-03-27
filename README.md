@@ -10,6 +10,10 @@
 
 # Action Plan:
 
-- [ ] Work
-- [ ] Part 2
+- [x] **Create working banner**
+- [ ] **Add grid view [https://www.w3schools.com/css/css_rwd_grid.asp]**
+- [ ] **Add more drugs**
+- [ ] **Add News page**
+- [ ] **Create better search system (autosearch)**
+- [ ] ...
 
