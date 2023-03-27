@@ -229,7 +229,7 @@ hr {
   color: black;
 }
 
-/*------------------- Curved banners -------------------*/
+/*------------------- Curved Banners -------------------*/
 .bannerNormal {
   border-radius: 15px 50px 30px 5px;
   background: #bde9f0;
@@ -245,7 +245,36 @@ third value applies to bottom-right corner, and fourth value applies to bottom-l
   border-radius: 5px 5px 20px 20px;
   padding: 20px; 
 }
-/*------------------- Curved banners end -------------------*/
+/*------------------- Curved Banners End -------------------*/
+
+/*------------------- Drug Input Bar -------------------*/
+.search-label {
+  font-size: 16px;
+  color: #000000;
+}
+
+.search-input {
+  padding: 10px;
+  border-radius: 10px 10px 10px 10px;
+  border: 2px solid #5b7073;
+  min-width: 200px;
+}
+
+.search-button {
+  display: none;
+}
+
+.drug-list {
+  display: none;
+}
+
+.output {
+  padding: 10px;
+  font-size: 14px;
+  color: #6899a6;
+}
+
+/*------------------- Drug Input Bar End -------------------*/
 
 .flex-column {
   display: flex;
