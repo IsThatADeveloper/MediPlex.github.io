@@ -8,4 +8,4 @@
 ##### Wallpaper pictures:  ```https://www.wallpaperflare.com/search?wallpaper=pharmacy```
 ##### Banner Dimentions: ```height: 860 px width: 3570 px```
 
-#New master
+`#0969DA`
