@@ -21,13 +21,20 @@
 ##### [Test Code](https://www.w3schools.com/css/tryit.asp?filename=tryresponsive_styles)
 ##### [HTML Code Index](https://docs.google.com/document/d/1txJtKqCXBK68QiEDWXglem8-mzOtcNsh4MzIJLNIbrs/edit#)
 
-# Types of Drugs we incorperate:
-...
+# **Types of Drugs we incorperate**:
+
+
+
+
+
+
+
+------------------------------------
 
 # **Collaborators and Initial Template:**
 ### ***Main Collaborators:***
 #### **SalenaJ**
 #### **IsThatADeveloper (EshaanS)
 
-### ***Template
+### ***Template****
 #### [Link](https://github.com/MultiX-Amsterdam/multix-amsterdam.github.io)
