@@ -21,45 +21,52 @@
     }
   </style>
 	
-<body>	
+<body>
   <div class="menu-container"></div>
   <div class="content-container">
-    <div class="banner" style="background: url'Index Banner.jpg' no-repeat center; background-size: cover; height: 100px;">
+    <div class="banner" style="background: url('Index Banner.jpg') no-repeat center; background-size: cover; height: 100px;">
       <div class="banner-table flex-column">
         <!-- Banner content goes here -->
-	      
-	    <a class="image center add-top-margin-small" style="banner: 100px;"><img src="Index-Banner.jpg"></a>
-            
+        <a class="image center add-top-margin-small" style="banner: 100px;"><img src="Index-Banner.jpg"></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="banner">
+    <div class="banner-table flex-column">
+      <div class="flex-row">
+        <div class="flex-item flex-column">
+          <h2 class="add-top-margin-small">Multi<span style="color: #57cbcc;">X</span> @ UvA Informatics Institute, Amsterdam</h2>
+          <p class="text">
+            We research multimedia analytics by developing AI techniques for getting the richest information possible from the data, visualizations, and interactions surpassing human and machine intelligence.
+            We blend multi-modal data in effective interfaces for applications and social impact in public health, forensics and law enforcement, cultural heritage, and data-driven business.
+          </p>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="content-table flex-column">
+          <div class="flex-row">
+            <div class="flex-item flex-column full-width">
+              <h2>Latest News</h2>
+              <hr>
+              <ul>
+                <li>
+                  <label for="search-input" style="font-size: 16px; color: #000000;"><b>Drug Name:</b></label>
+                  <input type="text" placeholder="Drug Name" value="" id="search-input" name="search-input" autocomplete="on" style="padding: 10px; border: 2px solid #5b7073; min-width: 200px;">
+                  <button id="search-btn" style="display:none;">Search</button>
+                  <div id="drug-list" style="display:none;"></div>
+                  <div id="output" style="padding: 10px; font-size: 14px; color: #6899a6;"></div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="banner">
-      <div class="banner-table flex-column">
-        <div class="flex-row">
-          <div class="flex-item flex-column">
-            <h2 class="add-top-margin-small">Multi<span style="color: #57cbcc;">X</span> @ UvA Informatics Institute, Amsterdam</h2>
-            <p class="text">
-              We research multimedia analytics by developing AI techniques for getting the richest information possible from the data, visualizations, and interactions surpassing human and machine intelligence.
-              We blend multi-modal data in effective interfaces for applications and social impact in public health, forensics and law enforcement, cultural heritage, and data-driven business.
-            </p>
-          </div>
-        </div>
-
-        <div class="flex-item flex-column">
-          <div class="control-group">
-            </a>
-            <hr>
-		
-            <label for="search-input" style="font-size: 16px; color: #000000;"> <b>Drug Name</b>:</label>
-            <input type="text" placeholder="Drug Name" value="" id="search-input" name="search-input" autocomplete="on" style="padding: 10px; border: 2px solid #5b7073; min-width: 200px;">
-            <button id="search-btn" style="display:none;">Search</button>
-            <div id="drug-list" style="display:none;"></div>
-	    <div id="output" style="padding: 10px; font-size: 14px; color: #6899a6;">	    
-		    
+    </div>
     </body>
+
 
     <script>
       // Google Analytics code
