@@ -33,8 +33,8 @@
 
 # **Collaborators and Initial Template:**
 ### **Main Collaborators:**
-#### **SalenaJ**
-#### **IsThatADeveloper (EshaanS)**
+#### **[SalenaJ](https://github.com/SalenaJ)**
+#### **[EshaanS](https://github.com/IsThatADeveloper)**
 
 ### **Template**
 #### [Link](https://github.com/MultiX-Amsterdam/multix-amsterdam.github.io)
