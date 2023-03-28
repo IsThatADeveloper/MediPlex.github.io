@@ -199,8 +199,8 @@
         // Show the search results
         if (limitedResults.length === 0) {
           outputDiv.textContent = "No results found.";
-        } else if (filteredDrugs.length > 30) {
-          outputDiv.textContent = "More than 30 results found. Showing the first 30 results:\n";
+        } else if (filteredDrugs.length > 20) {
+          outputDiv.textContent = "More than 20 results found. Showing the first 30 results:\n";
           let resultsString = "";
           limitedResults.forEach(drug => {
             resultsString += drug.name + ", ";
@@ -213,7 +213,11 @@
             resultsString += drug.name + ", ";
           });
           resultsString = resultsString.slice(0, -2); // Remove the final comma and space
-          outputDiv.textContent = limitedResults.length + " results found: " + resultsString;
+          if (limitedResults.length === 1) {
+	    outputDiv.innerHTML = "1 result found: <span style='color: red'>" + resultsString + "</span>";
+          } else {
+            outputDiv.textContent = limitedResults.length + " results found: " + resultsString;
+          }
         }
       }
 
