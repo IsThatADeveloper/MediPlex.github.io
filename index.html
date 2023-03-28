@@ -200,7 +200,7 @@
         if (limitedResults.length === 0) {
           outputDiv.textContent = "No results found.";
         } else if (filteredDrugs.length > 20) {
-          outputDiv.textContent = "More than 20 results found. Showing the first 30 results:\n";
+          outputDiv.textContent = "More than 20 results found.\nShowing the first 30 results:\n";
           let resultsString = "";
           limitedResults.forEach(drug => {
             resultsString += drug.name + ", ";
