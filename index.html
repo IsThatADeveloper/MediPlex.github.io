@@ -20,6 +20,27 @@
       font-weight: 700 !important;
     }
 	  
+    * {
+      box-sizing: border-box;
+    }
+
+    .borderrow::after {
+	  content: "";
+	  clear: both;
+	  display: table;
+    }
+
+    [class*="col-"] {
+	  float: left;
+	  padding: 15px;
+    }
+
+    .col-1 {width: 20%;}
+    .col-2 {width: 40%;}
+    .col-3 {width: 60%;}
+    .col-4 {width: 80%;}
+    .col-5 {width: 100%;}
+	  
   </style>
 	
 <body>
@@ -53,7 +74,8 @@
        <div class="banner-table flex-column">
         <div class="flex-row">
       	 <div class="flex-item flex-column">
-
+	
+	 <div class="col-2 menu">
 	 <label for="search-input" class="search-label"><b>Drug Name:</b></label>
 	 <input type="text" placeholder="Drug Name" value="" id="search-input" name="search-input" autocomplete="on" class="search-input">
 	 <button id="search-btn" class="search-button">Search</button>
@@ -61,7 +83,7 @@
 	      <ul id="drug-list" class="drug-list"></ul>
 	 </div>
 	 <div id="output" class="output"></div>
-
+	 </div>
          </div>
         </div>
        </div>
