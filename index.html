@@ -193,18 +193,30 @@
         // Filter the drugs array based on the search text
         const filteredDrugs = drugs.filter(drug => drug.name.toLowerCase().includes(searchText.toLowerCase()));
 
+        // Limit the number of results to 30
+        const limitedResults = filteredDrugs.slice(0, 30);
+
         // Show the search results
-        if (filteredDrugs.length === 0) {
+        if (limitedResults.length === 0) {
           outputDiv.textContent = "No results found.";
-        } else {
+        } else if (filteredDrugs.length > 30) {
+          outputDiv.textContent = "More than 30 results found. Showing the first 30 results:\n";
           let resultsString = "";
-          filteredDrugs.forEach(drug => {
+          limitedResults.forEach(drug => {
             resultsString += drug.name + ", ";
           });
           resultsString = resultsString.slice(0, -2); // Remove the final comma and space
-          outputDiv.textContent = filteredDrugs.length + " results found: " + resultsString;
+          outputDiv.textContent += resultsString;
+        } else {
+          let resultsString = "";
+          limitedResults.forEach(drug => {
+            resultsString += drug.name + ", ";
+          });
+          resultsString = resultsString.slice(0, -2); // Remove the final comma and space
+          outputDiv.textContent = limitedResults.length + " results found: " + resultsString;
         }
       }
+
 
       drugSearchInput.addEventListener("input", event => {
         const searchTerm = event.target.value.trim().toLowerCase();
