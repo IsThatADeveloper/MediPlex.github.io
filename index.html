@@ -57,7 +57,9 @@
 	 <label for="search-input" class="search-label"><b>Drug Name:</b></label>
 	 <input type="text" placeholder="Drug Name" value="" id="search-input" name="search-input" autocomplete="on" class="search-input">
 	 <button id="search-btn" class="search-button">Search</button>
-	 <div id="drug-list" class="drug-list"></div>
+	 <div id="drug-dropdown" class="drug-dropdown"> /*add formatting*/
+	      <ul id="drug-list" class="drug-list"></ul>
+	 </div>
 	 <div id="output" class="output"></div>
 
          </div>
@@ -157,39 +159,93 @@
      /*drug list define*/
 	
       const drugList = document.getElementById("drug-list");
-      drugs.forEach(drug => {
-        const listItem = document.createElement("li");
-        const link = document.createElement("a");
-        link.textContent = drug.name;
-        listItem.appendChild(link);
-        drugList.appendChild(listItem);
-      });
-	
-      /*-------------------------------------------------------------------------------*/
-	
+      const drugDropdown = document.getElementById("drug-dropdown");
+      const drugSearchInput = document.getElementById("search-input");
       const searchButton = document.getElementById("search-btn");
-      const searchInput = document.getElementById("search-input");
+      const outputDiv = document.getElementById('output');
 
-      /*Click enter to create search result and text that is inputted */
-	
-      searchInput.addEventListener("keyup", function(event) {
-	  if (event.keyCode === 13) { 
-	    event.preventDefault(); 
-	    searchButton.click();
-	  }
+      function showDrugList() {
+        // Clear previous suggestions
+        drugList.innerHTML = "";
+
+        // Create a new list item for each drug that matches the search term
+        const searchTerm = drugSearchInput.value.trim().toLowerCase();
+        drugs.forEach(drug => {
+          if (drug.name.toLowerCase().includes(searchTerm)) {
+            const listItem = document.createElement("li");
+            const link = document.createElement("a");
+            link.textContent = drug.name;
+            listItem.appendChild(link);
+            drugList.appendChild(listItem);
+          }
+        });
+
+        // Show the drug list
+        drugDropdown.style.display = "block";
+      }
+
+      function hideDrugList() {
+        // Hide the drug list
+        drugDropdown.style.display = "none";
+      }
+
+      function searchDrugs(searchText) {
+        // Filter the drugs array based on the search text
+        const filteredDrugs = drugs.filter(drug => drug.name.toLowerCase().includes(searchText.toLowerCase()));
+
+        // Show the search results
+        if (filteredDrugs.length === 0) {
+          outputDiv.textContent = "No results found.";
+        } else if (filteredDrugs.length === 1) {
+          outputDiv.textContent = "1 result found: " + filteredDrugs[0].name;
+        } else {
+          outputDiv.textContent = filteredDrugs.length + " results found.";
+        }
+      }
+
+      drugSearchInput.addEventListener("input", event => {
+        const searchTerm = event.target.value.trim().toLowerCase();
+
+        // Show/hide the drug list based on whether the search term is empty or not
+        if (searchTerm.length === 0) {
+          hideDrugList();
+        } else {
+          showDrugList();
+        }
+
+        // Update the search results based on the search term
+        searchDrugs(searchTerm);
+      });
+
+      drugList.addEventListener("click", event => {
+        // Fill the search bar with the clicked drug name
+        drugSearchInput.value = event.target.textContent;
+
+        // Hide the drug list
+        hideDrugList();
       });
 
       searchButton.addEventListener("click", () => {
-        const searchTerm = searchInput.value.trim().toLowerCase();
-        const foundDrug = drugs.find(drug => drug.name.toLowerCase() === searchTerm);
-      	const output = document.getElementById('output');
+        const selectedDrug = drugSearchInput.value.trim();
+        const foundDrug = drugs.find(drug => drug.name.toLowerCase() === selectedDrug.toLowerCase());
 
-      if (foundDrug) {
-	  output.innerHTML = "<br>Found drug: " + foundDrug.name + "<br>Description: " + foundDrug.description + "<br>Type: " + foundDrug.type;
+        if (foundDrug) {
+          outputDiv.innerHTML = "<br>Found drug: " + foundDrug.name + "<br>Description: " + foundDrug.description + "<br>Type: " + foundDrug.type;
         } else {
-	  output.innerHTML = "Drug not found: " + searchTerm + " please try again.";
+          outputDiv.innerHTML = "Drug not found: " + selectedDrug + " please try again.";
         }
-        
+
+        // Hide the drug list
+        hideDrugList();
+      });
+	    
+      /*Use enter button to use as (click event)*/
+      
+      drugSearchInput.addEventListener("keyup", function(event) {
+	  if (event.keyCode === 13) { 
+	    event.preventDefault(); 
+	    searchButton.click();
+	    }
       });
 
 </script>
