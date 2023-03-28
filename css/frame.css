@@ -259,10 +259,8 @@ third value applies to bottom-right corner, and fourth value applies to bottom-l
 }
 
 .search-input {
-  padding: 10px;
   border-radius: 10px 10px 10px 10px;
   border: 2px solid #5b7073;
-  min-width: 500px;
   width: 500px;
 }
 
@@ -275,7 +273,6 @@ third value applies to bottom-right corner, and fourth value applies to bottom-l
 }
 
 .output {
-  padding: 10px;
   font-size: 14px;
   color: #6899a6;
 }
