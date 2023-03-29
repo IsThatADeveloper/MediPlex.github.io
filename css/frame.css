@@ -278,6 +278,7 @@ third value applies to bottom-right corner, and fourth value applies to bottom-l
   font-size: 14px;
   color: #6899a6;
   border: 10px solid transparent;
+  width: 500px;
 }
 
 /*------------------- Drug Input Bar End -------------------*/
