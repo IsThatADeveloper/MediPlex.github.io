@@ -21,6 +21,21 @@
 ##### [Test Code](https://www.w3schools.com/css/tryit.asp?filename=tryresponsive_styles)
 ##### [HTML Code Index](https://docs.google.com/document/d/1txJtKqCXBK68QiEDWXglem8-mzOtcNsh4MzIJLNIbrs/edit#)
 
+##### How to stack banners/page sheets above each other
+```html
+
+    /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+    @media (max-width: 600px) {
+    .grid-container  {
+      grid-template-areas: 
+        'header header header header header header' 
+        'left left left left left left' 
+        'middle middle middle middle middle middle' 
+        'right right right right right right' 
+        'footer footer footer footer footer footer';
+        
+```
+
 # **Types of Drugs we incorperate**:
 
 
