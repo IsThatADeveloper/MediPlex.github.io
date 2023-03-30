@@ -1,8 +1,7 @@
 <!doctype>
 <html>
-
 <head>
-  <title>Pharmaceutical Library Home</title>
+  <title>Drug Interactions Checker</title>
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
   <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
   <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
@@ -12,9 +11,8 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="js/menu.js"></script>
-
   <style>
-    .menu-drug_interactions_checker { /*main pharmacy index*/
+    .menu-drug_interactions_checker { 
       color: rgb(255, 255, 255) !important;
       opacity: 1 !important;
       font-weight: 700 !important;
@@ -29,10 +27,9 @@
       grid-area: header;
       background-color: #f1f1f1;
       padding: 30px;
-      text-align: center;
-      font-size: 35px;
+      text-align: left;
+      font-size: 20px;
     }
-
     /* The grid container */
     .grid-container {
       display: grid;
@@ -42,29 +39,24 @@
         'footer footer footer footer footer footer';
       /* grid-column-gap: 10px; - if you want gap between the columns */
     } 
-
     .left,
     .middle,
     .right {
       padding: 10px;
       height:500px; /* Should be removed. Only for demonstration */
     }
-
     /* Style the left column */
     .left {
       grid-area: left;
     }
-
     /* Style the middle column */
     .middle {
       grid-area: middle;
     }
-
     /* Style the right column */
     .right {
       grid-area: right;
     }
-
     /* Style the footer */
     .footer {
       grid-area: footer;
@@ -73,36 +65,37 @@
       text-align: center;
     }
   }
-
   </style>
 	
   <body>
-
   <div class="menu-container"></div>
   <div class="content-container">
 	  
    <!---------------------------------banner--------------------------------->
-	  
-   <div class="bannerImage" style="background: url('img/pillindex_banner.jpg') no-repeat center; background-size: cover; height: 300px;">
-    <div class="banner-table flex-column"></div>
-   </div>
-
-   <div class="banner" style="background-color: #ffffff; color: #000000;">
-    <div class="banner-table flex-column">
-      <div class="flex-row">
-        <div class="flex-item flex-column">
-          <h2 class="add-top-margin-small">Multi<span style="color: #57cbcc;">X</span> @ UvA Informatics Institute, Amsterdam</h2>
-          <p class="text">
-            We research multimedia analytics by developing AI techniques for getting the richest information possible from the data, visualizations, and interactions surpassing human and machine intelligence.
-            We blend multi-modal data in effective interfaces for applications and social impact in public health, forensics and law enforcement, cultural heritage, and data-driven business.
-          </p>
-        </div>
-      </div>
-    </div>
-   </div>    
-   <!---------------------------------banner end---------------------------------> 
-	  
-   <div class="grid-container">
-	 
-   <div class="left" style="background-color:#ffffff;"></div>
-	 
+  <head>
+	<style>
+		.banner {
+		   position: relative;
+		   background-image: url('img/Interactions_wallpaper.jpg');
+		   background-size: cover;
+		   height: 300px;
+		   color: #ffffff;
+		  }
+		 
+		.banner-text {
+	            position: absolute;
+		    top: 50%;
+		    left: 50%;
+	            transform: translate(-50%, -50%);
+	            text-align: center;
+		    font-size: 2em;
+		  }
+	   </style>
+</head>
+<body>
+	<div class="banner">
+		<div class="banner-text">
+			<h1>Welcome to My Website</h1>
+			<p>This text will appear on top of the header image.</p>
+		</div>
+	</div>
