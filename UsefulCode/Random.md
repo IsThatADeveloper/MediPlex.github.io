@@ -12,7 +12,7 @@
 			Email.send({
 				Host: "smtp.gmail.com",
 				Username : "eshaanshah24@gmail.com",
-				Password : "714150Eshaan123",
+				Password : "password",
 				To : 'eshaanshah24@gmail.com',
 				From : "eshaanshah24@gmail.com",
 				Subject : "test email",
