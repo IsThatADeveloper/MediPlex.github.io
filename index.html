@@ -85,6 +85,10 @@
   .dropdown-toggle img.rotated {
     transform: rotate(90deg);
   }
+	  
+  .dropdown-menu.show {
+    opacity: 1;
+  }
 
   </style>
 	
@@ -101,7 +105,7 @@
       <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	<img src="img/3lineforward.png" id="dropdownImage" style="width: 30px; height: 30px;">
       </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="opacity: 0; transition: opacity 0.2s ease-in-out;">
         <a class="menu-index" href="index.html">Pharmacy Index</a>
         <a class="menu-medical" href="medical.html">Medical Index</a>
         <a class="menu-how_do_drugs_work" href="how_do_drugs_work.html">Information On Drugs</a>
