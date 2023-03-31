@@ -94,22 +94,22 @@
   <div class="content-container">
 	  
   <!---------------------------------banner--------------------------------->
-	  
   <div class="banner-wrapper" style="position: relative;">
    <div class="bannerImage" style="background: url('img/pillindex_banner.jpg') no-repeat center; background-size: cover; height: 300px;"></div>
     <div class="dropdown" style="position: absolute; top: 0; left: 0;">
       <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <img src="img/3lineforward.png" id="dropdownImage" style="width: 30px; height: 30px;">
       </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="transition: transform .5s ease-in-out;">
-        <a class="menu-index" href="index.html">Pharmacy Index</a>
-        <a class="menu-medical" href="medical.html">Medical Index</a>
-        <a class="menu-how_do_drugs_work" href="how_do_drugs_work.html">Information On Drugs</a>
-        <a class="menu-recentnews" href="recentnews.html">Recent News</a>
-        <a class="menu-drug_interactions_checker.html" href="drug_interactions_checker.html">Drug Interactions Checker</a>
-      </div>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+         <a class="menu-index" href="index.html">Pharmacy Index</a>
+         <a class="menu-medical" href="medical.html">Medical Index</a>
+         <a class="menu-how_do_drugs_work" href="how_do_drugs_work.html">Information On Drugs</a>
+         <a class="menu-recentnews" href="recentnews.html">Recent News</a>
+         <a class="menu-drug_interactions_checker" href="drug_interactions_checker.html">Drug Interactions Checker</a>
+       </div>
      </div>
    </div>
+
 
 
    <div class="banner" style="background-color: #ffffff; color: #000000;">
@@ -389,14 +389,6 @@
         $(".dropdown-toggle").on("click", function(){
           $("#dropdownImage").toggleClass("rotated");
         });
-      });
-	   
-      const dropdownButton = document.getElementById('dropdownMenuButton');
-      const dropdownMenu = document.querySelector('.dropdown-menu');
-      dropdownButton.addEventListener('click', () => {
-         setTimeout(() => {
-           dropdownMenu.classList.add('show');
-         }, 400); // 400 milliseconds delay
       });
 
 </script>
