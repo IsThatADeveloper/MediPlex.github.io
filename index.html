@@ -72,6 +72,15 @@
       text-align: center;
     }
   }
+	  
+  /* Added CSS for the rotation animation */
+  .dropdown-toggle img {
+    transition: transform .3s;
+  }
+
+  .dropdown-toggle img.rotated {
+    transform: rotate(90deg);
+  }
 
   </style>
 	
@@ -373,8 +382,8 @@
       });
 	   
       $(document).ready(function(){
-        $(".custom-dropdown-toggle").on("click", function(){
-          $("#customDropdownImage").toggleClass("rotate-90");
+        $(".dropdown-toggle").on("click", function(){
+          $("#dropdownImage").toggleClass("rotated");
         });
       });
 
