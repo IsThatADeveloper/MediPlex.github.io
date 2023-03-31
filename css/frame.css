@@ -263,6 +263,9 @@ third value applies to bottom-right corner, and fourth value applies to bottom-l
   font-size: 14px;
   line-height: 1.5;
   border-radius: 4px;
+  animation-name: rotate;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
   cursor: pointer;
 }
 
