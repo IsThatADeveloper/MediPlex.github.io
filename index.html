@@ -13,13 +13,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="js/menu.js"></script>
 
-  <style>
-    .menu-index { /*main pharmacy index*/
-      color: rgb(255, 255, 255) !important;
-      opacity: 1 !important;
-      font-weight: 700 !important;
-    }
-	  
+  <style>  
     * {
       box-sizing: border-box;
     }
@@ -81,10 +75,41 @@
   <div class="menu-container"></div>
   <div class="content-container">
 	  
+   <!---------------------------------Transfer To Other Pages UI--------------------------------->
+	  
+   <div class="banner" style="background-color: #ffffff; color: #000000;">
+    <div class="banner-table flex-column">
+      <div class="flex-row">
+        <div class="flex-item flex-column">
+          <h2 class="add-top-margin-small">Multi<span style="color: #57cbcc;">X</span> @ UvA Informatics Institute, Amsterdam</h2>
+          <p class="text">
+            We research multimedia analytics by developing AI techniques for getting the richest information possible from the data, visualizations, and interactions surpassing human and machine intelligence.
+            We blend multi-modal data in effective interfaces for applications and social impact in public health, forensics and law enforcement, cultural heritage, and data-driven business.
+          </p>
+        </div>
+      </div>
+    </div>
+   </div>  
+	  
+   <!---------------------------------Transfer To Other Pages UI end--------------------------------->
+	  
    <!---------------------------------banner--------------------------------->
 	  
    <div class="bannerImage" style="background: url('img/pillindex_banner.jpg') no-repeat center; background-size: cover; height: 300px;">
-    <div class="banner-table flex-column"></div>
+    <div class="banner-table flex-column">
+      <div class="dropdown" style="position: absolute; top: 0; left: 0;">
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="path/to/image.png" id="dropdownImage">
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="menu-index" href="index.html">Pharmacy Index</a>
+          <a class="menu-medical" href="medical.html">Medical Index</a>
+          <a class="menu-how_do_drugs_work" href="how_do_drugs_work.html">Information On Drugs</a>
+          <a class="menu-recentnews" href="recentnews.html">Recent News</a>
+          <a class="menu-drug_interactions_checker.html" href="drug_interactions_checker.html">Drug Interactions Checker</a>
+        </div>
+      </div>
+    </div>
    </div>
 
    <div class="banner" style="background-color: #ffffff; color: #000000;">
@@ -358,6 +383,12 @@
 	    event.preventDefault(); 
 	    searchButton.click();
 	    }
+      });
+	   
+      $(document).ready(function(){
+        $(".custom-dropdown-toggle").on("click", function(){
+          $("#customDropdownImage").toggleClass("rotate-90");
+        });
       });
 
 </script>
