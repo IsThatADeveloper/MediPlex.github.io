@@ -72,19 +72,6 @@
       text-align: center;
     }
   }
-	  
-  .dropdown-menu a:hover {
-    background-color: #f2f2f2;
-  }
-	  
-  /* Added CSS for the rotation animation */
-  .dropdown-toggle img {
-    transition: transform .5s;
-  }
-
-  .dropdown-toggle img.rotated {
-    transform: rotate(90deg);
-  }
 
   </style>
 	
@@ -372,12 +359,6 @@
 	    event.preventDefault(); 
 	    searchButton.click();
 	    }
-      });
-	   
-      $(document).ready(function(){
-        $(".dropdown-toggle").on("click", function(){
-          $("#dropdownImage").toggleClass("rotated");
-        });
       });
 
 </script>
