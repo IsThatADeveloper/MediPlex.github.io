@@ -299,19 +299,6 @@ third value applies to bottom-right corner, and fourth value applies to bottom-l
   border: 0;
 }
 
-.custom-dropdown-menu a:hover {
-  background-color: #f2f2f2;
-}
-
-/* Added CSS for the rotation animation */
-.custom-dropdown-toggle img {
-  transition: transform .3s;
-}
-
-.custom-dropdown-toggle img.rotate-90 {
-  transform: rotate(90deg);
-}
-
 /*------------------- DropDown Mainframe End -------------------*/
 
 /*------------------- Drug Input Bar -------------------*/
