@@ -270,7 +270,7 @@ third value applies to bottom-right corner, and fourth value applies to bottom-l
   position: absolute;
   top: 100%;
   left: 0;
-  z-index: 1000;
+  z-index: 2;
   display: none;
   float: left;
   min-width: 45rem;
@@ -297,19 +297,6 @@ third value applies to bottom-right corner, and fourth value applies to bottom-l
   white-space: nowrap;
   background-color: transparent;
   border: 0;
-}
-
-.custom-dropdown-menu a:hover {
-  background-color: #ffffff;
-}
-
-/* Added CSS for the rotation animation */
-.custom-dropdown-toggle img {
-  transition: transform .3s;
-}
-
-.custom-dropdown-toggle img.rotate-90 {
-  transform: rotate(90deg);
 }
 
 /*------------------- DropDown Mainframe End -------------------*/
