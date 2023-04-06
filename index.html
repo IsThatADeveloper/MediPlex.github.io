@@ -108,17 +108,22 @@
 	 
    <!---------------------------------input bar--------------------------------->
 	    
-   <div class="middle" style="background-color:#ffffff; text-align:center; padding-top:150px;">
-     <label for="search-input" class="search-label"><b>Drug Name:</b></label>
-     <input type="text" placeholder="Drug Name" value="" id="search-input" name="search-input" autocomplete="on" class="search-input">
-     <button id="search-btn" class="search-button">Search</button>
-     <div id="drug-dropdown" class="drug-dropdown"> <!add formatting>
-       <ul id="drug-list" class="drug-list"></ul>
-     </div>
-       <div class="footer" style="background-color:#ffffff; text-align:center;">
-       <div id="output" class="output" style="text-align:left;  width: 1000px; overflow-x: auto;"></div>
-     </div>
-   </div>  
+   <div class="middle" style="background-color:#ffffff; text-align:center; padding-top:100px;">
+      <form action="process-form.php" method="post" target="_blank">
+        <label for="search-input" class="search-label"><b>Drug Name:</b></label>
+        <div class="search-container">
+          <input type="text" placeholder="Drug Name" value="" id="search-input" name="search-input" autocomplete="on" class="search-input">
+          <img src="search-icon.png" alt="Search Icon" class="search-icon">
+          <button type="submit" id="search-btn" class="search-button">Search</button>
+        </div>
+      </form>
+      <div id="drug-dropdown" class="drug-dropdown"> <!add formatting>
+        <ul id="drug-list" class="drug-list"></ul>
+      </div>
+      <div class="footer" style="text-align:center; background-color:#ffffff;">
+        <div id="output" class="output" style="text-align:left; width: 600px; overflow-x: auto;"></div>
+      </div>
+   </div>
 	 
    <!---------------------------------input bar end--------------------------------->
 	 
