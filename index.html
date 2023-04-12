@@ -205,7 +205,7 @@
 
      /*Drugs array */
 	
-      const drugs = [
+      window.drugs = [
         { name: "Abilify", type: "Brand", description: "a medication used to treat schizophrenia, bipolar disorder, and depression. It works by affecting the activity of certain neurotransmitters in the brain, including dopamine and serotonin. It is also sometimes used to treat irritability associated with autism spectrum disorder." },
         { name: "Adderall", type: "Brand",  description: "a stimulant medication used to treat ADHD and narcolepsy. It works by increasing the activity of certain chemicals in the brain. "},
         { name: "Adderall XR", type: "Brand", description: "an extended-release version of Adderall that provides a longer duration of action than regular Adderall. " },
@@ -256,12 +256,12 @@
      ];
 
      /*drug list define*/
-	
-      const drugList = document.getElementById("drug-list");
-      const drugDropdown = document.getElementById("drug-dropdown");
-      const drugSearchInput = document.getElementById("search-input");
-      const searchButton = document.getElementById("search-btn");
-      const outputDiv = document.getElementById('output');
+	   
+      window.drugList = document.getElementById("drug-list");
+      window.drugDropdown = document.getElementById("drug-dropdown");
+      window.drugSearchInput = document.getElementById("search-input");
+      window.searchButton = document.getElementById("search-btn");
+      window.outputDiv = document.getElementById('output');
 
       function showDrugList() {
         // Clear previous suggestions
