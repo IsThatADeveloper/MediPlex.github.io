@@ -356,45 +356,25 @@
         hideDrugList();
       });
 	    
-      /*Use enter button to use as (click event)*/
-      
-      drugSearchInput.addEventListener("keyup", function(event) {
-	  if (event.keyCode === 13) { 
-	    event.preventDefault(); 
-	    searchButton.click();
-	    }
+      // Get the search button element
+      const searchBtn = document.getElementById('search-btn');
+
+      // Add an event listener to the search button
+      searchBtn.addEventListener('click', function() {
+        // Get the input element
+        const searchInput = document.getElementById('search-input');
+        // Get the value of the input element
+        const drugName = searchInput.value;
+
+        // Call the showDrugInfo function with the drug name as an argument
+        showDrugInfo({ name: drugName });
       });
-	   
-      // Show the drug information in a new external page
+
+      // Define the showDrugInfo function
       function showDrugInfo(drug) {
         const url = `https://example.com/drug/${drug.name.toLowerCase()}`;
-        window.open(url, '_blank');
-      }
-
-      // Update the drug list with matching drugs
-      function updateDrugList(drugs, input) {
-        const matchingDrugs = drugs.filter(drug => drug.name.toLowerCase().includes(input.toLowerCase()));
-
-        if (matchingDrugs.length > 0) {
-          // Clear the drug list and show the drug dropdown
-          clearDrugList();
-          drugDropdown.style.display = 'block';
-
-          // Add each matching drug to the drug list
-          matchingDrugs.forEach(drug => {
-            const drugItem = document.createElement('li');
-            drugItem.textContent = drug.name;
-            drugItem.addEventListener('click', function() {
-              showDrugInfo(drug);
-              clearDrugList();
-              drugSearchInput.value = drug.name;
-            });
-            drugList.appendChild(drugItem);
-          });
-        } else {
-          // If no matching drugs, hide the drug dropdown
-          clearDrugList();
-        }
+        const features = 'width=600,height=400,scrollbars=yes';
+        window.open(url, '_blank', features);
       }
 	   
 </script>
