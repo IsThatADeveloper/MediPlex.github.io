@@ -1,5 +1,5 @@
-     const drugs = [
-        { name: "Abilify", type: "Brand", description: "a medication used to treat schizophrenia, bipolar disorder, and depression. It works by affecting the activity of certain neurotransmitters in the brain, including dopamine and serotonin. It is also sometimes used to treat irritability associated with autism spectrum disorder." },
+const drugs = [
+{ name: "Abilify", type: "Brand", description: "a medication used to treat schizophrenia, bipolar disorder, and depression. It works by affecting the activity of certain neurotransmitters in the brain, including dopamine and serotonin. It is also sometimes used to treat irritability associated with autism spectrum disorder." },
         { name: "Adderall", type: "Brand",  description: "a stimulant medication used to treat ADHD and narcolepsy. It works by increasing the activity of certain chemicals in the brain. "},
         { name: "Adderall XR", type: "Brand", description: "an extended-release version of Adderall that provides a longer duration of action than regular Adderall. " },
         { name: "Adrenaline", type: "Brand", description: "also known as epinephrine, a hormone and medication used to treat severe allergic reactions and cardiac arrest. It works by increasing heart rate, constricting blood vessels, and relaxing smooth muscles. "},
@@ -46,4 +46,4 @@
         { name: "Dexamethasone", type: "Brand", description: "a medication used to treat an underactive thyroid gland. It contains thyroid hormone, which is important for regulating metabolism and energy levels. " },
         { name: "Diflucan", type: "Brand", description: "an antihistamine medication used to treat anxiety and itching. It works by blocking the action of histamine in the body, reducing allergic reactions and anxiety symptoms. " },
         { name: "Dilaudid", type: "Generic", description: "a beta blocker medication used to treat high blood pressure and angina. It works by blocking the action of adrenaline and other stress hormones, reducing heart rate and blood pressure. " }
-     ];
+];
