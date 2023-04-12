@@ -111,7 +111,7 @@
    <!---------------------------------input bar--------------------------------->
 	    
    <div class="middle" style="background-color:#ffffff; text-align:center; padding-top:100px;">
-      <form>
+      <form action="drugs.html" method="GET">
         <label for="search-input" class="search-label"><b>Drug Name:</b></label>
         <div class="search-container">
           <input type="text" placeholder="Drug Name" value="" id="search-input" name="search-input" autocomplete="on" class="search-input">
@@ -313,28 +313,6 @@
         // Hide the drug list
         hideDrugList();
       });
-	    
-      // Get the search button element
-      const searchBtn = document.getElementById('search-btn');
-
-      // Add an event listener to the search button
-      searchBtn.addEventListener('click', function(e) {
-	e->preventDefault();
-        // Get the input element
-        const searchInput = document.getElementById('search-input');
-        // Get the value of the input element
-        const drugName = searchInput.value;
-
-        // Call the showDrugInfo function with the drug name as an argument
-        showDrugInfo({ name: drugName });
-      });
-
-      // Define the showDrugInfo function
-      function showDrugInfo(drug) {
-        const url = `https://isthatadeveloper.github.io/pharmacyindexTest.github.io/drugs.html`;
-        const features = 'width=600,height=400,scrollbars=yes';
-        window.open(url, '_blank', features);
-      }
 	   
 </script>
 
