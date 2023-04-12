@@ -16,28 +16,25 @@
   
   <style></style>
   
-<body>
-  
-  <p>
-    
+  <body>
     <div id="output"></div>
+    <!-- Page content goes here -->
     
-  </p>
-  <!-- Page content goes here -->
-</body>
+    <h2>Pharmacy Website</h2>
+  </body>
   
-<script>
-  const drugName = window.location.search.substring(1);
-  const foundDrug = window.drugs.find(drug => drug.name.toLowerCase() === drugName.toLowerCase());
+  <script>
+    const drugName = window.location.search.substring(1);
+    const foundDrug = window.drugs.find(drug => drug.name.toLowerCase() === drugName.toLowerCase());
 
-  if (foundDrug) {
-    // Display the drug info
-    const outputDiv = document.getElementById('output');
-    outputDiv.innerHTML = "<br>Found drug: " + foundDrug.name + "<br>Description: " + foundDrug.description + "<br>Type: " + foundDrug.type;
-  } else {
-    // Display an error message
-    const outputDiv = document.getElementById('output');
-    outputDiv.innerHTML = "Drug not found: " + drugName + " please try again.";
-  }
-</script>
+    if (foundDrug) {
+      // Display the drug info
+      const outputDiv = document.getElementById('output');
+      outputDiv.innerHTML = "<br>Found drug: " + foundDrug.name + "<br>Description: " + foundDrug.description + "<br>Type: " + foundDrug.type;
+    } else {
+      // Display an error message
+      const outputDiv = document.getElementById('output');
+      outputDiv.innerHTML = "Drug not found: " + drugName + " please try again.";
+    }
+  </script>
 </html>
