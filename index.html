@@ -310,7 +310,8 @@
       const searchBtn = document.getElementById('search-btn');
 
       // Add an event listener to the search button
-      searchBtn.addEventListener('click', function() {
+      searchBtn.addEventListener('click', function(e) {
+	e->preventDefault();
         // Get the input element
         const searchInput = document.getElementById('search-input');
         // Get the value of the input element
