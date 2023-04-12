@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <title>Pharmaceutical Library Drug Information</title>
+   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+   <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+   <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+   <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+   <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="js/menu.js"></script> 
+   <script src="index.html"></script>
+  </head>
+  
+  <style></style>
+  
+<body>
+  
+  <p>
+    
+  </p>
+  <!-- Page content goes here -->
+</body>
+  
+<script>
+  const drugName = window.location.search.substring(1);
+  const foundDrug = window.drugs.find(drug => drug.name.toLowerCase() === drugName.toLowerCase());
+
+  if (foundDrug) {
+    // Display the drug info
+    const outputDiv = document.getElementById('output');
+    outputDiv.innerHTML = "<br>Found drug: " + foundDrug.name + "<br>Description: " + foundDrug.description + "<br>Type: " + foundDrug.type;
+  } else {
+    // Display an error message
+    const outputDiv = document.getElementById('output');
+    outputDiv.innerHTML = "Drug not found: " + drugName + " please try again.";
+  }
+</script>
+</html>
