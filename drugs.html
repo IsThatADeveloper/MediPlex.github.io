@@ -25,8 +25,9 @@
   </body>
   
   <script>
-      const drugName = window.location.search.substring(1);
-      const foundDrug = window.drugs.find(drug => drug.name.toLowerCase() === drugName.toLowerCase());
+    
+      const selectedDrug = localStorage.getItem('selected-drug');
+      const foundDrug = localStorage.getItem('found-drug');
 
       if (foundDrug) {
         // Display the drug info
