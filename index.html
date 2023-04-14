@@ -303,12 +303,14 @@ searchButton.addEventListener("click", () => {
 });
 
 function openDrugs() {
-  const selectedDrug = localStorage.getItem('selected-drug');
-  
-  if (selectedDrug) {
+  const searchTerm = localStorage.getItem('selected-drug');
+  const foundDrug = drugs.find(drug => drug.name.toLowerCase() === searchTerm.toLowerCase());
+  if (foundDrug) {
     window.location.href = "drugs.html";
-    return false;
+  } else {
+    alert("Drug not found: " + searchTerm + " please try again.");
   }
+  return false;
 }
 
 </script>
