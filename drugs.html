@@ -38,14 +38,14 @@
       history.back();
     }
 
+    // Push the state of the index page onto the history stack
+    history.pushState({ page: 'index' }, '', '');
+
     window.onpopstate = function (event) {
       if (event && event.state && event.state.page === 'index') {
         location.reload();
       }
     };
-
-    history.pushState({ page: 'drugs' }, '', '');
-
   </script>
   
 </html>
