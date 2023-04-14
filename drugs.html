@@ -27,7 +27,9 @@
     <div id="output"></div>
     <!-- Page content goes here -->
     
-    <h2>Pharmacy Website - Drug Info</h2>
+    <h2>Pharmacy Website</h2>
+    
+    <button onclick="goBack()">Go Back</button>
     
   </body>
   
@@ -43,6 +45,11 @@
     } else {
       // Display an error message
       outputValue.innerHTML = "Drug not found. Please try again.";
+    }
+    
+    function goBack() {
+      window.history.back();
+      location.reload();
     }
 
   </script>
