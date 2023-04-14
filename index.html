@@ -279,26 +279,29 @@
   });
 
   searchButton.addEventListener("click", () => {
-	  
     const selectedDrug = drugSearchInput.value.trim().toLowerCase();
     const foundDrug = drugs.find(drug => drug.name.toLowerCase() === selectedDrug);
 
     if (foundDrug) {
+      const outputDiv = document.getElementById('output');
       outputDiv.innerHTML = "<br>Found drug: " + foundDrug.name + "<br>Description: " + foundDrug.description + "<br>Type: " + foundDrug.type;
-      
+    
+      // Store the selected drug and its info in local storage
       localStorage.setItem('selected-drug', selectedDrug);
       localStorage.setItem('found-drug', JSON.stringify(foundDrug));
       localStorage.setItem('output-value', outputDiv.innerHTML);
       
+      // Redirect to drugs.html
       window.location.href = "drugs.html";
     } else {
+      const outputDiv = document.getElementById('output');
       outputDiv.innerHTML = "Drug not found: " + selectedDrug + " please try again.";
-    }
+    }  
 
+    // Hide the drug list
     hideDrugList();
   });
-
-	   
+   
 </script>
 
 </html>
