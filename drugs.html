@@ -28,14 +28,15 @@
     
       const selectedDrug = localStorage.getItem('selected-drug');
       const foundDrug = localStorage.getItem('found-drug');
+      const outputValue = localStorage.getItem('output-value');
 
       if (foundDrug) {
         // Display the drug info
-        const outputDiv = document.getElementById('output');
+        const outputDiv = outputValue;
         outputDiv.innerHTML = "<br>Found drug: " + foundDrug.name + "<br>Description: " + foundDrug.description + "<br>Type: " + foundDrug.type;
       } else {
         // Display an error message
-        const outputDiv = document.getElementById('output');
+        const outputDiv = outputValue;
         outputDiv.innerHTML = "Drug not found: " + drugName + " please try again.";
       }
   </script>
