@@ -277,6 +277,9 @@
     drugSearchInput.value = event.target.textContent;
     hideDrugList();
   });
+	   
+function submitHandler(event) {
+  event.preventDefault();
 
   searchButton.addEventListener("click", () => {
     const selectedDrug = drugSearchInput.value.trim().toLowerCase();
@@ -301,6 +304,7 @@
     // Hide the drug list
     hideDrugList();
   });
+}
    
 </script>
 
