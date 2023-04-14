@@ -111,7 +111,7 @@
    <!---------------------------------input bar--------------------------------->
 	    
    <div class="middle" style="background-color:#ffffff; text-align:center; padding-top:100px;">
-      <form action="drugs.html" method="GET">
+      <form>
         <label for="search-input" class="search-label"><b>Drug Name:</b></label>
         <div class="search-container">
           <input type="text" placeholder="Drug Name" value="" id="search-input" name="search-input" autocomplete="on" class="search-input">
@@ -279,6 +279,7 @@
   });
 
   searchButton.addEventListener("click", () => {
+	  
     const selectedDrug = drugSearchInput.value.trim().toLowerCase();
     const foundDrug = drugs.find(drug => drug.name.toLowerCase() === selectedDrug);
 
