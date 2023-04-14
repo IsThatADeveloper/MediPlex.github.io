@@ -303,10 +303,13 @@ searchButton.addEventListener("click", () => {
 });
 
 function openDrugs() {
+  const selectedDrug = localStorage.getItem('selected-drug');
+  
+  if (selectedDrug) {
     window.location.href = "drugs.html";
-  return false;
+    return false;
+  }
 }
-
 
 </script>
 
