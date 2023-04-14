@@ -111,7 +111,7 @@
    <!---------------------------------input bar--------------------------------->
 	    
    <div class="middle" style="background-color:#ffffff; text-align:center; padding-top:100px;">
-      <form>
+      <form onsubmit="openDrugs(); return false;">
         <label for="search-input" class="search-label"><b>Drug Name:</b></label>
         <div class="search-container">
           <input type="text" placeholder="Drug Name" value="" id="search-input" name="search-input" autocomplete="on" class="search-input">
@@ -278,34 +278,35 @@
     hideDrugList();
   });
 	   
-function submitHandler(event) {
-  event.preventDefault();
-
   searchButton.addEventListener("click", () => {
-    const selectedDrug = drugSearchInput.value.trim().toLowerCase();
-    const foundDrug = drugs.find(drug => drug.name.toLowerCase() === selectedDrug);
+	  const selectedDrug = drugSearchInput.value.trim().toLowerCase();
+	  const foundDrug = drugs.find(drug => drug.name.toLowerCase() === selectedDrug);
 
-    if (foundDrug) {
-      const outputDiv = document.getElementById('output');
-      outputDiv.innerHTML = "<br>Found drug: " + foundDrug.name + "<br>Description: " + foundDrug.description + "<br>Type: " + foundDrug.type;
-    
-      // Store the selected drug and its info in local storage
-      localStorage.setItem('selected-drug', selectedDrug);
-      localStorage.setItem('found-drug', JSON.stringify(foundDrug));
-      localStorage.setItem('output-value', outputDiv.innerHTML);
-      
-      // Redirect to drugs.html
-      window.location.href = "drugs.html";
-    } else {
-      const outputDiv = document.getElementById('output');
-      outputDiv.innerHTML = "Drug not found: " + selectedDrug + " please try again.";
-    }  
+	  if (foundDrug) {
+	    const outputDiv = document.getElementById('output');
+	    outputDiv.innerHTML = "<br>Found drug: " + foundDrug.name + "<br>Description: " + foundDrug.description + "<br>Type: " + foundDrug.type;
 
-    // Hide the drug list
-    hideDrugList();
-  });
-}
-   
+	    // Store the selected drug and its info in local storage
+	    localStorage.setItem('selected-drug', selectedDrug);
+	    localStorage.setItem('found-drug', JSON.stringify(foundDrug));
+	    localStorage.setItem('output-value', outputDiv.innerHTML);
+
+	    // Open drugs.html
+	    openDrugs();
+	  } else {
+	    const outputDiv = document.getElementById('output');
+	    outputDiv.innerHTML = "Drug not found: " + selectedDrug + " please try again.";
+	  }  
+
+	  // Hide the drug list
+	  hideDrugList();
+	});
+
+	function openDrugs() {
+	  var searchTerm = localStorage.getItem('selected-drug');
+	  window.location.href = "drugs.html?search=" + searchTerm;
+  }
+
 </script>
 
 </html>
