@@ -295,12 +295,15 @@
       searchButton.addEventListener("click", () => {
         const selectedDrug = drugSearchInput.value.trim();
         const foundDrug = drugs.find(drug => drug.name.toLowerCase() === selectedDrug.toLowerCase());
+        const outputIndex = document.getElementById('output');
 	      
 	      const selectedDrugValue = selectedDrug.value;
 	      const foundDrugValue = foundDrug.value;
+	      const outputValue = outputIndex.value;
 	      
 	      localStorage.setItem('selected-drug', "selectedDrugValue");
 	      localStorage.setItem('found-drug', "foundDrugValue");
+	      localStorage.setItem('output-value', "outputValue");
 
 	      window.location.href = "drugs.html";
 
