@@ -33,13 +33,7 @@
     const foundDrug = JSON.parse(localStorage.getItem('found-drug'));
     const outputValue = document.getElementById('output');
 
-    if (foundDrug) {
-      // Display the drug info
-      outputValue.innerHTML = "<br>Found drug: " + foundDrug.name + "<br>Description: " + foundDrug.description + "<br>Type: " + foundDrug.type;
-    } else {
-      // Display an error message
-      outputValue.innerHTML = "Drug not found. Please try again.";
-    }
+    outputValue.innerHTML = "<br>Found drug: " + foundDrug.name + "<br>Description: " + foundDrug.description + "<br>Type: " + foundDrug.type;
     
     function goBack() {
       window.location.href = "index.html";
