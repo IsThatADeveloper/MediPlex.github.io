@@ -23,22 +23,27 @@
     
     <h2>Pharmacy Website test1</h2>
     
+  <body>
+    <div id="output"></div>
+    <!-- Page content goes here -->
+    
+    <h2>Pharmacy Website - Drug Info</h2>
+    
   </body>
   
   <script>
     
-      const selectedDrug = localStorage.getItem('selected-drug');
-      const foundDrug = localStorage.getItem('found-drug');
-      const outputValue = localStorage.getItem('output-value');
+    const selectedDrug = localStorage.getItem('selected-drug');
+    const foundDrug = JSON.parse(localStorage.getItem('found-drug'));
+    const outputValue = document.getElementById('output');
 
-      if (foundDrug) {
-        // Display the drug info
-        const outputDiv = outputValue;
-        outputDiv.innerHTML = "<br>Found drug: " + foundDrug.name + "<br>Description: " + foundDrug.description + "<br>Type: " + foundDrug.type;
-      } else {
-        // Display an error message
-        const outputDiv = outputValue;
-        outputDiv.innerHTML = "Drug not found: " + drugName + " please try again.";
-      }
+    if (foundDrug) {
+      // Display the drug info
+      outputValue.innerHTML = "<br>Found drug: " + foundDrug.name + "<br>Description: " + foundDrug.description + "<br>Type: " + foundDrug.type;
+    } else {
+      // Display an error message
+      outputValue.innerHTML = "Drug not found. Please try again.";
+    }
+
   </script>
 </html>
