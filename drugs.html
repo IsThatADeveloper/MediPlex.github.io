@@ -35,17 +35,9 @@
     outputValue.innerHTML = "<br>Found drug: " + foundDrug.name + "<br>Description: " + foundDrug.description + "<br>Type: " + foundDrug.type;
 
     function goBack() {
-      history.back();
+      // Navigate back to the index.html page
+      window.location.replace("index.html");
     }
-
-    // Push the state of the index page onto the history stack
-    history.pushState({ page: 'index' }, '', '');
-
-    window.onpopstate = function (event) {
-      if (event && event.state && event.state.page === 'index') {
-        location.reload();
-      }
-    };
   </script>
   
 </html>
