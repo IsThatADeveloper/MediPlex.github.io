@@ -40,17 +40,10 @@
       display: grid;
       grid-template-areas: 
         'header header header header header header' 
-        'middle middle middle right right' 
+        'left middle middle middle right right' 
         'footer footer footer footer footer footer';
       /* grid-column-gap: 10px; - if you want gap between the columns */
     } 
-
-    .left,
-    .middle,
-    .right {
-      padding: 10px;
-      height:500px; /* Should be removed. Only for demonstration */
-    }
 
     /* Style the left column */
     .left {
@@ -267,15 +260,25 @@
 searchButton.addEventListener("click", () => {
   const selectedDrug = drugSearchInput.value.trim().toLowerCase();
   const foundDrug = drugs.find(drug => drug.name.toLowerCase() === selectedDrug);
-	  
+
+  if (foundDrug) {
+    const outputDiv = document.getElementById('output');
+    outputDiv.innerHTML = "<br>Found drug: " + foundDrug.name + "<br>Description: " + foundDrug.description + "<br>Type: " + foundDrug.type;
+
     // Store the selected drug and its info in local storage
     localStorage.setItem('selected-drug', selectedDrug);
     localStorage.setItem('found-drug', JSON.stringify(foundDrug));
     localStorage.setItem('output-value', outputDiv.innerHTML);
-	  
+
     // Open drugs.html
     openDrugs();
+  } else {
+    const outputDiv = document.getElementById('output');
+    outputDiv.innerHTML = "Drug not found: " + selectedDrug + " please try again.";
   }
+
+  // Hide the drug list
+  hideDrugList();
 });
 
 function openDrugs() {
@@ -284,8 +287,7 @@ function openDrugs() {
   if (foundDrug) {
     window.location.href = "drugs.html";
   } else {
-    const outputDiv = document.getElementById('output');
-    outputDiv.innerHTML = "Drug not found: " + selectedDrug + " please try again.";
+    alert("Drug not found: " + searchTerm + " please try again.");
   }
   return false;
 }
