@@ -97,7 +97,7 @@
 	 
    <!---------------------------------input bar--------------------------------->
 	    
-   <div class="middle bannerImage banner-table flex-column" style="background: url('img/SearchbarImage.jpg'); text-align:center; background-size: cover; height: 500px;">
+   <div class="middle left right bannerImage banner-table flex-column" style="background: url('img/SearchbarImage.jpg'); text-align:center; background-size: cover; height: 500px;">
       <form onsubmit="openDrugs(); return false;">
         <label for="search-input" class="search-label"></label>
         <div class="search-container">
@@ -267,25 +267,15 @@
 searchButton.addEventListener("click", () => {
   const selectedDrug = drugSearchInput.value.trim().toLowerCase();
   const foundDrug = drugs.find(drug => drug.name.toLowerCase() === selectedDrug);
-
-  if (foundDrug) {
-    const outputDiv = document.getElementById('output');
-    outputDiv.innerHTML = "<br>Found drug: " + foundDrug.name + "<br>Description: " + foundDrug.description + "<br>Type: " + foundDrug.type;
-
+	  
     // Store the selected drug and its info in local storage
     localStorage.setItem('selected-drug', selectedDrug);
     localStorage.setItem('found-drug', JSON.stringify(foundDrug));
     localStorage.setItem('output-value', outputDiv.innerHTML);
-
+	  
     // Open drugs.html
     openDrugs();
-  } else {
-    const outputDiv = document.getElementById('output');
-    outputDiv.innerHTML = "Drug not found: " + selectedDrug + " please try again.";
   }
-
-  // Hide the drug list
-  hideDrugList();
 });
 
 function openDrugs() {
@@ -294,7 +284,8 @@ function openDrugs() {
   if (foundDrug) {
     window.location.href = "drugs.html";
   } else {
-    alert("Drug not found: " + searchTerm + " please try again.");
+    const outputDiv = document.getElementById('output');
+    outputDiv.innerHTML = "Drug not found: " + selectedDrug + " please try again.";
   }
   return false;
 }
