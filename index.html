@@ -97,7 +97,7 @@
 	 
    <!---------------------------------input bar--------------------------------->
 	    
-   <div class="middle" style="background-color:#ffffff; text-align:center; padding-top:100px;">
+   <div class="middle bannerImage banner-table flex-column" style="background: url('img/SearchbarImage.jpg'); text-align:center; background-size: cover; height: 500px;">
       <form onsubmit="openDrugs(); return false;">
         <label for="search-input" class="search-label"></label>
         <div class="search-container">
@@ -108,8 +108,8 @@
       <div id="drug-dropdown" class="drug-dropdown"> <!add formatting>
         <ul id="drug-list" class="drug-list"></ul>
       </div>
-      <div class="footer" style="text-align:center; background-color:#ffffff;">
-        <div id="output" class="output" style="text-align:left; width: 600px; overflow-x: auto;"></div>
+      <div class="footer" style="text-align:center;">
+        <div id="output" class="output" style="text-align:left; width: 100%; max-width: 600px; overflow-x: auto;"></div>
       </div>
    </div>
 	 
