@@ -33,7 +33,7 @@
       padding: 30px;
       text-align: center;
       font-size: 35px;
-      opacity: 0;
+      opacity: 0;    
     }
 
     /* The grid container */
@@ -100,11 +100,11 @@
 	  
    <div class="grid-container">
 	 
-   <div class="left" style="background: url('img/SearchbarImage.jpg');"></div>
+   <div class="left"></div>
 	 
    <!---------------------------------input bar--------------------------------->
 	    
-   <div class="middle bannerImage banner-table" style="text-align:center; background-size: cover; height: 500px;">
+   <div class="bannerImage banner-table" style="text-align:center; background-size: cover; height: 500px;">
       <form onsubmit="openDrugs(); return false;">
         <label for="search-input" class="search-label"></label>
         <div class="search-container">
@@ -115,7 +115,7 @@
       <div id="drug-dropdown" class="drug-dropdown"> <!add formatting>
         <ul id="drug-list" class="drug-list"></ul>
       </div>
-        <div id="output" class="output" style="text-align:left; width: 100%; max-width: 600px; overflow-x: auto;"></div>
+        <div id="output" class="output" style="text-align:center; width: 100%; max-width: 600px; overflow-x: auto;"></div>
    </div>
 	 
    <!---------------------------------input bar end--------------------------------->
