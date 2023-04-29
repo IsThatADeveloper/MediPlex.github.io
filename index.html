@@ -228,7 +228,6 @@ searchButton.addEventListener("click", () => {
 
   if (foundDrug) {
     const outputDiv = document.getElementById('output');
-    outputDiv.innerHTML = "<br>Found drug: " + foundDrug.name + "<br>Description: " + foundDrug.description + "<br>Type: " + foundDrug.type;
 
     // Store the selected drug and its info in local storage
     localStorage.setItem('selected-drug', selectedDrug);
@@ -237,9 +236,6 @@ searchButton.addEventListener("click", () => {
 
     // Open drugs.html
     openDrugs();
-  } else {
-    const outputDiv = document.getElementById('output');
-    outputDiv.innerHTML = "Drug not found: " + selectedDrug + " please try again.";
   }
 
   // Hide the drug list
