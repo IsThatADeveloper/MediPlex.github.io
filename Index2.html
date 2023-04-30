@@ -28,12 +28,12 @@
         
     }
         
-    header { 
-    	background: grey;
-        color: white;
-        padding: 20px 0px 20px 0px;
-        margin: 0px;
-    }
+	header {
+		background: grey;
+		color: white;
+		padding: 20px 0;
+		margin: 0;
+	}
     
     section { 
   	background: white;
@@ -65,12 +65,27 @@
         padding 0;
     }
     
-    .dropdown-menu {
-      display: none;
+    dropdown-menu {
+	display: none;
+	left: 0;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	background-color: white;
+	border: 1px solid #ccc;
+	bottom: 100%;
     }
-
-    .dropdown.show .dropdown-menu {
-      display: block;
+		
+    dropdown-menu li {
+	padding: 5px 10px;
+    }
+		
+    dropdown-menu li:hover {
+	background-color: #f5f5f5;
+    }
+		
+    show {
+	display: block;
     }
 
 </style>
@@ -78,28 +93,25 @@
 <body>
 
      <!---------------------------------Nav Bar--------------------------------->
-
+     
      <header>
-     
-        <nav>
-          <ul>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle">
-                <img src="path/to/image.jpg">
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Link 1</a></li>
-                <li><a href="#">Link 2</a></li>
-                <li><a href="#">Link 3</a></li>
-              </ul>
-            </li>
-            <li>Pharmacy Index</li>
-          </ul>
-        </nav>
-        
+       <nav>
+         <ul>
+           <li class="dropdown">
+             <a href="#" class="dropdown-toggle">
+               <img src="path/to/image.jpg" onclick="toggleDropdown(event)">
+             </a>
+             <ul class="dropdown-menu" id="dropdown-menu">
+               <li><a href="#">Link 1</a></li>
+               <li><a href="#">Link 2</a></li>
+               <li><a href="#">Link 3</a></li>
+             </ul>
+           </li>
+           <li>Pharmacy Index</li>
+         </ul>
+       </nav>
      </header>
-     
-
+    
      <!---------------------------------Nav Bar End--------------------------------->
 	  
      <!---------------------------------Banner--------------------------------->
@@ -172,12 +184,11 @@
     
 <script>
     
-  const dropdownToggle = document.querySelector('.dropdown-toggle');
-  const dropdownMenu = document.querySelector('.dropdown-menu');
-  
-  dropdownToggle.addEventListener('click', () => {
-    dropdownMenu.classList.toggle('show');
-  });
+  function toggleDropdown(event) {
+  	event.preventDefault();
+  	var dropdown = document.getElementById("dropdown-menu");
+  	dropdown.classList.toggle("show");
+  }
 
   const drugList = document.getElementById("drug-list");
   const drugDropdown = document.getElementById("drug-dropdown");
