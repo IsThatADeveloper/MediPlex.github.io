@@ -71,7 +71,7 @@
      	<nav>
           <ul>
             <li>
-              <img src="img/menu.png" alt="Other Pages">
+              <img src="path/to/image.jpg" alt="Other Pages">
               <ul>
                 <li><a href="#">Link 1</a></li>
                 <li><a href="#">Link 2</a></li>
@@ -89,16 +89,28 @@
 	  
      <!---------------------------------Banner--------------------------------->
     
-    <section>Banner</section>
+    <section class="bannerImage" style="background: url('img/pillindex_banner.jpg') no-repeat center; background-size: cover; height: 300px;"></section>
 	  
     <!---------------------------------Banner End---------------------------------> 
 	 
     <!---------------------------------Input Bar--------------------------------->
-    
-    <section>
-    	<div>a</div>
-    </section>
-		    
+
+    <div class="bannerImage banner-table" style="text-align:center; background-size: cover; height: 500px;">
+      <form onsubmit="openDrugs(); return false;">
+        <label for="search-input" class="search-label"></label>
+        <div class="search-container">
+          <input type="text" placeholder="Drug Name" value="" id="search-input" name="search-input" autocomplete="on" class="search-input">
+          <button type="submit" id="search-btn" class="search-button">Search</button>
+        </div>
+      </form>
+      
+      <div id="drug-dropdown" class="drug-dropdown"> <!add formatting>
+        <ul id="drug-list" class="drug-list"></ul>
+      </div>
+      
+	  <div id="output" class="output"></div>
+    </div>
+    	    
     <!---------------------------------Input Bar End--------------------------------->
     
     <!---------------------------------News--------------------------------->
