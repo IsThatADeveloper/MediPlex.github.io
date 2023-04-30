@@ -28,12 +28,12 @@
         
     }
         
-	header {
-		background: grey;
-		color: white;
-		padding: 20px 0;
-		margin: 0;
-	}
+    header {
+	background: grey;
+	color: white;
+	padding: 25px 0;
+	margin: 0;
+    }
     
     section { 
   	background: white;
@@ -41,7 +41,7 @@
   	padding: 20px;
   	display: flex;
   	flex-direction: row;
-   }
+    }
     
     footer {
   	background: grey;
@@ -96,15 +96,15 @@
          <ul>
            <li class="dropdown">
              <a href="#" class="dropdown-toggle">
-               <img src="img/menu.png" onclick="toggleDropdown(event)">
+               <img src="img/menu.png" onclick="toggleDropdown(event)" width="25" height="25">
              </a>
              <ul class="dropdown-menu" id="dropdown-menu">
-               <li style="display: block;"><a href="#">Link 1</a></li>
-               <li style="display: block;"><a href="#">Link 2</a></li>
-               <li style="display: block;"><a href="#">Link 3</a></li>
+               <li style="display: block; padding: 5 0 5 0;"><a href="#">Link 1</a></li>
+               <li style="display: block; padding: 5 0 5 0;"><a href="#">Link 2</a></li>
+               <li style="display: block; padding: 5 0 5 0;"><a href="#">Link 3</a></li>
              </ul>
            </li>
-           <li style="position: absolute;">Pharmacy Index</li>
+           <li style="position: absolute; transform: translateY(-35%);"><h3>Pharmacy Index<h3></li>
          </ul>
        </nav>
      </header>
