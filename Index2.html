@@ -32,7 +32,8 @@
    }
     
     footer {
-  	background: white;
+  	background: grey;
+    color: white;
   	padding: 10px 20px;
     }
     
@@ -95,33 +96,56 @@
 	 
     <!---------------------------------Input Bar--------------------------------->
 
-    <div class="bannerImage banner-table" style="text-align:center; background-size: cover; height: 500px;">
-      <form onsubmit="openDrugs(); return false;">
-        <label for="search-input" class="search-label"></label>
-        <div class="search-container">
-          <input type="text" placeholder="Drug Name" value="" id="search-input" name="search-input" autocomplete="on" class="search-input">
-          <button type="submit" id="search-btn" class="search-button">Search</button>
+	<section>
+      <div class="bannerImage banner-table" style="text-align:center; background-size: cover; height: 50px; padding: 20;">
+        <form onsubmit="openDrugs(); return false;">
+          <label for="search-input" class="search-label"></label>
+          <div class="search-container">
+            <input type="text" placeholder="Drug Name" value="" id="search-input" name="search-input" autocomplete="on" class="search-input">
+            <button type="submit" id="search-btn" class="search-button">Search</button>
+          </div>
+        </form>
+
+        <div id="drug-dropdown" class="drug-dropdown"> <!add formatting>
+          <ul id="drug-list" class="drug-list"></ul>
         </div>
-      </form>
-      
-      <div id="drug-dropdown" class="drug-dropdown"> <!add formatting>
-        <ul id="drug-list" class="drug-list"></ul>
+
+        <div id="output" class="output"></div>
       </div>
-      
-	  <div id="output" class="output"></div>
-    </div>
+    </section>
     	    
     <!---------------------------------Input Bar End--------------------------------->
     
     <!---------------------------------News--------------------------------->
     
-    <section>New Drug News</section>
+    <section>
+    	<div><a href="http://www.example.com"><img src="path/to/image.jpg" alt="News Article 1"></a></div>
+    	<div><a href="http://www.example.com"><img src="path/to/image.jpg" alt="News Article 2"></a></div>
+    	<div><a href="http://www.example.com"><img src="path/to/image.jpg" alt="News Article 3"></a></div>
+    </section>
     
     <!---------------------------------News End--------------------------------->
 	 
     <!---------------------------------Socials--------------------------------->
        
-    <footer>Socials</footer>
+    <footer>
+    
+    	<div style="text-align:center;">
+    		<h2>Contributors<h2>
+        </div>
+    	
+        <section style="background: grey; color: white;">
+			<div>
+			  <a href="https://www.linkedin.com/" target="_blank" class="custom-image-button"><img src="img/linkedin.png" width="50" style="border-radius: 15px;"></a>
+            </div>
+            
+			<div>
+			  <a href="https://www.instagram.com/" target="_blank" class="custom-image-button"><img src="img/instagram.png" width="50" style="border-radius: 15px;"></a>
+            </div>
+            
+        </section>
+    
+    </footer>
 	   
     <!---------------------------------Socials End--------------------------------->
 	    
