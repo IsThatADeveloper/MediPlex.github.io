@@ -19,7 +19,8 @@
     header { 
     	background: grey;
         color: white;
-        padding: 20px;
+        padding: 20px 0px 20px 0px;
+        margin: 0px;
     }
     
     section { 
@@ -38,6 +39,26 @@
     div {
     	margin: auto;
     }
+   
+    ul {
+    	margin: 0;
+        padding 0;
+        list-style-type: none;
+    }
+    
+    li {
+    	display: inline-block;
+        margin: 0 20px 0 0;
+        padding 0;
+    }
+    
+    .dropdown-menu {
+      display: none;
+    }
+
+    .dropdown.show .dropdown-menu {
+      display: block;
+    }
 
 </style>
 	 
@@ -45,7 +66,24 @@
 
      <!---------------------------------Nav Bar--------------------------------->
 
-     <header>Header</header>
+     <header>
+     
+     	<nav>
+          <ul>
+            <li>
+              <img src="img/menu.png" alt="Other Pages">
+              <ul>
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+              </ul>
+            </li>
+            <li>Pharmacy Index</li>
+          </ul>
+        </nav>
+
+     </header>
+     
 
      <!---------------------------------Nav Bar End--------------------------------->
 	  
@@ -59,7 +97,6 @@
     
     <section>
     	<div>a</div>
-        <div>b</div>
     </section>
 		    
     <!---------------------------------Input Bar End--------------------------------->
@@ -72,13 +109,18 @@
 	 
     <!---------------------------------Socials--------------------------------->
        
-    <footer>Socials</section>
+    <footer>Socials</footer>
 	   
     <!---------------------------------Socials End--------------------------------->
 	    
 </body>
     
 <script>
+    
+    const dropdown = document.querySelector('.dropdown');
+    dropdown.addEventListener('click', function() {
+      this.classList.toggle('show');
+    });
 
 </script>
 
