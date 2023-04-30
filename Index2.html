@@ -81,20 +81,22 @@
 
      <header>
      
-     	<nav>
+        <nav>
           <ul>
-            <li>
-              <img src="img/menu.png" alt="Other Pages">
-              <ul>
-                <li><a href="medical.html" class="menu-medical">Medical Index</a></li>
-                <li><a href="how_do_drugs_work.html" class="menu-how_do_drugs_work">Information On Drugs</a></li>
-                <li><a href="recentnews.html" class="menu-recentnews">Recent News</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle">
+                <img src="path/to/image.jpg">
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
               </ul>
             </li>
             <li>Pharmacy Index</li>
           </ul>
         </nav>
-
+        
      </header>
      
 
@@ -170,11 +172,13 @@
     
 <script>
     
-    const dropdown = document.querySelector('.dropdown');
-    dropdown.addEventListener('click', function() {
-      this.classList.toggle('show');
-    });
-    
+  const dropdownToggle = document.querySelector('.dropdown-toggle');
+  const dropdownMenu = document.querySelector('.dropdown-menu');
+  
+  dropdownToggle.addEventListener('click', () => {
+    dropdownMenu.classList.toggle('show');
+  });
+
   const drugList = document.getElementById("drug-list");
   const drugDropdown = document.getElementById("drug-dropdown");
   const drugSearchInput = document.getElementById("search-input");
