@@ -184,12 +184,12 @@
         <form onsubmit="openDrugs(); return false;">
           <label for="search-input" class="search-label"></label>
           <div class="search-container">
-            <input type="text" placeholder="Drug name, Medical condition, etc..." value="" id="search-input" name="search-input" autocomplete="on" class="search-input">
+            <input type="text" placeholder="Drug name, Medical condition, etc..." value="" id="search-input" name="search-input" autocomplete="on" class="search-input" oninput="updateDropdown()">
             <button type="submit" id="search-btn" class="search-button">Search</button>
           </div>
         </form>
 
-        <div id="drug-dropdown" class="drug-dropdown"> <!add formatting>
+        <div id="drug-dropdown" class="drug-dropdown">
           <ul id="drug-list" class="drug-list"></ul>
         </div>
 
@@ -208,21 +208,21 @@
       
       <section style="padding: 50px 0 50px 0;">
           <div class="polaroid">
-          <a href="http://www.example.com"><img src="img/NewsArticleTest.jpg" style="width:100%"></a>
+          <a href="http://www.example.com"><img src="NewsArticleTest.jpg" style="width:100%"></a>
             <div class="container">
             <p>News Article 1</p>
             </div>
           </div>
           
           <div class="polaroid">
-          <a href="http://www.example.com"><img src="img/NewsArticleTest.jpg" style="width:100%;"></a>
+          <a href="http://www.example.com"><img src="NewsArticleTest.jpg" style="width:100%;"></a>
             <div class="container">
             <p>News Article 2</p>
             </div>
           </div>
           
           <div class="polaroid">
-          <a href="http://www.example.com"><img src="img/NewsArticleTest.jpg" style="width:100%"></a>
+          <a href="http://www.example.com"><img src="NewsArticleTest.jpg" style="width:100%"></a>
             <div class="container">
             <p>News Article 3</p>
             </div>
@@ -283,34 +283,6 @@
     drugDropdown.style.display = "none";
   }
 
-  function searchDrugs(searchText) {
-    const filteredDrugs = drugs.filter(drug => drug.name.toLowerCase().includes(searchText.toLowerCase()));
-    const limitedResults = filteredDrugs.slice(0, 20);
-
-    if (limitedResults.length === 0) {
-      outputDiv.textContent = "No results found.";
-    } else if (filteredDrugs.length > 20) {
-      outputDiv.textContent = "More than 20 results found.\nShowing the first 20 results:\n";
-      let resultsString = "";
-      limitedResults.forEach(drug => {
-        resultsString += drug.name + ", ";
-      });
-      resultsString = resultsString.slice(0, -2); // Remove the final comma and space
-      outputDiv.textContent += resultsString;
-    } else {
-      let resultsString = "";
-      limitedResults.forEach(drug => {
-        resultsString += drug.name + ", ";
-      });
-      resultsString = resultsString.slice(0, -2); // Remove the final comma and space
-      if (limitedResults.length === 1) {
-        outputDiv.innerHTML = "1 result found: <span style='color: red'>" + resultsString + "</span>";
-      } else {
-        outputDiv.textContent = limitedResults.length + " results found: " + resultsString;
-      }
-    }
-  }
-
   drugSearchInput.addEventListener("input", event => {
     const searchTerm = event.target.value.trim().toLowerCase();
 
@@ -358,6 +330,32 @@
     }
     return false;
 }
+
+  function updateDropdown() {
+    const input = document.getElementById("search-input").value.toLowerCase();
+    const dropdown = document.getElementById("drug-dropdown");
+    const list = document.getElementById("drug-list");
+
+    list.innerHTML = ""; // clear previous results
+
+    const matches = drugs.filter(drug => drug.name.toLowerCase().includes(input));
+
+    if (matches.length > 0) {
+      dropdown.style.display = "block";
+      matches.forEach(drug => {
+        const item = document.createElement("li");
+        item.textContent = drug.name;
+        item.addEventListener("click", () => {
+          document.getElementById("search-input").value = drug.name;
+          dropdown.style.display = "none";
+        });
+        list.appendChild(item);
+      });
+    } else {
+      dropdown.style.display = "none";
+    }
+}
+</script>
 
 </script>
 
