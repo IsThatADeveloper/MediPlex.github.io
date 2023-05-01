@@ -111,6 +111,22 @@
       text-decoration: none; /* Removes the underline */
       color: inherit; /* Keeps the color of the text the same */
     }
+    
+    .polaroid {
+      width: 25%;
+      background-color: white;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      margin-bottom: 25px;
+    }
+
+    .container {
+      text-align: center;
+      padding: 10px 20px;
+    }
+    
+    .container:hover {
+      color: grey;
+    }
 
 </style>
 	 
@@ -184,13 +200,31 @@
     
     <footer>
 	  <hr style="border: 1px solid grey;">
-    
-      <section style="padding: 100px 0 100px 0;">
-          <div><a href="http://www.example.com"><img src="path/to/image.jpg" alt="News Article 1"></a></div>
-          <div><a href="http://www.example.com"><img src="path/to/image.jpg" alt="News Article 2"></a></div>
-          <div><a href="http://www.example.com"><img src="path/to/image.jpg" alt="News Article 3"></a></div>
+      
+      <h3 style="padding: 5px; text-align: center; color: grey;"><u>Latest News</u></h3>
+      
+      <section style="padding: 50px 0 50px 0;">
+          <div class="polaroid">
+          <a href="http://www.example.com"><img src="img_5terre.jpg" alt="5 Terre" style="width:100%"></a>
+            <div class="container">
+            <p>News Article 1</p>
+            </div>
+          </div>
+          
+          <div class="polaroid">
+          <a href="http://www.example.com"><img src="img_5terre.jpg" alt="5 Terre" style="width:100%"></a>
+            <div class="container">
+            <p>News Article 2</p>
+            </div>
+          </div>
+          
+          <div class="polaroid">
+          <a href="http://www.example.com"><img src="img_5terre.jpg" alt="5 Terre" style="width:100%"></a>
+            <div class="container">
+            <p>News Article 3</p>
+            </div>
+          </div>
       </section>
-    
     </footer>
     
     <!---------------------------------News End--------------------------------->
@@ -200,7 +234,7 @@
     <footer>
 		<hr style="border: 1px solid grey;">
 			
-		<section style="color: black;">
+		<section style="color: black; padding: 100px 0 100px 0;">
 			<div>a</div>
     		<div>b</div>
 		</section>
