@@ -10,7 +10,7 @@
 # **Action Plan:**
 
 - [x] **Create working banner**
-- [x] **Add [grid view](https://www.w3schools.com/css/css_rwd_grid.asp)**
+- [x] **Add [grid view](https://www.w3schools.com/css/css_rwd_grid.asp) (REMAKE OF PAGE INSTEAD)**
 - [ ] **Add search UI dropdown**
 - [ ] **Add image into the search bar**
 - [ ] **Add news articles (made by us) and a webmd system if anything**
