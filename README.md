@@ -10,7 +10,14 @@
 # **Action Plan:**
 
 - [x] **Create working banner**
-- [ ] **Add [grid view](https://www.w3schools.com/css/css_rwd_grid.asp)**
+- [x] **Add [grid view](https://www.w3schools.com/css/css_rwd_grid.asp)**
+- [ ] **Add search UI dropdown**
+- [ ] **Add image into the search bar**
+- [ ] **Add news articles (made by us) and a webmd system if anything**
+- [ ] **Create a better looking page that you are sent to after typing in a drug**
+- [ ] **Add a no results page instead of error**
+- [ ] **Add bottom section to index page (about us, contact, help, etc)**
+- [ ] **New colours maybe??**
 - [ ] **Add more drugs**
 - [ ] **Add News page**
 - [ ] **Create better search system (autosearch)**
