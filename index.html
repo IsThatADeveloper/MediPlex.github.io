@@ -73,10 +73,12 @@
 	bottom: 100%;
     	border-radius: 7px;
         color: black;
+  	transform: translateY(15px);
+  	background-color: transparent;
     }
 		
     .dropdown-menu li {
-	padding: 5px 10px;
+	padding: 10px 0px 0px 10px;
     }
 		
     .dropdown-menu li:hover {
@@ -118,11 +120,11 @@
      <header>
       <nav>
         <ul style="height: 25px;">
-          <li class="dropdown" style="position: relative; width: 100px;">
+          <li class="dropdown" style="position: relative; width: 200px; height: 50px;">
             <a href="#" class="dropdown-toggle">
               <img src="img/menu.png" onclick="toggleDropdown(event)" width="25" height="25">
             </a>
-            <ul class="dropdown-menu" id="dropdown-menu" style="background-color: white;">
+            <ul class="dropdown-menu" id="dropdown-menu">
               <li style="display: block;"><a href="medical.html" class="menu-medical">Medical Index</a></li>
               <li style="display: block;"><a href="how_do_drugs_work.html" class="menu-how_do_drugs_work">Information On Drugs</a></li>
               <li style="display: block;"><a href="recentnews.html" class="menu-recentnews">Recent News</a></li>
