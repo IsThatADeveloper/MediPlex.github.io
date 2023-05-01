@@ -31,7 +31,7 @@
 	header {
 		background: grey;
 		color: white;
-		padding: 25px 0;
+		padding: 20px 0;
 		margin: 0;
 	}
     
@@ -90,23 +90,23 @@
 <body>
 
      <!---------------------------------Nav Bar--------------------------------->
-     
+
      <header>
-       <nav>
-         <ul>
-           <li class="dropdown">
-             <a href="#" class="dropdown-toggle">
-               <img src="img/menu.png" onclick="toggleDropdown(event)" width="25" height="25">
-             </a>
-             <ul class="dropdown-menu" id="dropdown-menu">
-               <li style="display: block; padding: 5 0 5 0;"><a href="#">Link 1</a></li>
-               <li style="display: block; padding: 5 0 5 0;"><a href="#">Link 2</a></li>
-               <li style="display: block; padding: 5 0 5 0;"><a href="#">Link 3</a></li>
-             </ul>
-           </li>
-           <li style="position: absolute; transform: translateY(-30%);"><h3>Pharmacy Index<h3></li>
-         </ul>
-       </nav>
+      <nav>
+        <ul style="height: 25px;">
+          <li class="dropdown" style="position: relative; width: 100px;">
+            <a href="#" class="dropdown-toggle">
+              <img src="img/menu.png" onclick="toggleDropdown(event)" width="25" height="25">
+            </a>
+            <ul class="dropdown-menu" id="dropdown-menu">
+              <li style="display: block; padding: 5px 0;"><a href="#">Link 1</a></li>
+              <li style="display: block; padding: 5px 0;"><a href="#">Link 2</a></li>
+              <li style="display: block; padding: 5px 0;"><a href="#">Link 3</a></li>
+            </ul>
+          </li>
+          <li style="position: absolute; left: 82px; top: 3; transform: translateY(0%);"><h3>Pharmacy Index<h3></li>
+        </ul>
+      </nav>
      </header>
     
      <!---------------------------------Nav Bar End--------------------------------->
@@ -120,7 +120,7 @@
     <!---------------------------------Input Bar--------------------------------->
 
     <section>
-      <div class="bannerImage banner-table" style="text-align:center; background-size: cover; height: 50px; padding: 0 50 0 0;">
+      <div class="bannerImage banner-table" style="text-align:center; background-size: cover; height: 50px; padding: 20;">
         <form onsubmit="openDrugs(); return false;">
           <label for="search-input" class="search-label"></label>
           <div class="search-container">
