@@ -130,7 +130,7 @@
         background-color: lightgrey;
     	border-radius: 12px;
     }
-
+    
 </style>
 	 
 <body>
@@ -184,7 +184,7 @@
         <form onsubmit="openDrugs(); return false;">
           <label for="search-input" class="search-label"></label>
           <div class="search-container">
-            <input type="text" placeholder="Drug name, Medical condition, etc..." value="" id="search-input" name="search-input" autocomplete="on" class="search-input" oninput="updateDropdown()">
+            <input type="text" placeholder="Drug name, Medical condition, etc..." value="" id="search-input" name="search-input" autocomplete="on" class="search-input">
             <button type="submit" id="search-btn" class="search-button">Search</button>
           </div>
         </form>
@@ -196,7 +196,7 @@
         <div id="output" class="output"></div>
       </div>
     </section>
-    	    
+
     <!---------------------------------Input Bar End--------------------------------->
     
     <!---------------------------------News--------------------------------->
@@ -329,33 +329,6 @@
       alert("Drug not found: " + searchTerm + " please try again.");
     }
     return false;
-}
-
-function updateDropdown() {
-  const input = document.getElementById("search-input").value.toLowerCase();
-  const dropdown = document.getElementById("drug-dropdown");
-  const list = document.getElementById("drug-list");
-
-  list.innerHTML = ""; // clear previous results
-
-  const matches = drugs.filter(
-    (drug) => drug.name.toLowerCase().includes(input)
-  );
-
-  if (matches.length > 0) {
-    dropdown.style.display = "block";
-    matches.forEach((drug) => {
-      const item = document.createElement("li");
-      item.textContent = drug.name;
-      item.addEventListener("click", () => {
-        document.getElementById("search-input").value = drug.name;
-        dropdown.style.display = "none";
-      });
-      list.appendChild(item);
-    });
-  } else {
-    dropdown.style.display = "none";
-  }
 }
 </script>
 
