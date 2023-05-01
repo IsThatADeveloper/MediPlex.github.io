@@ -331,29 +331,31 @@
     return false;
 }
 
-  function updateDropdown() {
-    const input = document.getElementById("search-input").value.toLowerCase();
-    const dropdown = document.getElementById("drug-dropdown");
-    const list = document.getElementById("drug-list");
+function updateDropdown() {
+  const input = document.getElementById("search-input").value.toLowerCase();
+  const dropdown = document.getElementById("drug-dropdown");
+  const list = document.getElementById("drug-list");
 
-    list.innerHTML = ""; // clear previous results
+  list.innerHTML = ""; // clear previous results
 
-    const matches = drugs.filter(drug => drug.name.toLowerCase().includes(input));
+  const matches = drugs.filter(
+    (drug) => drug.name.toLowerCase().includes(input)
+  );
 
-    if (matches.length > 0) {
-      dropdown.style.display = "block";
-      matches.forEach(drug => {
-        const item = document.createElement("li");
-        item.textContent = drug.name;
-        item.addEventListener("click", () => {
-          document.getElementById("search-input").value = drug.name;
-          dropdown.style.display = "none";
-        });
-        list.appendChild(item);
+  if (matches.length > 0) {
+    dropdown.style.display = "block";
+    matches.forEach((drug) => {
+      const item = document.createElement("li");
+      item.textContent = drug.name;
+      item.addEventListener("click", () => {
+        document.getElementById("search-input").value = drug.name;
+        dropdown.style.display = "none";
       });
-    } else {
-      dropdown.style.display = "none";
-    }
+      list.appendChild(item);
+    });
+  } else {
+    dropdown.style.display = "none";
+  }
 }
 </script>
 
