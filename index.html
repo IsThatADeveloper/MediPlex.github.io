@@ -136,6 +136,22 @@
     	font-size: 16;
     }
     
+    .input-bubble {
+      position: relative;
+      display: inline-block;
+    }
+
+    .search-button {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+    
 </style>
 	 
 <body>
@@ -189,17 +205,19 @@
         <form onsubmit="openDrugs(); return false;">
           <label for="search-input" class="search-label"></label>
           <div class="search-container">
-            <input type="text" placeholder="Drug name, Medical condition, etc..." value="" id="search-input" name="search-input" autocomplete="off" class="search-input"><i class="fa-solid fa-magnifying-glass"></i></input>
-            <button type="submit" id="search-btn" class="search-button">Submit</button>
+            <div class="input-bubble">
+              <input type="text" placeholder="Drug name, Medical condition, etc..." value="" id="search-input" name="search-input" autocomplete="off" class="search-input"></input>
+              <button type="submit" id="search-btn" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
           </div>
         </form>
         <div id="drug-dropdown" class="drug-dropdown">
           <ul id="drug-list" class="drug-list"></ul>
         </div>
-
         <div id="output" class="output"></div>
       </div>
     </section>
+    
 
     <!---------------------------------Input Bar End--------------------------------->
     
