@@ -12,7 +12,7 @@
 - [x] **Create working banner**
 - [x] **Add [grid view](https://www.w3schools.com/css/css_rwd_grid.asp) (REMAKE OF PAGE INSTEAD)**
 - [ ] **Add search UI dropdown**
-- [ ] **Add image into the search bar**
+- [x] **Add image into the search bar**
 - [ ] **Add news articles (made by us) and a webmd system if anything**
 - [ ] **Create a better looking page that you are sent to after typing in a drug**
 - [ ] **Add a no results page instead of error**
