@@ -314,10 +314,6 @@ third value applies to bottom-right corner, and fourth value applies to bottom-l
   width: 500px;
 }
 
-.search-button {
-  visibility: hidden;
-}
-
 .drug-list {
   display: none;
 }
@@ -328,7 +324,7 @@ third value applies to bottom-right corner, and fourth value applies to bottom-l
   color: #6899a6;
   border: 10px solid transparent;
   width: 300px;
-  /*visibility: hidden;*/
+  visibility: hidden;
 }
 
 /*------------------- Drug Input Bar End -------------------*/
