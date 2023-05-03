@@ -12,7 +12,7 @@
     ];
 
     const resultBox = document.querySelector(".result-box");
-    const inputBox = document.getElementById(".search-input");
+    const inputBox = document.getElementById("search-input");
 
     inputBox.onkeyup = function() { 
         let result = [];
