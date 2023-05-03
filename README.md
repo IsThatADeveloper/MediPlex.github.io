@@ -4,6 +4,7 @@
 
 # **About Website and Pictures**
 ##### [Wallpaper pictures](https://www.wallpaperflare.com/search?wallpaper=pharmacy)
+##### [Icon pictures](https://fontawesome.com/search)
 ##### Banner Dimentions: ```height: 860 px width: 3570 px```
 
 
