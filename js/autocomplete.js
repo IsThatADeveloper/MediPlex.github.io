@@ -31,10 +31,6 @@
     }
 
     function display(result){
-        const content = result.map((list)=>{
-            return "<li onclick=selectInput(this)>" + list + "</li>"
-        });
-
         resultBox.innerHTML = "<ul>" + content.join('') + "</ul>";
     }  
 
