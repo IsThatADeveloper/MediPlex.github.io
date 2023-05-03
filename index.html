@@ -375,7 +375,6 @@
 
         if(input.length >= 2) {
             display(result);
-	    openDrugs();
         }
 
         if(!result.length) {
@@ -390,6 +389,7 @@
         });
 
         resultBox.innerHTML = "<ul>" + content.join('') + "</ul>";
+	openDrugs();
     }  
 
     function selectInput(list) {
