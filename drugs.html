@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
+
    <title>Pharmaceutical Library Drug Information</title>
    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
    <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
@@ -12,31 +14,108 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <script src="index.html"></script>
    <script src="js/drug_info.js"></script>
-  </head>
-  
-  <style></style>
-  
-  <body>
-    <div id="output"></div>
-    <!-- Page content goes here -->
+
+</head>
+
+<style>
+
+    body { 
+    	background: white;
+        color: Black;
+        font-family: Helvetica-neue, Helvetica, Arial, sans-serif;
+  		margin: 0;
+  		padding: 0;   
+    }
+        
+    header {
+		background: grey;
+		color: white;
+		padding: 20px 0;
+		margin: 0;
+    }
     
-    <h2>Pharmacy Website</h2>
+    section { 
+  		background: white;
+  		color: gray;
+  		padding: 20px;
+  		display: flex;
+  		flex-direction: row;
+    }
     
-    <button onclick="goBack()">Go Back</button>
+    footer {
+  		background: white;
+    	color: black;
+  		padding: 10px 20px;
+    }
     
-  </body>
-  
-  <script>
+    div {
+    	margin: auto;
+    }
+   
+    ul {
+    	margin: 0;
+        padding 0;
+        list-style-type: none;
+    }
+    
+    li {
+    	display: inline-block;
+        margin: 0 20px 0 0;
+        padding 0;
+    }
+
+</style>
+
+<body>
+
+    <!---------------------------------Nav Bar--------------------------------->
+
+	<header>NavBar</header>
+    
+    <!---------------------------------Nav Bar End--------------------------------->
+    
+    <!---------------------------------Drugs--------------------------------->
+    
+    <section>General Layout (brands and drugs)
+    
+    	<div>a</div>
+    	<div>a</div>
+    	<div>a</div>
+    	<div>a</div>
+        
+    	<div id="output"></div>
+    
+    </section>
+    
+
+    <!---------------------------------Drugs End--------------------------------->
+    
+    <!---------------------------------About--------------------------------->
+    <section>What does the drug do (and treat) (pictures and all)</section>
+    
+    <!---------------------------------About End--------------------------------->
+    
+    
+    <!---------------------------------Usage--------------------------------->
+    
+    <section>How is the drug used (dosage/extra info)</section>
+    
+    <!---------------------------------Usage End--------------------------------->
+    
+    
+    <footer>Footer</footer>
+    
+</body>
+
+<script>
+
     const selectedDrug = localStorage.getItem('selected-drug');
     const foundDrug = JSON.parse(localStorage.getItem('found-drug'));
     const outputValue = document.getElementById('output');
 
     outputValue.innerHTML = "<br>Found drug: " + foundDrug.name + "<br>Description: " + foundDrug.description + "<br>Type: " + foundDrug.type;
 
-    function goBack() {
-      // Navigate back to the index.html page
-      window.location.replace("index.html");
-    }
-  </script>
-  
+
+</script>
+
 </html>
