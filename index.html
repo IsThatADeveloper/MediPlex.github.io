@@ -324,44 +324,6 @@
   const drugSearchInput = document.getElementById("search-input");
   const searchButton = document.getElementById("search-btn");
   const outputDiv = document.getElementById('output');
-
-  function showDrugList() {
-    drugList.innerHTML = "";
-
-    const searchTerm = drugSearchInput.value.trim().toLowerCase();
-    drugs.forEach(drug => {
-      if (drug.name.toLowerCase().includes(searchTerm)) {
-        const listItem = document.createElement("li");
-        const link = document.createElement("a");
-        link.textContent = drug.name;
-        listItem.appendChild(link);
-        drugList.appendChild(listItem);
-      }
-    });
-
-    drugDropdown.style.display = "block";
-  }
-
-  function hideDrugList() {
-    drugDropdown.style.display = "none";
-  }
-
-  drugSearchInput.addEventListener("input", event => {
-    const searchTerm = event.target.value.trim().toLowerCase();
-
-    if (searchTerm.length === 0) {
-      hideDrugList();
-    } else {
-      showDrugList();
-    }
-
-    searchDrugs(searchTerm);
-  });
-
-  drugList.addEventListener("click", event => {
-    drugSearchInput.value = event.target.textContent;
-    hideDrugList();
-  });
 	   
   searchButton.addEventListener("click", () => {
     const selectedDrug = drugSearchInput.value.trim().toLowerCase();
@@ -394,7 +356,7 @@
     return false;
 }
 
-    let availableKeywords = drugList.innerHTML.name;
+
 
     const resultBox = document.querySelector(".result-box");
     const inputBox = document.getElementById("search-input");
@@ -403,22 +365,21 @@
         let result = [];
         let input = inputBox.value;
         if(input.length) {
-            result = availableKeywords.filter((keyword)=>{
-              return keyword.toLowerCase().includes(input.toLowerCase());
-            });
+            result = drugs.filter((drug)=>{
+              return drug.name.toLowerCase().includes(input.toLowerCase());
+            }).map((drug) => drug.name);
             console.log(result); 
         }
-        
+
         if(input.length >= 2) {
-        	display(result);
+            display(result);
         }
 
         if(!result.length) {
             resultBox.innerHTML = '';
         }
-        
-
     }
+
 
     function display(result){
         const content = result.map((list)=>{
