@@ -349,7 +349,7 @@
     const searchTerm = drugSearchInput.value.trim().toLowerCase();
     const foundDrug = drugs.find(drug => drug.name.toLowerCase() === searchTerm.toLowerCase());
     if (foundDrug) {
-      window.location.href = "pages/drugs.html";
+      window.location.href = "drugs.html";
     } else {
       alert("Drug not found: " + searchTerm + " please try again.");
     }
