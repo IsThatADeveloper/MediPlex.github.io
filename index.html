@@ -348,20 +348,20 @@
     hideDrugList();
   });
 
-function openDrugs() {
-  const searchTerm = inputBox.value.trim().toLowerCase();
-  const foundDrug = drugs.find(drug => drug.name.toLowerCase() === searchTerm);
-  if (foundDrug) {
-    // Store the selected drug and its info in local storage
-    localStorage.setItem('selected-drug', foundDrug.name);
-    localStorage.setItem('found-drug', JSON.stringify(foundDrug));
+	function openDrugs() {
+		const searchTerm = inputBox.value.trim().toLowerCase();
+		const foundDrug = drugs.find(drug => drug.name.toLowerCase() === searchTerm);
+		if (foundDrug) {
+			// Store the selected drug and its info in local storage
+			localStorage.setItem('selected-drug', foundDrug.name);
+			localStorage.setItem('found-drug', JSON.stringify(foundDrug));
 
-    // Open drugs.html
-    window.location.href = "drugs.html";
-  } else {
-    alert("Drug not found: " + searchTerm + " please try again.");
-  }
-  return false;
+			// Open drugs.html
+			window.location.href = "drugs.html";
+		} else {
+			alert("Drug not found: " + searchTerm + " please try again.");
+		}
+		return false;
 }
 
 
