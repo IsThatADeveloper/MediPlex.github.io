@@ -236,25 +236,24 @@
 	 
     <!---------------------------------Input Bar--------------------------------->
 
-	<section>
-		<div class="bannerImage banner-table" style="text-align:center; background-size: cover; height: 50px; padding: 40px 0px 50px 2%;">
-		  <form onsubmit="openDrugs(); return false;">
-			<label for="search-input" class="search-label"></label>
-			<div class="search-container">
-			  <div class="input-bubble">
-				<input type="text" placeholder="Drug name, Medical condition, etc..." value="" id="search-input" name="search-input" autocomplete="off" class="search-input"></input>
-				<button type="submit" id="search-btn" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
-			  </div>
-				<div class="result-box">
-				</div>
-			</div>
-		  </form>
-		  <div id="drug-dropdown" class="drug-dropdown">
-			<ul id="drug-list" class="drug-list"></ul>
-		  </div>
-		  <div id="output" class="output"></div>
+    <section>
+	<div class="bannerImage banner-table" style="text-align:center; background-size: cover; height: 50px; padding: 40px 0px 50px 2%;">
+	    <form onsubmit="openDrugs(); return false;">
+	    <label for="search-input" class="search-label"></label>
+	    <div class="search-container">
+		<div class="input-bubble">
+			<input type="text" placeholder="Drug name, Medical condition, etc..." value="" id="search-input" name="search-input" autocomplete="off" class="search-input"></input>
+			<button type="submit" id="search-btn" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
 		</div>
-	</section>
+			<div class="result-box"></div>
+		</div>
+	    </form>
+		<div id="drug-dropdown" class="drug-dropdown">
+			<ul id="drug-list" class="drug-list"></ul>
+		</div>
+		<div id="output" class="output"></div>
+	    </div>
+    </section>
 
 	
     <!---------------------------------Input Bar End--------------------------------->
