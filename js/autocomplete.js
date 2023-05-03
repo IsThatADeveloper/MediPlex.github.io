@@ -1,5 +1,3 @@
-<script>
-
     let availableKeywords = [
         'drug1',
         'drug2',
@@ -44,4 +42,3 @@
         inputBox.value = list.innerHTML;
         resultBox.innerHTML = '';
     }
-</script>
