@@ -15,6 +15,7 @@
   <script src="js/menu.js"></script>
   <script src="js/drug_info.js"></script>
   <script src="https://kit.fontawesome.com/de329c76bd.js" crossorigin="anonymous"></script>
+  <script src="js/autocomplete.js"></script>
 
 </head>
 	
@@ -177,10 +178,11 @@
         padding: 15px 10px;
         cursor: pointer;
         display: block;
+        background-color: white;
     }
 
     .result-box ul li:hover{
-        background-color: aquamarine;
+        background-color: lightgrey;
     }
 
     .result-box { 
@@ -366,7 +368,7 @@
     const foundDrug = drugs.find(drug => drug.name.toLowerCase() === selectedDrug);
 
     if (foundDrug) {
-      const outputDiv = document.getElementById('output');
+      const outputDiv = drugs.map(drug => drug.name);
 
       // Store the selected drug and its info in local storage
       localStorage.setItem('selected-drug', selectedDrug);
@@ -391,53 +393,45 @@
     }
     return false;
 }
-	
-  let availableKeywords = [
-        'drug1',
-        'drug2',
-        'drug3',
-        'drug4',
-        'drug5',
-        'drug6',
-        'drug7',
-        'drug8',
-        'drug9',
-        'drug10'
-  ];
 
-  const resultBox = document.querySelector(".result-box");
-  const inputBox = document.getElementById("search-input");
+    let availableKeywords = drugList.innerHTML.name;
 
-  inputBox.onkeyup = function() { 
-      let result = [];
-      let input = inputBox.value;
-      if(input.length) {
-          result = availableKeywords.filter((keyword)=>{
-            return keyword.toLowerCase().includes(input.toLowerCase());
-          });
-          console.log(result); 
-      }
-      display(result);
+    const resultBox = document.querySelector(".result-box");
+    const inputBox = document.getElementById("search-input");
 
-      if(!result.length) {
-          resultBox.innerHTML = '';
-      }
+    inputBox.onkeyup = function() { 
+        let result = [];
+        let input = inputBox.value;
+        if(input.length) {
+            result = availableKeywords.filter((keyword)=>{
+              return keyword.toLowerCase().includes(input.toLowerCase());
+            });
+            console.log(result); 
+        }
+        
+        if(input.length >= 2) {
+        	display(result);
+        }
+
+        if(!result.length) {
+            resultBox.innerHTML = '';
+        }
         
 
-  }
+    }
 
-  function display(result){
-      const content = result.map((list)=>{
-          return "<li onclick=selectInput(this)>" + list + "</li>"
-      });
+    function display(result){
+        const content = result.map((list)=>{
+            return "<li onclick=selectInput(this)>" + list + "</li>"
+        });
 
-      resultBox.innerHTML = "<ul>" + content.join('') + "</ul>";
-  }  
+        resultBox.innerHTML = "<ul>" + content.join('') + "</ul>";
+    }  
 
-  function selectInput(list) {
-      inputBox.value = list.innerHTML;
-      resultBox.innerHTML = '';
-}
+    function selectInput(list) {
+        inputBox.value = list.innerHTML;
+        resultBox.innerHTML = '';
+    }
 </script>
 
 </html>
