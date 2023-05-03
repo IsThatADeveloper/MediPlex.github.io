@@ -168,7 +168,6 @@
     }
 	
     .result-box ul{
-        border-top: 1px solid red;
         padding: 15px 10px;
     }
 
@@ -178,16 +177,18 @@
         padding: 15px 10px;
         cursor: pointer;
         display: block;
-        background-color: white;
+        background-color: transparent;
     }
 
     .result-box ul li:hover{
         background-color: lightgrey;
+        border-radius: 8px;
+	
     }
 
     .result-box { 
         max-height: 150px;
-        overflow-y: scroll;
+        overflow-y: hidden;
     }
     
 </style>
