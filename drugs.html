@@ -51,7 +51,7 @@
     }
     
     div {
-        padding: 10px;
+        padding: 15px;
         border-radius: 20px;
         border: black solid 1.5px;
         width: 60%;
@@ -59,12 +59,13 @@
         min-height: 50px;
         overflow: auto;
         text-align: left;
-      	font-size: 14px;
+      	font-size: 15px;
     }
     
     div:hover {
-        padding: 10px;
-        border-radius: 25px;
+    	margin: 0;
+        padding: 15px;
+        border-radius: 20px;
         background-color: lightgrey;
         border: black solid 1.5px;
         width: 59.5%;
@@ -72,7 +73,7 @@
         min-height: 50px;
         overflow: auto;
         text-align: left;
-      	font-size: 14px;
+      	font-size: 15px;
         color: black;
     }
     
@@ -213,9 +214,6 @@
     
     	<h1>General Layout (brands and drugs)</h1>
         
-    	<p><div>b</div></p>
-    	<p><div>c</div></p>
-        
     	<p id="drugname"></p>
     	<p id="othernames"></p>
     	<p id="genericnames"></p>
@@ -229,10 +227,12 @@
     
     <!---------------------------------About--------------------------------->
     <section>
+    	
+        <hr>
 	    
-	What does the drug do (and treat) (pictures and all)
+		<h1>What does the drug do (and treat) (pictures and all)</h1>
     
-	<p><div id="description"></div></p>
+		<p><div id="description"></div></p>
     
     </section>
     
@@ -242,8 +242,10 @@
     <!---------------------------------Usage--------------------------------->
     
     <section>
+    
+    	<hr>
 	    
-	How is the drug used (dosage/extra info)
+		<h1>How is the drug used (dosage/extra info)</h1>
     
      	<p><div id="dosage"></div></p>
     
