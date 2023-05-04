@@ -1,7 +1,6 @@
 const drugs = [
         {
-            name: "Abilify",
-            othernames: ["Aripiprazole", "Abilitat", "Aripiprex"],
+            name: ["Abilify", "Aripiprazole", "Abilitat", "Aripiprex"],
             type: "Brand",
             dosage: {
                 form: "Tablet",
