@@ -227,13 +227,14 @@
     	<p><div>b</div></p>
     	<p><div>c</div></p>
         
-    	<p><div id="drugname"></div></p>
+    	<p></p>
         
-        <p><div id="othernames"></div></p>
-        
-        <p><div id="genericnames"></div></p>
-        
-        <p><div id="type"></div></p>
+        <p>
+        	<div id="drugname"></div>
+        	<div id="othernames"></div>
+			<div id="genericnames"></div>
+			<div id="type"></div>
+        </p>
     
     </section>
     
@@ -289,13 +290,13 @@
 
     var othernamesHtml = "";
     for (var i = 0; i < foundDrug.othernames.length; i++) {
-      othernamesHtml += "Drug name: " + foundDrug.othernames[i] + "<br>";
+      othernamesHtml += "Drug name: <div>" + foundDrug.othernames[i] + "<div><br>";
     }
     drugOthernames.innerHTML = othernamesHtml;
     
-    var genericnameHtml = "";
+    var genericnamesHtml = "";
     for (var i = 0; i < foundDrug.genericNames.length; i++) {
-      genericnameHtml += "Drug name: " + foundDrug.gernicNames[i] + "<br>";
+      genericnameHtml += "Drug name: <div>" + foundDrug.genericNames[i] + "<div><br>";
     }
     drugGenericnames.innerHTML = foundDrug.genericNames;
 
