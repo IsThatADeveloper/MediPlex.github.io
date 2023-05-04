@@ -1,7 +1,15 @@
 const drugs = [
         {
-                description: "a medication used to treat schizophrenia, bipolar disorder, and depression. It works by affecting the activity of certain neurotransmitters in the brain, including dopamine and serotonin. It is also sometimes used to treat irritability associated with autism spectrum disorder."
-        }
+            name: "Abilify",
+            othernames: ["Aripiprazole", "Abilitat", "Aripiprex"],
+            type: "Brand",
+            dosage: {
+                form: "Tablet",
+                strength: "10 mg",
+                frequency: "Once daily"
+            },
+            description: "a medication used to treat schizophrenia, bipolar disorder, and depression. It works by affecting the activity of certain neurotransmitters in the brain, including dopamine and serotonin. It is also sometimes used to treat irritability associated with autism spectrum disorder."
+        },
         { 
                 name: "Adderall", 
                 type: "Brand",  
