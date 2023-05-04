@@ -67,7 +67,7 @@
         border-radius: 25px;
         background-color: lightgrey;
         border: black solid 1.5px;
-        width: 50%;
+        width: 59.5%;
   		overflow-wrap: break-word;
         min-height: 50px;
         overflow: auto;
@@ -76,7 +76,7 @@
         color: black;
     }
     
-    div p {
+    .div p {
     	margin-bottom: 10px;
 	}
    
@@ -213,8 +213,26 @@
     
     	<h1>General Layout (brands and drugs)</h1>
         
+    	<p>
+        	<div>
+            
+            Drug Name: Abilify
+            
+            <br>Generic name: 
+        	
+        	</div>
+        </p>
+        
+        
+    	<p><div>b</div></p>
+    	<p><div>c</div></p>
+        
     	<p><div id="drugname"></div></p>
-        <div id="othernames"></div> 
+        
+        <p><div id="othernames"></div></p>
+        
+        <p><div id="genericnames"></div></p>
+        
         <p><div id="type"></div></p>
     
     </section>
@@ -262,17 +280,24 @@
     const drugType = document.getElementById('type');
     const drugDoseage = document.getElementById('dosage');
     const drugOthernames = document.getElementById('othernames');
+    const drugGenericnames = document.getElementById('genericnames');
 
-    drugName.innerHTML = foundDrug.name;
+	drugName.innerHTML = "Drug name: " + foundDrug.name + "<br>";
     drugDescription.innerHTML = foundDrug.description;
     drugType.innerHTML = foundDrug.type;
     drugDoseage.innerHTML = foundDrug.dosage;
 
     var othernamesHtml = "";
     for (var i = 0; i < foundDrug.othernames.length; i++) {
-      othernamesHtml += "<p>Drug name: <div>" + foundDrug.othernames[i] + "</div></p>";
+      othernamesHtml += "Drug name: " + foundDrug.othernames[i] + "<br>";
     }
     drugOthernames.innerHTML = othernamesHtml;
+    
+    var genericnameHtml = "";
+    for (var i = 0; i < foundDrug.genericNames.length; i++) {
+      genericnameHtml += "Drug name: " + foundDrug.gernicNames[i] + "<br>";
+    }
+    drugGenericnames.innerHTML = foundDrug.genericNames;
 
 </script>
 
