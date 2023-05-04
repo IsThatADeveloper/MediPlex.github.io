@@ -26,28 +26,28 @@
     	background: white;
         color: Black;
         font-family: Helvetica-neue, Helvetica, Arial, sans-serif;
-  		margin: 0;
-  		padding: 0;   
+  	margin: 0;
+  	padding: 0;   
     }
         
     header {
-		background: grey;
-		color: white;
-		padding: 20px 0;
-		margin: 0;
+	background: grey;
+	color: white;
+	padding: 20px 0;
+	margin: 0;
     }
     
     section { 
-      background: white;
-      color: black;
-      padding: 20px;
-      display: block;
+        background: white;
+        color: black;
+        padding: 20px;
+        display: block;
     }
     
     footer {
-  		background: white;
+  	background: white;
     	color: black;
-  		padding: 10px 20px;
+  	padding: 10px 20px;
     }
     
     div {
@@ -55,7 +55,7 @@
         border-radius: 20px;
         border: black solid 1.5px;
         width: 60%;
-  		overflow-wrap: break-word;
+  	overflow-wrap: break-word;
         min-height: 50px;
         overflow: auto;
         text-align: left;
@@ -142,29 +142,29 @@
     }
     
     .dropdown-menu {
-		display: none;
-		padding: 5px 0 0 10px;
-		margin: 0;
-		list-style: none;
-		bottom: 100%;
+	display: none;
+	padding: 5px 0 0 10px;
+	margin: 0;
+	list-style: none;
+	bottom: 100%;
     	border-radius: 7px;
         color: black;
-  		transform: translateY(15px);
-  		background-color: white;
+  	transform: translateY(15px);
+  	background-color: white;
     }
 		
     .dropdown-menu li {
-		padding: 10px 0px 10px 0px;
+	padding: 10px 0px 10px 0px;
     }
 		
     .dropdown-menu li:hover {
-		background-color: #f5f5f5;
+	background-color: #f5f5f5;
     	border-radius: 8px;
-		padding: 10px 5px 10px 5px;
+	padding: 10px 5px 10px 5px;
     }
 		
     .show {
-		display: block;
+	display: block;
     }
 
 </style>
@@ -213,17 +213,6 @@
     
     	<h1>General Layout (brands and drugs)</h1>
         
-    	<p>
-        	<div>
-            
-            Drug Name: Abilify
-            
-            <br>Generic name: 
-        	
-        	</div>
-        </p>
-        
-        
     	<p><div>b</div></p>
     	<p><div>c</div></p>
         
@@ -239,9 +228,11 @@
     <!---------------------------------Drugs End--------------------------------->
     
     <!---------------------------------About--------------------------------->
-    <section>What does the drug do (and treat) (pictures and all)
+    <section>
+	    
+	What does the drug do (and treat) (pictures and all)
     
-		<p><div id="description"></div></p>
+	<p><div id="description"></div></p>
     
     </section>
     
@@ -250,9 +241,11 @@
     
     <!---------------------------------Usage--------------------------------->
     
-    <section>How is the drug used (dosage/extra info)
+    <section>
+	    
+	How is the drug used (dosage/extra info)
     
-        	<p><div id="dosage"></div></p>
+     	<p><div id="dosage"></div></p>
     
     </section>
     
@@ -280,7 +273,7 @@
     const drugOthernames = document.getElementById('othernames');
     const drugGenericnames = document.getElementById('genericnames');
 
-	drugName.innerHTML = "<div> Drug name: " + foundDrug.name + "</div>";
+    drugName.innerHTML = "<div> Drug name: " + foundDrug.name + "</div>";
     drugDescription.innerHTML = foundDrug.description;
     drugType.innerHTML = foundDrug.type;
     drugDoseage.innerHTML = foundDrug.dosage;
@@ -293,9 +286,9 @@
     
     var genericnamesHtml = "";
     for (var i = 0; i < foundDrug.genericNames.length; i++) {
-      genericnameHtml += "<div>Drug name: " + foundDrug.genericNames[i] + "</div>";
+      genericnamesHtml += "<div>Generic name: " + foundDrug.genericNames[i] + "</div>";
     }
-    drugGenericnames.innerHTML = foundDrug.genericNames;
+    drugGenericnames.innerHTML = genericnamesHtml;
 
 </script>
 
