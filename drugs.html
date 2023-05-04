@@ -280,20 +280,20 @@
     const drugOthernames = document.getElementById('othernames');
     const drugGenericnames = document.getElementById('genericnames');
 
-	drugName.innerHTML = "Drug name: " + foundDrug.name + "</div>";
+	drugName.innerHTML = "<div> Drug name: " + foundDrug.name + "</div>";
     drugDescription.innerHTML = foundDrug.description;
     drugType.innerHTML = foundDrug.type;
     drugDoseage.innerHTML = foundDrug.dosage;
 
     var othernamesHtml = "";
     for (var i = 0; i < foundDrug.othernames.length; i++) {
-      othernamesHtml += "Drug name: <div>" + foundDrug.othernames[i] + "</div>";
+      othernamesHtml += "<div>Drug name: " + foundDrug.othernames[i] + "</div>";
     }
     drugOthernames.innerHTML = othernamesHtml;
     
     var genericnamesHtml = "";
     for (var i = 0; i < foundDrug.genericNames.length; i++) {
-      genericnameHtml += "Drug name: <div>" + foundDrug.genericNames[i] + "</div>";
+      genericnameHtml += "<div>Drug name: " + foundDrug.genericNames[i] + "</div>";
     }
     drugGenericnames.innerHTML = foundDrug.genericNames;
 
