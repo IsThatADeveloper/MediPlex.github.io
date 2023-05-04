@@ -77,13 +77,12 @@
     <!---------------------------------Drugs--------------------------------->
     
     <section>General Layout (brands and drugs)
-    
-    	<div>a</div>
-    	<div>a</div>
-    	<div>a</div>
-    	<div>a</div>
         
-    	<div id="output"></div>
+    	<div id="drugname"></div>
+    	<div id="description"></div>
+    	<div id="type"></div>
+    	<div id="dosage"></div>
+    	<div id="othernames"></div>
     
     </section>
     
@@ -111,10 +110,17 @@
 
     const selectedDrug = localStorage.getItem('selected-drug');
     const foundDrug = JSON.parse(localStorage.getItem('found-drug'));
-    const outputValue = document.getElementById('output');
-
-    outputValue.innerHTML = "<br>Found drug: " + foundDrug.name + "<br>Description: " + foundDrug.description + "<br>Type: " + foundDrug.type;
-
+    const drugName = document.getElementById('drugname');
+    const drugDescription = document.getElementById('description');
+    const drugType = document.getElementById('type');
+    const drugDoseage = document.getElementById('dosage');
+    const drugOthernames = document.getElementById('othernames');
+    
+    drugName.innerHTML = foundDrug.name;
+    drugDescription.innerHTML = foundDrug.description;
+    drugType.innerHTML = foundDrug.type;
+    drugDoseage.innerHTML = foundDrug.dosage;
+    drugOthernames.innerHTML = foundDrug.othernames;
 
 </script>
 
