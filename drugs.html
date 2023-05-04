@@ -39,7 +39,7 @@
     
     section { 
       background: white;
-      color: gray;
+      color: black;
       padding: 20px;
       display: block;
     }
@@ -54,7 +54,7 @@
         padding: 10px;
         border-radius: 20px;
         border: black solid 1.5px;
-        width: 50%;
+        width: 60%;
   		overflow-wrap: break-word;
         min-height: 50px;
         overflow: auto;
@@ -73,6 +73,7 @@
         overflow: auto;
         text-align: left;
       	font-size: 14px;
+        color: black;
     }
     
     div p {
@@ -95,7 +96,7 @@
        font-size: 18px;
        font-weight: bold;
        background-color: lightblue;
-       width: 60%;
+       width: 70%;
        height: auto;
        border-radius: 5px;
        border: black solid 1.5px;
@@ -141,29 +142,29 @@
     }
     
     .dropdown-menu {
-	display: none;
-	padding: 5px 0 0 10px;
-	margin: 0;
-	list-style: none;
-	bottom: 100%;
+		display: none;
+		padding: 5px 0 0 10px;
+		margin: 0;
+		list-style: none;
+		bottom: 100%;
     	border-radius: 7px;
         color: black;
-  	transform: translateY(15px);
-  	background-color: white;
+  		transform: translateY(15px);
+  		background-color: white;
     }
 		
     .dropdown-menu li {
-	padding: 10px 0px 10px 0px;
+		padding: 10px 0px 10px 0px;
     }
 		
     .dropdown-menu li:hover {
-	background-color: #f5f5f5;
+		background-color: #f5f5f5;
     	border-radius: 8px;
-	padding: 10px 5px 10px 5px;
+		padding: 10px 5px 10px 5px;
     }
 		
     .show {
-	display: block;
+		display: block;
     }
 
 </style>
@@ -215,6 +216,8 @@
 		<p><div>a</div></p>
         <p><div>b</div></p>
         
+        <p>Drug name: <div id="othernames"></div> </p>
+        
     	<p><div id="drugname"></div></p>
     	<p><div id="description"></div></p>
     	<p><div id="type"></div></p>
@@ -258,12 +261,17 @@
     const drugType = document.getElementById('type');
     const drugDoseage = document.getElementById('dosage');
     const drugOthernames = document.getElementById('othernames');
-    
+
     drugName.innerHTML = foundDrug.name;
     drugDescription.innerHTML = foundDrug.description;
     drugType.innerHTML = foundDrug.type;
     drugDoseage.innerHTML = foundDrug.dosage;
-    drugOthernames.innerHTML = foundDrug.othernames;
+
+    var othernamesHtml = "";
+    for (var i = 0; i < foundDrug.othernames.length; i++) {
+      othernamesHtml += "<p>Drug name: <div>" + foundDrug.othernames[i] + "</div></p>";
+    }
+    drugOthernames.innerHTML = othernamesHtml;
 
 </script>
 
