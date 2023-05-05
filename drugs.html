@@ -320,15 +320,15 @@
 
     var othernamesHtml = "";
     for (var i = 0; i < foundDrug.othernames.length; i++) {
-      othernamesHtml += "<p><div>Brand name: " + foundDrug.othernames[i] + "</div></p>";
+      othernamesHtml += "<p><div> <i class='fa-solid fa-angles-right'></i> Brand name: " + foundDrug.othernames[i] + "</div></p>";
     }
-    drugOthernames.innerHTML = "<i class='fa-solid fa-angles-right'></i> " + othernamesHtml;
+    drugOthernames.innerHTML = othernamesHtml;
     
     var genericnamesHtml = "";
     for (var i = 0; i < foundDrug.genericNames.length; i++) {
-      genericnamesHtml += "<p><div>Generic name: " + foundDrug.genericNames[i] + "</div></p>";
+      genericnamesHtml += "<p><div> <i class='fa-solid fa-angles-right'></i> Generic name: " + foundDrug.genericNames[i] + "</div></p>";
     }
-    drugGenericnames.innerHTML = "<i class='fa-solid fa-angles-right'></i> " + genericnamesHtml;
+    drugGenericnames.innerHTML = genericnamesHtml;
 
 </script>
 
