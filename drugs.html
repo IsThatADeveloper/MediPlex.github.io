@@ -305,7 +305,7 @@
     const drugOthernames = document.getElementById('othernames');
     const drugGenericnames = document.getElementById('genericnames');
     
-    drugName.innerHTML = "<div> <i class='fa-solid fa-angles-right'></i> " + foundDrug.type + " name: " + foundDrug.name + "</div>";
+    drugName.innerHTML = "<div> <i class='fa-solid fa-angles-right'></i> <b>" + foundDrug.type + " name: </b>" + foundDrug.name + "</div>";
     
     
     const description = foundDrug.description;
@@ -313,7 +313,7 @@
     drugDescription.innerHTML = "<i class='fa-solid fa-angles-right'></i> " + capitalizedDescription;
 	
 
-    drugDoseage.innerHTML = "<i class='fa-solid fa-angles-right'></i>Dosage:<br><br>" 
+    drugDoseage.innerHTML = "<i class='fa-solid fa-angles-right'></i> <b>Dosage:</b><br><br>" 
                        + "&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa-solid fa-arrow-right'></i> " + foundDrug.dosage.strength + "<br>" 
                        + "&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa-solid fa-arrow-right'></i> " + foundDrug.dosage.form + "<br>" 
                        + "&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa-solid fa-arrow-right'></i> " + foundDrug.dosage.frequency + "<br>";
@@ -321,13 +321,13 @@
 
     var othernamesHtml = "";
     for (var i = 0; i < foundDrug.othernames.length; i++) {
-      othernamesHtml += "<p><div> <i class='fa-solid fa-angles-right'></i> Brand name: " + foundDrug.othernames[i] + "</div></p>";
+      othernamesHtml += "<p><div> <i class='fa-solid fa-angles-right'></i> <b>Brand name:</b> " + foundDrug.othernames[i] + "</div></p>";
     }
     drugOthernames.innerHTML = othernamesHtml;
     
     var genericnamesHtml = "";
     for (var i = 0; i < foundDrug.genericNames.length; i++) {
-      genericnamesHtml += "<p><div> <i class='fa-solid fa-angles-right'></i> Generic name: " + foundDrug.genericNames[i] + "</div></p>";
+      genericnamesHtml += "<p><div> <i class='fa-solid fa-angles-right'></i> <b>Generic name:</b> " + foundDrug.genericNames[i] + "</div></p>";
     }
     drugGenericnames.innerHTML = genericnamesHtml;
 
