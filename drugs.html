@@ -52,9 +52,9 @@
     
     div {
         padding: 15px;
-        border-radius: 20px;
-        border: black solid 1.5px;
-        width: 60%;
+        border-radius: 8px;
+		border: 1.5px solid rgba(0, 0, 0, 0.3);
+        width: 50%;
   	overflow-wrap: break-word;
         min-height: 50px;
         overflow: auto;
@@ -65,10 +65,10 @@
     div:hover {
     	margin: 0;
         padding: 15px;
-        border-radius: 20px;
+        border-radius: 10px;
         background-color: lightgrey;
-        border: black solid 1.5px;
-        width: 59.5%;
+		border: 1.5px solid rgba(0, 0, 0, 0.4);
+        width: 49.5%;
   		overflow-wrap: break-word;
         min-height: 50px;
         overflow: auto;
@@ -94,10 +94,10 @@
     }
 
     h1 {
-       font-size: 18px;
+       font-size: 16px;
        font-weight: bold;
        background-color: lightblue;
-       width: 70%;
+       width: 60%;
        height: auto;
        border-radius: 5px;
        border: black solid 1.5px;
@@ -167,6 +167,29 @@
     .show {
 	display: block;
     }
+    
+    .left-aligned {
+      width: 64%;
+      display: block;
+      margin: 0;
+      border: none;
+      border-top: 1px solid #000;
+      text-align: left;
+    }
+    
+    .dose ul {
+      	list-style-type: disc;
+      	margin-left: -2.5em;
+	  	text-align:left;
+    }
+    
+    .dose ul li {
+      	list-style-type: disc;
+    	display: block;
+        padding: 2px;
+        text-align: left;
+        margin: 0;
+    }
 
 </style>
 
@@ -226,9 +249,10 @@
     <!---------------------------------Drugs End--------------------------------->
     
     <!---------------------------------About--------------------------------->
+    
     <section>
-    	
-        <hr>
+    
+		<hr class="left-aligned">
 	    
 		<h1>What does the drug do (and treat) (pictures and all)</h1>
     
@@ -243,11 +267,15 @@
     
     <section>
     
-    	<hr>
+    	<hr class="left-aligned">
 	    
 		<h1>How is the drug used (dosage/extra info)</h1>
     
-     	<p><div id="dosage"></div></p>
+		<p>
+        
+        <div id="dosage" class="dose"></div>
+        
+        </p>
     
     </section>
     
@@ -275,22 +303,32 @@
     const drugOthernames = document.getElementById('othernames');
     const drugGenericnames = document.getElementById('genericnames');
 
-    drugName.innerHTML = "<div> Drug name: " + foundDrug.name + "</div>";
-    drugDescription.innerHTML = foundDrug.description;
     drugType.innerHTML = foundDrug.type;
-    drugDoseage.innerHTML = foundDrug.dosage;
+    drugName.innerHTML = "<div> <i class='fa-solid fa-angles-right'></i> " + foundDrug.type + " name: " + foundDrug.name + "</div>";
+    
+    
+    const description = foundDrug.description;
+    const capitalizedDescription = description.charAt(0).toUpperCase() + description.slice(1);
+    drugDescription.innerHTML = "<i class='fa-solid fa-angles-right'></i> " + capitalizedDescription;
+	
+
+    drugDoseage.innerHTML = "<i class='fa-solid fa-angles-right'></i>Dosage:<br><br>" 
+                       + "&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa-solid fa-arrow-right'></i> " + foundDrug.dosage.strength + "<br>" 
+                       + "&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa-solid fa-arrow-right'></i> " + foundDrug.dosage.form + "<br>" 
+                       + "&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa-solid fa-arrow-right'></i> " + foundDrug.dosage.frequency + "<br>";
+
 
     var othernamesHtml = "";
     for (var i = 0; i < foundDrug.othernames.length; i++) {
-      othernamesHtml += "<p><div>Drug name: " + foundDrug.othernames[i] + "</div></p>";
+      othernamesHtml += "<p><div>Brand name: " + foundDrug.othernames[i] + "</div></p>";
     }
-    drugOthernames.innerHTML = othernamesHtml;
+    drugOthernames.innerHTML = "<i class='fa-solid fa-angles-right'></i> " + othernamesHtml;
     
     var genericnamesHtml = "";
     for (var i = 0; i < foundDrug.genericNames.length; i++) {
       genericnamesHtml += "<p><div>Generic name: " + foundDrug.genericNames[i] + "</div></p>";
     }
-    drugGenericnames.innerHTML = genericnamesHtml;
+    drugGenericnames.innerHTML = "<i class='fa-solid fa-angles-right'></i> " + genericnamesHtml;
 
 </script>
 
