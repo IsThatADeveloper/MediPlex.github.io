@@ -4,198 +4,24 @@
 <head>
 
   <title>Pharmaceutical Library Drug Information</title>
+	
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+	
   <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/index.css" media="screen" rel="stylesheet" type="text/css" />
+	
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="js/drug_info.js"></script>
+	
   <script src="https://kit.fontawesome.com/de329c76bd.js" crossorigin="anonymous"></script>
-  <script src="js/autocomplete.js"></script>
+	
+  <script src="js/drug_info.js"></script>
   <script src="index.html"></script>
   <script src="js/drug_info.js"></script>
 
 </head>
-
-<style>
-
-    body { 
-    	background: white;
-        color: Black;
-        font-family: Helvetica-neue, Helvetica, Arial, sans-serif;
-  	margin: 0;
-  	padding: 0;   
-    }
-        
-    header {
-	background: grey;
-	color: white;
-	padding: 20px 0;
-	margin: 0;
-    }
-    
-    section { 
-        background: white;
-        color: black;
-        padding: 20px;
-        display: block;
-    }
-    
-    footer {
-  	background: white;
-    	color: black;
-  	padding: 10px 20px;
-    }
-    
-    div {
-        padding: 15px;
-        border-radius: 8px;
-		border: 1.5px solid rgba(0, 0, 0, 0.3);
-        width: 50%;
-  		overflow-wrap: break-word;
-        min-height: 50px;
-        overflow: auto;
-        text-align: left;
-      	font-size: 15px;
- 	  	margin-left: 10%;
-    }
-    
-    div:hover {
-    	margin: 0;
-        padding: 15px;
-        border-radius: 10px;
-        background-color: lightgrey;
-		border: 1.5px solid rgba(0, 0, 0, 0.4);
-        width: 49.5%;
-  		overflow-wrap: break-word;
-        min-height: 50px;
-        overflow: auto;
-        text-align: left;
-      	font-size: 15px;
-        color: black;
- 	  	margin-left: 10%;
-    }
-    
-    .div p {
-    	margin-bottom: 10px;
-	}
-   
-    ul {
-    	margin: 0;
-        padding 0;
-        list-style-type: none;
-    }
-    
-    li {
-    	display: inline-block;
-        margin: 0 20px 0 0;
-        padding 0;
-    }
-
-    h1 {
-       font-size: 16px;
-       font-weight: bold;
-       background-color: lightblue;
-       width: 60%;
-       height: auto;
-       border-radius: 5px;
-       border: black solid 1.5px;
-       padding: 10px;
- 	   margin-left: 10%;
-    }
-    
-    divnav {
-    	margin: auto;
-    }
-    
-    a {
-      	text-decoration: none; /* Removes the underline */
-      	color: inherit; /* Keeps the color of the text the same */
-    }
-    
-    .search-button i {
-      	font-size: 2em; /* set the font size of the icon to 2 times the default size */
-    }
-    
-    .fa-brands {
-    	width: 30px;
-        height: 20px;
-      	font-size: 2em;
-        padding: 0;
-        margin: 0;
-        color: black;
-    }
-    
-    .custom-image-button:hover .hover-text {
-        display: block;
-    }
-
-    .hover-text {
-        display: none;
-        position: absolute;
-        padding: 5px;
-        border-radius: 5px;
-        color: white;
-        font-size: 12px;
-        background: black;
-    	transform: translateX(0%);
-    	transform: translateY(25px);
-    }
-    
-    .dropdown-menu {
-	display: none;
-	padding: 5px 0 0 10px;
-	margin: 0;
-	list-style: none;
-	bottom: 100%;
-    	border-radius: 7px;
-        color: black;
-  	transform: translateY(15px);
-  	background-color: white;
-    }
-		
-    .dropdown-menu li {
-	padding: 10px 0px 10px 0px;
-    }
-		
-    .dropdown-menu li:hover {
-	background-color: #f5f5f5;
-    	border-radius: 8px;
-	padding: 10px 5px 10px 5px;
-    }
-		
-    .show {
-	display: block;
-    }
-    
-    .left-aligned {
-      width: 64%;
-      display: block;
-      margin: 0;
-      border: none;
-      border-top: 1px solid #000;
-      text-align: left;
- 	  margin-left: 10%;
-    }
-    
-    .dose ul {
-      	list-style-type: disc;
-      	margin-left: -2.5em;
-	  	text-align:left;
-    }
-    
-    .dose ul li {
-      	list-style-type: disc;
-    	display: block;
-        padding: 2px;
-        text-align: left;
-        margin: 0;
-    }
-
-</style>
 
 <body>
 
