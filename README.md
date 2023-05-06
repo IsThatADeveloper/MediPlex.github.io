@@ -1,5 +1,5 @@
 # **About US**
-### Our [Website](https://isthatadeveloper.github.io/pharmacyindexTest.github.io)
+### Our [MediPlex](https://isthatadeveloper.github.io/MediPlex.github.io)
 
 
 # **About Website and Pictures**
