@@ -169,7 +169,52 @@
 	   
    <!---------------------------------Socials End--------------------------------->
 	    
-   </body>
+   <!--------------------------------Newsletter Start----------------------------->
+
+	<form id="newsletter-signup">
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" required>
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email" required>
+		<button type="submit">Sign Up</button>
+		
+		#newsletter-signup {
+  		padding: 20px;
+  		border: 1px solid #ccc;
+  		background-color: #f7f7f7;
+		}
+
+		label, input, button {
+  		display: block;
+  		margin-bottom: 10px;
+		}
+
+		input[type="text"],
+		input[type="email"],
+		button[type="submit"] {
+		  padding: 10px;
+		  border: none;
+		  border-radius: 5px;
+		}
+
+		button[type="submit"] {
+		  background-color: #007bff;
+		  color: #fff;
+		}
+		   
+	 const form = document.querySelector('#newsletter-signup');
+
+		form.addEventListener('submit', (event) => {
+		 event.preventDefault();
+		 const nameInput = document.querySelector('#name');
+		  const emailInput = document.querySelector('#email');
+
+		  // Perform validation on the form fields
+		  // Send the data to a server using AJAX or fetch()
+		}); 
+	 </form>
+	   <!--------------------------------Newsletter End----------------------------->
+	 </body>
 
 
    <script>
