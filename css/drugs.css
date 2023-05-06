@@ -148,19 +148,19 @@
     }
     
     .left-aligned {
-      width: 64%;
-      display: block;
-      margin: 0;
-      border: none;
-      border-top: 1px solid #000;
-      text-align: left;
- 	  margin-left: 10%;
+      	width: 64%;
+      	display: block;
+      	margin: 0;
+     	border: none;
+      	border-top: 1px solid #000;
+      	text-align: left;
+ 	margin-left: 10%;
     }
     
     .dose ul {
       	list-style-type: disc;
       	margin-left: -2.5em;
-	  	text-align:left;
+	text-align:left;
     }
     
     .dose ul li {
@@ -169,4 +169,8 @@
         padding: 2px;
         text-align: left;
         margin: 0;
+    }
+    
+    footer a:hover {
+      	text-decoration: underline;
     }
