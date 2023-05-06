@@ -170,3 +170,7 @@
         max-height: 160px;
         overflow-y: hidden;
     }
+    
+    footer a:hover {
+      text-decoration: underline;
+    }
