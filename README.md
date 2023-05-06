@@ -1,5 +1,5 @@
 # **About US**
-### Our [Mediplex-Pharmacy](https://isthatadeveloper.github.io/Mediplex-Pharmacy.github.io)
+### Our [MediplexPharmacy](https://isthatadeveloper.github.io/MediplexPharmacy.github.io)
 
 
 # **About Website and Pictures**
