@@ -172,6 +172,7 @@
           if (data[0]) {
             // Redirect to drugs.html if drug is valid
             window.location.href = "drugs.html";
+			$('#searched_drug_name').text(drugName);
           } else {
             // Redirect to pagenotfound.html if drug is not valid
             window.location.href = "pagenotfound.html";
