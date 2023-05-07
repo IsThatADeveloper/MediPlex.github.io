@@ -5,23 +5,30 @@
 # **About Website and Pictures**
 ##### [Wallpaper pictures](https://www.wallpaperflare.com/search?wallpaper=pharmacy)
 ##### [Icon pictures](https://fontawesome.com/search)
+##### [Easy Code](https://www.w3schools.com/css/css_rwd_grid.asp)
 ##### Banner Dimentions: ```height: 860 px width: 3570 px```
 
 
 # **Action Plan:**
 
 - [x] **Create working banner**
-- [x] **Add [grid view](https://www.w3schools.com/css/css_rwd_grid.asp) (REMAKE OF PAGE INSTEAD)**
+- [x] **(REMAKE OF WEBSITE)**
 - [x] **Add search UI dropdown**
 - [x] **Add image into the search bar**
-- [ ] **Add news articles (made by us) and a webmd system if anything**
-- [ ] **Create a better looking page that you are sent to after typing in a drug**
-- [ ] **Add a no results page instead of error**
-- [ ] **Add bottom section to index page (about us, contact, help, etc)**
-- [ ] **New colours maybe??**
-- [ ] **Add more drugs**
+- [x] **Create better search system (autosearch)**
+
+- [x] **Add more drugs (API)**
+- [ ] **Style API dropdown and Search Bar**
+- [x] **Add a no results page instead of error**
+- [ ] **Style no results page**
+- [ ] **Style results page using API**
+
+- [x] **Add a footer**
+- [ ] **Add a page that redirects to footer info**
+
 - [ ] **Add News page**
-- [ ] **Create better search system (autosearch)**
+- [ ] **Add news articles (made by us) and a webmd system if anything**
+- [ ] **New colours maybe??**
 - [ ] ...
 
 
@@ -30,13 +37,8 @@
 ##### [HTML Code Index](https://docs.google.com/document/d/1txJtKqCXBK68QiEDWXglem8-mzOtcNsh4MzIJLNIbrs/edit#)
 
 
-# **Types of Drugs we incorperate**:
-
-
-
-
-
-
+# **Types of Drugs we incorperate (API)**:
+ 
 
 ------------------------------------
 
