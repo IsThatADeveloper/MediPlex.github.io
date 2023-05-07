@@ -66,8 +66,9 @@
     <section>
     
     	<h1>General Layout (brands and drugs)</h1>
-        
-    	<p id="drugname"></p>
+	    
+	<p><div><i class='fa-solid fa-angles-right'></i> <b>You searched for</b>: <span id="searched_drug_name"></span></p>
+	    
     	<p id="othernames"></p>
     	<p id="genericnames"></p>
         
@@ -153,42 +154,14 @@
       var dropdown = document.getElementById("dropdown-menu");
       dropdown.classList.toggle("show");
     }
-
-    const selectedDrug = localStorage.getItem('selected-drug');
-    const foundDrug = JSON.parse(localStorage.getItem('found-drug'));
-    const drugName = document.getElementById('drugname');
-    const drugDescription = document.getElementById('description');
-    const drugType = document.getElementById('type');
-    const drugDoseage = document.getElementById('dosage');
-    const drugOthernames = document.getElementById('othernames');
-    const drugGenericnames = document.getElementById('genericnames');
     
-    drugName.innerHTML = "<div> <i class='fa-solid fa-angles-right'></i> <b>" + foundDrug.type + " name: </b>" + foundDrug.name + "</div>";
-    
-    
-    const description = foundDrug.description;
-    const capitalizedDescription = description.charAt(0).toUpperCase() + description.slice(1);
-    drugDescription.innerHTML = "<i class='fa-solid fa-angles-right'></i> " + capitalizedDescription;
-	
+    // Retrieve the searched drug name from localStorage
+    const searchedDrugName = localStorage.getItem('searched_drug_name');
 
-    drugDoseage.innerHTML = "<i class='fa-solid fa-angles-right'></i> <b>Dosage:</b><br><br>" 
-                       + "&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa-solid fa-arrow-right'></i> " + foundDrug.dosage.strength + "<br>" 
-                       + "&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa-solid fa-arrow-right'></i> " + foundDrug.dosage.form + "<br>" 
-                       + "&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa-solid fa-arrow-right'></i> " + foundDrug.dosage.frequency + "<br>";
-
-
-    var othernamesHtml = "";
-    for (var i = 0; i < foundDrug.othernames.length; i++) {
-      othernamesHtml += "<p><div> <i class='fa-solid fa-angles-right'></i> <b>Brand name:</b> " + foundDrug.othernames[i] + "</div></p>";
-    }
-    drugOthernames.innerHTML = othernamesHtml;
-    
-    var genericnamesHtml = "";
-    for (var i = 0; i < foundDrug.genericNames.length; i++) {
-      genericnamesHtml += "<p><div> <i class='fa-solid fa-angles-right'></i> <b>Generic name:</b> " + foundDrug.genericNames[i] + "</div></p>";
-    }
-    drugGenericnames.innerHTML = genericnamesHtml;
-
+    // Set the searched drug name as text content of the span element
+    if (searchedDrugName) {
+        document.getElementById('searched_drug_name').textContent = searchedDrugName;
+    }		
 </script>
 
 </html>
