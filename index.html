@@ -67,25 +67,23 @@
     <!---------------------------------Input Bar--------------------------------->
 
     <section>
-	<div class="bannerImage banner-table" style="text-align:center; background-size: cover; height: 50px; padding: 40px 0px 160px 2%;">
-	    <form onsubmit="openDrugs(); return false;">
-	    <label for="search-input" class="search-label"></label>
-	    <div class="search-container">
-		<div class="input-bubble">
-			<input type="text" placeholder="Drug name, Medical condition, etc..." value="" id="search-input" name="search-input" autocomplete="off" class="search-input" spellcheck="false"></input>
-			<button type="submit" id="search-btn" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
-		</div>
-			<div class="result-box">
-		    
-		    	</div>
-		</div>
-	    </form>
-		<div id="drug-dropdown" class="drug-dropdown">
-			<ul id="drug-list" class="drug-list"></ul>
-		</div>
-		<div id="output" class="output"></div>
-	    </div>
+      <div class="bannerImage banner-table" style="text-align:center; background-size: cover; height: 50px; padding: 40px 0px 160px 2%;">
+        <label for="rxterms"></label>
+        
+		<input type="text" id="rxterms" placeholder="Drug name, Medical condition, etc..." style="border-radius: 12px 0 0 12px; height: 50px; font-size: 16px; padding: 5px; margin: 0; width: 60%; margin-left: 10px; transform: translateX(5px);">
+
+        
+        
+        <label for="drug_strengths"></label>
+        <input type="text" id="drug_strengths" placeholder="Strength list" style="border-radius: 0px 12px 12px 0; height: 50px; font-size: 16px; padding: 5px; margin: 0; border-left: none; width: 30%;">
+        
+        
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+        <script src='https://clinicaltables.nlm.nih.gov/autocomplete-lhc-versions/17.0.2/autocomplete-lhc.min.js'></script>
+      </div>
     </section>
+
 
 	
     <!---------------------------------Input Bar End--------------------------------->
