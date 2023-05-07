@@ -69,11 +69,8 @@
     <section>
       <div class="bannerImage banner-table" style="text-align:center; background-size: cover; height: 50px; padding: 40px 0px 160px 2%;">
         <label for="rxterms"></label>
-        
-		<input type="text" id="rxterms" placeholder="Drug name, Medical condition, etc..." style="border-radius: 12px 0 0 12px; height: 50px; font-size: 16px; padding: 5px; margin: 0; width: 60%; margin-left: 10px; transform: translateX(5px);">
+	<input type="text" id="rxterms" placeholder="Drug name, Medical condition, etc..." style="border-radius: 12px 0 0 12px; height: 50px; font-size: 16px; padding: 5px; margin: 0; width: 60%; margin-left: 10px; transform: translateX(5px);">
 
-        
-        
         <label for="drug_strengths"></label>
         <input type="text" id="drug_strengths" placeholder="Strength list" style="border-radius: 0px 12px 12px 0; height: 50px; font-size: 16px; padding: 5px; margin: 0; border-left: none; width: 30%;">
         
@@ -159,115 +156,35 @@
     
 <script>
     
+  new Def.Autocompleter.Prefetch('drug_strengths', []);
+  new Def.Autocompleter.Search('rxterms', 'https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?ef=STRENGTHS_AND_FORMS', { matchSubset: false }); // add matchSubset option
+
+  $('#rxterms').keypress(function(e) {
+    if (e.which == 13) {
+      var drugName = $('#rxterms')[0].value.trim();
+      if (drugName.length === 0) {
+        // Redirect to pagenotfound.html if drug is not entered
+        window.location.href = "pagenotfound.html";
+      } else {
+        // Check if drug name exists
+        $.getJSON('https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?terms=' + drugName + '&ef=STRENGTHS_AND_FORMS', function(data) {
+          if (data[0]) {
+            // Redirect to drugs.html if drug is valid
+            window.location.href = "drugs.html";
+          } else {
+            // Redirect to pagenotfound.html if drug is not valid
+            window.location.href = "pagenotfound.html";
+          }
+        });
+      }
+    }
+  });
+
   function toggleDropdown(event) {
   	event.preventDefault();
   	var dropdown = document.getElementById("dropdown-menu");
   	dropdown.classList.toggle("show");
   }
-
-  const drugList = document.getElementById("drug-list");
-  const drugDropdown = document.getElementById("drug-dropdown");
-  const drugSearchInput = document.getElementById("search-input");
-  const searchButton = document.getElementById("search-btn");
-  const outputDiv = document.getElementById('output');
-	   
-  searchButton.addEventListener("click", () => {
-    const selectedDrug = drugSearchInput.value.trim().toLowerCase();
-    const foundDrug = drugs.find(drug => drug.name.toLowerCase() === selectedDrug);
-
-    if (foundDrug) {
-      const outputDiv = drugs.map(drug => drug.name);
-
-      // Store the selected drug and its info in local storage
-      localStorage.setItem('selected-drug', selectedDrug);
-      localStorage.setItem('found-drug', JSON.stringify(foundDrug));
-      localStorage.setItem('output-value', outputDiv.innerHTML);
-
-      // Open drugs.html
-      openDrugs();
-    }
-
-    // Hide the drug list
-    hideDrugList();
-  });
-
-  const inputBox = document.getElementById("search-input");
-  const resultBox = document.querySelector(".result-box");
-
-  inputBox.onkeyup = function() { 
-    let result = [];
-    let input = inputBox.value;
-    if (input.length) {
-        result = drugs.filter((drug) => {
-            return (
-                drug.name.toLowerCase().includes(input.toLowerCase()) ||
-                drug.othernames.some((name) => name.toLowerCase().includes(input.toLowerCase())) ||
-                drug.genericNames.some((name) => name.toLowerCase().includes(input.toLowerCase()))
-            );
-        }).map((drug) => {
-            if (drug.name.toLowerCase().includes(input.toLowerCase())) {
-                return drug.name;
-            } else {
-                let matchingOtherName = drug.othernames.find((name) =>
-                    name.toLowerCase().includes(input.toLowerCase())
-                );
-                if (matchingOtherName) {
-                    return matchingOtherName;
-                } else {
-                    let matchingGenericName = drug.genericNames.find((name) =>
-                        name.toLowerCase().includes(input.toLowerCase())
-                    );
-                    if (matchingGenericName) {
-                        return matchingGenericName;
-                    } else {
-                        return "";
-                    }
-                }
-            }
-        }).filter((name) => name !== "");
-    }
-
-    if(input.length >= 2) {
-      display(result);
-    }
-
-    if(!result.length) {
-      resultBox.innerHTML = '';
-    }
-  };
-
-  function display(result){
-    const content = result.map((list)=>{
-      return "<li onclick=selectInput(this)>" + list + "</li>"
-    });
-
-    resultBox.innerHTML = "<ul>" + content.join('') + "</ul>";
-  }  
-
-  function selectInput(list) {
-    inputBox.value = list.innerHTML;
-    resultBox.innerHTML = '';
-    openDrugs();
-  }
-
-  function openDrugs() {
-    const searchTerm = inputBox.value.trim().toLowerCase();
-    const foundDrug = drugs.find(drug => 
-      drug.name.toLowerCase() === searchTerm || 
-      drug.othernames.some(name => name.toLowerCase() === searchTerm)
-    );
-    if (foundDrug) {
-      // Store the selected drug and its info in local storage
-      localStorage.setItem('selected-drug', foundDrug.name);
-      localStorage.setItem('found-drug', JSON.stringify(foundDrug));
-
-      // Open drugs.html
-      window.location.href = "drugs.html";
-    } else {
-      window.location.href = "pagenotfound.html";
-    }
-    return false;
-}
 </script>
 
 </html>
