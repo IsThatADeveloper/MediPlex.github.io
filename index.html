@@ -172,6 +172,7 @@
           if (data[0]) {
           	// Store the searched drug name in localStorage
           	localStorage.setItem('searched_drug_name', drugName);//$('#searched_drug_name').text(drugName);
+          	localStorage.setItem('searched_drug_synonyms', data[0].synonyms.join(", "));
           
           
             // Redirect to drugs.html if drug is valid
