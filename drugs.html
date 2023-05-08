@@ -151,22 +151,17 @@
       dropdown.classList.toggle("show");
     }
     
-    // Retrieve the searched drug name from localStorage
-    const searchedDrugName = localStorage.getItem('searched_drug_name');
+  const searchedDrugName = localStorage.getItem('searched_drug_name');
+  const drugSynonyms = localStorage.getItem('drug_synonyms');
 
-    // Set the searched drug name as text content of the span element
-    if (searchedDrugName) {
-        document.getElementById('searched_drug_name').textContent = searchedDrugName;
-		
-        // Get synonyms for the searched drug name
-        $.getJSON('https://rxnav.nlm.nih.gov/REST/rxcui?name=' + searchedDrugName, function(data) {
-          const rxcui = data.idGroup.rxnormId[0];
-          $.getJSON('https://rxnav.nlm.nih.gov/REST/rxcui/' + rxcui + '/related?tty=SY', function(data) {
-            const synonyms = data.relatedGroup.conceptGroup[0].conceptProperties.map(property => property.name).join(', ');
-            document.getElementById('synonyms').textContent = 'Synonyms: ' + synonyms;
-          });
-        });
-    }   
+  // Set the searched drug name and synonyms as text content of the span element
+  if (searchedDrugName) {
+    document.getElementById('searched_drug_name').textContent = searchedDrugName;
+  }
+
+  if (drugSynonyms) {
+    document.getElementById('drug_synonyms').textContent = 'Synonyms: ' + drugSynonyms;
+  } 
 </script>
 
 
