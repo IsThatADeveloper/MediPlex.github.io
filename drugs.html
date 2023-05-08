@@ -165,7 +165,7 @@
 	
 function drugInfo() {
   const searchedDrug = document.getElementById("drugSearch").value;
-  const url = `https://api.fda.gov/drug/label.json?search=${searchedDrug}&limit=1`;
+  const url = 'https://api.fda.gov/drug/label.json?search=${searchedDrug}&limit=1';
   
   fetch(url)
     .then(response => response.json())
@@ -177,8 +177,8 @@ function drugInfo() {
       const dosage = data.results[0].dosage_and_administration[0];
       
       document.getElementById("searched_drug_name").innerHTML = drugName;
-      document.getElementById("othernames").innerHTML = `Other names: ${otherNames}`;
-      document.getElementById("genericnames").innerHTML = `Generic names: ${genericNames}`;
+      document.getElementById("othernames").innerHTML = 'Other names: ${otherNames}';
+      document.getElementById("genericnames").innerHTML = 'Generic names: ${genericNames}';
       document.getElementById("description").innerHTML = description;
       document.getElementById("dosage").innerHTML = dosage;
     })
