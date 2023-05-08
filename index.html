@@ -157,34 +157,37 @@
     
 <script>
 	
-  new Def.Autocompleter.Prefetch('drug_strengths', []);
-  new Def.Autocompleter.Search('rxterms', 'https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?ef=STRENGTHS_AND_FORMS', { matchSubset: false }); // add matchSubset option
+$('#rxterms').keypress(function(e) {
+  if (e.which == 13) {
+    var drugName = $('#rxterms')[0].value.trim();
+    if (drugName.length === 0) {
+      // Redirect to pagenotfound.html if drug is not entered
+      window.location.href = "pagenotfound.html";
+    } else {
+      // Check if drug name exists
+      $.getJSON('https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?terms=' + drugName + '&ef=STRENGTHS_AND_FORMS', function(data) {
+        if (data[0]) {
+          // Store the searched drug name in localStorage
+          localStorage.setItem('searched_drug_name', drugName);
 
-  $('#rxterms').keypress(function(e) {
-    if (e.which == 13) {
-      var drugName = $('#rxterms')[0].value.trim();
-      if (drugName.length === 0) {
-        // Redirect to pagenotfound.html if drug is not entered
-        window.location.href = "pagenotfound.html";
-      } else {
-        // Check if drug name exists
-        $.getJSON('https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?terms=' + drugName + '&ef=STRENGTHS_AND_FORMS', function(data) {
-          if (data[0]) {
-          	// Store the searched drug name in localStorage
-          	localStorage.setItem('searched_drug_name', drugName);//$('#searched_drug_name').text(drugName);
-          	localStorage.setItem('searched_drug_synonyms', data[0].synonyms.join(", "));
-          
-          
-            // Redirect to drugs.html if drug is valid
-            window.location.href = "drugs.html";
+          // Store the synonyms for the searched drug in localStorage
+          if (data[0].synonyms && data[0].synonyms.length > 0) {
+            localStorage.setItem('searched_drug_synonyms', data[0].synonyms.join(", "));
           } else {
-            // Redirect to pagenotfound.html if drug is not valid
-            window.location.href = "pagenotfound.html";
+            localStorage.setItem('searched_drug_synonyms', '');
           }
-        });
-      }
+          
+          // Redirect to drugs.html if drug is valid
+          window.location.href = "drugs.html";
+        } else {
+          // Redirect to pagenotfound.html if drug is not valid
+          window.location.href = "pagenotfound.html";
+        }
+      });
     }
-  });
+  }
+});
+
 
   function toggleDropdown(event) {
   	event.preventDefault();
