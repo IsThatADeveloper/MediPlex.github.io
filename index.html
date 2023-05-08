@@ -176,9 +176,9 @@ $('#rxterms').keypress(function(e) {
           var rxcui = data[0].rxcui;
 
           // Get synonyms for searched drug
-          $.getJSON('https://rxnav.nlm.nih.gov/REST/rxcui/' + rxcui + '/related.json?tty=SY', function(data) {
-            var synonyms = data.relatedGroup.conceptGroup[0].conceptProperties.map(function(concept) {
-              return concept.name;
+          $.getJSON('https://rxnav.nlm.nih.gov/REST/rxcui/' + rxcui + '/property.json?propName=DISPLAY_NAME_SYNONYM', function(data) {
+            var synonyms = data.propConceptGroup.propConcept.map(function(concept) {
+              return concept.propValue;
             }).join(", ");
 
             // Store the synonyms in localStorage
@@ -195,6 +195,7 @@ $('#rxterms').keypress(function(e) {
     }
   }
 });
+
 
 
   function toggleDropdown(event) {
