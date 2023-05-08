@@ -162,6 +162,28 @@
     if (searchedDrugName) {
         document.getElementById('searched_drug_name').textContent = searchedDrugName;
     }	
+	
+function drugInfo() {
+  const searchedDrug = document.getElementById("drugSearch").value;
+  const url = `https://api.fda.gov/drug/label.json?search=${searchedDrug}&limit=1`;
+  
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const drugName = data.results[0].openfda.brand_name[0];
+      const otherNames = data.results[0].openfda.generic_name.join(", ");
+      const genericNames = data.results[0].openfda.substance_name.join(", ");
+      const description = data.results[0].description[0];
+      const dosage = data.results[0].dosage_and_administration[0];
+      
+      document.getElementById("searched_drug_name").innerHTML = drugName;
+      document.getElementById("othernames").innerHTML = `Other names: ${otherNames}`;
+      document.getElementById("genericnames").innerHTML = `Generic names: ${genericNames}`;
+      document.getElementById("description").innerHTML = description;
+      document.getElementById("dosage").innerHTML = dosage;
+    })
+    .catch(error => console.log(error));
+}
 </script>
 
 </html>
