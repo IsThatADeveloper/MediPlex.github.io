@@ -169,24 +169,12 @@ $('#rxterms').keypress(function(e) {
       // Check if drug name exists
       $.getJSON('https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?terms=' + drugName + '&ef=STRENGTHS_AND_FORMS', function(data) {
         if (data[0]) {
-          // Store the searched drug name in localStorage
+          // Store the searched drug name and synonyms in localStorage
           localStorage.setItem('searched_drug_name', drugName);
+          localStorage.setItem('searched_drug_synonyms', data[0].synonyms.join(", "));
 
-          // Get RXCUI code for searched drug
-          var rxcui = data[0].rxcui;
-
-          // Get synonyms for searched drug
-          $.getJSON('https://rxnav.nlm.nih.gov/REST/rxcui/' + rxcui + '/property.json?propName=DISPLAY_NAME_SYNONYM', function(data) {
-            var synonyms = data.propConceptGroup.propConcept.map(function(concept) {
-              return concept.propValue;
-            }).join(", ");
-
-            // Store the synonyms in localStorage
-            localStorage.setItem('drug_synonyms', synonyms);
-
-            // Redirect to drugs.html if drug is valid
-            window.location.href = "drugs.html";
-          });
+          // Redirect to drugs.html if drug is valid
+          window.location.href = "drugs.html";
         } else {
           // Redirect to pagenotfound.html if drug is not valid
           window.location.href = "pagenotfound.html";
@@ -195,6 +183,7 @@ $('#rxterms').keypress(function(e) {
     }
   }
 });
+
 
 
 
