@@ -68,7 +68,7 @@
     	<h1>General Layout (brands and drugs)</h1>
 	    
     	<p><div><i class='fa-solid fa-angles-right'></i> <b>You searched for</b>: <span id="searched_drug_name"></span></div></p>
-    	<p><div><i class='fa-solid fa-angles-right'></i> <b>Synonyms</b>: <span id="drug_synonyms"></span></div></p>
+    	<p><div><i class='fa-solid fa-angles-right'></i> <b>Synonyms</b>: <span id="searched_drug_synonyms"></span></div></p>
 	
 	hi
     </section>
@@ -162,7 +162,7 @@
   }
 
   if (drugSynonyms) {
-    document.getElementById('drug_synonyms').textContent = 'Synonyms: ' + drugSynonyms;
+    document.getElementById('searched_drug_synonyms').textContent = 'Synonyms: ' + drugSynonyms;
   } 
 </script>
 
