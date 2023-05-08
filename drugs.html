@@ -68,12 +68,7 @@
     	<h1>General Layout (brands and drugs)</h1>
 	    
     	<p><div><i class='fa-solid fa-angles-right'></i> <b>You searched for</b>: <span id="searched_drug_name"></span></div></p>
-	    
-	<p>Other names: <span id="other_names"></span></p>
-	<p>Generic names: <span id="generic_names"></span></p>
-	<p>Description: <span id="description"></span></p>
-	<p>Dosage: <span id="dosage"></span></p>
-	hello
+    	<p><div><i class='fa-solid fa-angles-right'></i> <b>Synonyms</b>: <span id="synonyms"></span></div></p>
     </section>
     
 
@@ -150,7 +145,6 @@
 </body>
 
 <script>
-
     function toggleDropdown(event) {
       event.preventDefault();
       var dropdown = document.getElementById("dropdown-menu");
@@ -163,29 +157,17 @@
     // Set the searched drug name as text content of the span element
     if (searchedDrugName) {
         document.getElementById('searched_drug_name').textContent = searchedDrugName;
-    }	
-	
-function drugInfo() {
-  const searchedDrug = document.getElementById("drugSearch").value;
-  const url = 'https://api.fda.gov/drug/label.json?search=${searchedDrug}&limit=1';
-  
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      const drugName = data.results[0].openfda.brand_name[0];
-      const otherNames = data.results[0].openfda.generic_name.join(", ");
-      const genericNames = data.results[0].openfda.substance_name.join(", ");
-      const description = data.results[0].description[0];
-      const dosage = data.results[0].dosage_and_administration[0];
-      
-      document.getElementById("searched_drug_name").innerHTML = drugName;
-      document.getElementById("othernames").innerHTML = 'Other names: ${otherNames}';
-      document.getElementById("genericnames").innerHTML = 'Generic names: ${genericNames}';
-      document.getElementById("description").innerHTML = description;
-      document.getElementById("dosage").innerHTML = dosage;
-    })
-    .catch(error => console.log(error));
-}
+		
+        // Get synonyms for the searched drug name
+        $.getJSON('https://rxnav.nlm.nih.gov/REST/rxcui?name=' + searchedDrugName, function(data) {
+          const rxcui = data.idGroup.rxnormId[0];
+          $.getJSON('https://rxnav.nlm.nih.gov/REST/rxcui/' + rxcui + '/related?tty=SY', function(data) {
+            const synonyms = data.relatedGroup.conceptGroup[0].conceptProperties.map(property => property.name).join(', ');
+            document.getElementById('synonyms').textContent = 'Synonyms: ' + synonyms;
+          });
+        });
+    }   
 </script>
+
 
 </html>
