@@ -154,16 +154,11 @@
     }
     
   const searchedDrugName = localStorage.getItem('searched_drug_name');
-  const drugSynonyms = localStorage.getItem('drug_synonyms');
 
   // Set the searched drug name and synonyms as text content of the span element
   if (searchedDrugName) {
     document.getElementById('searched_drug_name').textContent = searchedDrugName;
   }
-
-  if (drugSynonyms) {
-    document.getElementById('searched_drug_synonyms').textContent = 'Synonyms: ' + drugSynonyms;
-  } 
 	
   $(document).ready(function() {
     var drugName = 'aspirin'; // Set the drug name here
