@@ -68,6 +68,7 @@
     	<h1>General Layout (brands and drugs)</h1>
 	    
     	<p><div><i class='fa-solid fa-angles-right'></i> <b>You searched for</b>: <span id="searched_drug_name"></span></div></p>
+    	<p><div><i class='fa-solid fa-angles-right'></i> <b>You searched for</b>: <span id="searched_drug_name_original"></span></div></p>
 	
     </section>
     
@@ -173,11 +174,16 @@ function toggleDropdown(event) {
 }
 
 const searchedDrugName = localStorage.getItem('searched_drug_name');
+const searchedDrugNameOriginal = localStorage.getItem('searched_drug_name');
 
 // Set the searched drug name and synonyms as text content of the span element
 if (searchedDrugName) {
   var cleanedDrugName = searchedDrugName.split(" ")[0];
   document.getElementById('searched_drug_name').textContent = cleanedDrugName;
+}
+	
+if (searchedDrugNameOriginal) {
+  document.getElementById('searched_drug_name_original').textContent = searchedDrugNameOriginal;
 }
 </script>
 
