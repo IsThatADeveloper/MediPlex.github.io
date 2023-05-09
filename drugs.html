@@ -146,38 +146,39 @@
 
 <script>
 
-  $(document).ready(function() {
-    var drugName = localStorage.getItem('searched_drug_name'); // Use the searched drug name if available, otherwise set the drug name here
-    
-    var apiKey = 'AIzaSyD0vQjjfejlI1ztfnf-IOqgnlPSQsvXJKg';
-    var url = 'https://kgsearch.googleapis.com/v1/entities:search';
-    url += '?query=' + encodeURIComponent(drugName);
-    url += '&types=Drug';
-    url += '&limit=1';
-    url += '&key=' + apiKey;
-    
-    $.getJSON(url, function(data) {
-      if (data.itemListElement.length > 0) {
-        var description = data.itemListElement[0].result.detailedDescription.articleBody;
-        $('#drug-info').html('<p>' + description + '</p>');
-      } else {
-        $('#drug-info').html('<p>No information found for ' + drugName + '</p>');
-      }
-    });
-  });
-
-  function toggleDropdown(event) {
-    event.preventDefault();
-    var dropdown = document.getElementById("dropdown-menu");
-    dropdown.classList.toggle("show");
-  }
+$(document).ready(function() {
+  var searchedDrugName = localStorage.getItem('searched_drug_name');
+  var drugName = searchedDrugName ? searchedDrugName.split(" ")[0]; // Use the searched drug name if available, otherwise set the drug name here
   
-  const searchedDrugName = localStorage.getItem('searched_drug_name');
+  var apiKey = 'AIzaSyD0vQjjfejlI1ztfnf-IOqgnlPSQsvXJKg';
+  var url = 'https://kgsearch.googleapis.com/v1/entities:search';
+  url += '?query=' + encodeURIComponent(drugName);
+  url += '&types=Drug';
+  url += '&limit=1';
+  url += '&key=' + apiKey;
+  
+  $.getJSON(url, function(data) {
+    if (data.itemListElement.length > 0) {
+      var description = data.itemListElement[0].result.detailedDescription.articleBody;
+      $('#drug-info').html('<p>' + description + '</p>');
+    } else {
+      $('#drug-info').html('<p>No information found for ' + drugName + '</p>');
+    }
+  });
+});
 
-  // Set the searched drug name and synonyms as text content of the span element
-  if (searchedDrugName) {
-    document.getElementById('searched_drug_name').textContent = searchedDrugName;
-  }
+function toggleDropdown(event) {
+  event.preventDefault();
+  var dropdown = document.getElementById("dropdown-menu");
+  dropdown.classList.toggle("show");
+}
+
+const searchedDrugName = localStorage.getItem('searched_drug_name');
+
+// Set the searched drug name and synonyms as text content of the span element
+if (searchedDrugName) {
+  document.getElementById('searched_drug_name').textContent = searchedDrugName;
+}
 
 </script>
 
