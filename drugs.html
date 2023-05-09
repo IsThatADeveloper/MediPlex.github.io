@@ -159,26 +159,6 @@
   if (searchedDrugName) {
     document.getElementById('searched_drug_name').textContent = searchedDrugName;
   }
-	
-  $(document).ready(function() {
-    var drugName = 'aspirin'; // Set the drug name here
-        
-    var apiKey = 'AIzaSyD0vQjjfejlI1ztfnf-IOqgnlPSQsvXJKg';
-    var url = 'https://kgsearch.googleapis.com/v1/entities:search';
-    url += '?query=' + encodeURIComponent(drugName);
-    url += '&types=Drug';
-    url += '&limit=1';
-    url += '&key=' + apiKey;
-        
-    $.getJSON(url, function(data) {
-    if (data.itemListElement.length > 0) {
-        var description = data.itemListElement[0].result.detailedDescription.articleBody;
-        $('#drug-info').html('<p>' + description + '</p>');
-     } else {
-        $('#drug-info').html('<p>No information found for ' + drugName + '</p>');
-     }
-   );
-});
 </script>
 
 
