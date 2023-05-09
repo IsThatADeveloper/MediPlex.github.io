@@ -145,10 +145,9 @@
 </body>
 
 <script>
-
 $(document).ready(function() {
   var searchedDrugName = localStorage.getItem('searched_drug_name');
-  var drugName = searchedDrugName ? searchedDrugName.split(" ")[0]; // Use the searched drug name if available, otherwise set the drug name here
+  var drugName = searchedDrugName ? searchedDrugName.split(" ")[0] : ''; // Use the searched drug name if available, otherwise set the drug name here
   
   var apiKey = 'AIzaSyD0vQjjfejlI1ztfnf-IOqgnlPSQsvXJKg';
   var url = 'https://kgsearch.googleapis.com/v1/entities:search';
@@ -177,9 +176,9 @@ const searchedDrugName = localStorage.getItem('searched_drug_name');
 
 // Set the searched drug name and synonyms as text content of the span element
 if (searchedDrugName) {
-  document.getElementById('searched_drug_name').textContent = searchedDrugName;
+  var cleanedDrugName = searchedDrugName.split(" ")[0];
+  document.getElementById('searched_drug_name').textContent = cleanedDrugName;
 }
-
 </script>
 
 
