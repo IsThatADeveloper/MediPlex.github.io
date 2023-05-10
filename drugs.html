@@ -69,8 +69,8 @@
 	    
     	<p><div><i class='fa-solid fa-angles-right'></i> <b>You searched for</b>: <span id="searched_drug_name"></span></div></p>
     	<p><div><i class='fa-solid fa-angles-right'></i> <b>You searched for</b>: <span id="searched_drug_name_original"></span></div></p>
-	
-	hi
+    	<p><div><i class='fa-solid fa-angles-right'></i> <b>You searched for</b>: <span id="generic_drug_name"></span></div></p>
+
     </section>
     
 
@@ -185,6 +185,14 @@ $(document).ready(function() {
             $('#drug-info').html('<p>No information found for ' + nameToSearch + '</p>');
           }
         });
+        
+        // Set the text content of the generic and brand name span elements
+        if (genericName !== '') {
+          document.getElementById('generic_name').textContent = 'Generic Name: ' + genericName;
+        }
+        if (brandName !== '') {
+          document.getElementById('brand_name').textContent = 'Brand Name: ' + brandName;
+        }
       });
     } else {
       $('#drug-info').html('<p>No information found for ' + drugName + '</p>');
@@ -198,17 +206,24 @@ function toggleDropdown(event) {
   dropdown.classList.toggle("show");
 }
 
+// Get the searched drug name and generic name (if available) from local storage
 const searchedDrugName = localStorage.getItem('searched_drug_name');
-const searchedDrugNameOriginal = localStorage.getItem('searched_drug_name');
+const searchedDrugNameOriginal = localStorage.getItem('searched_drug_name_original');
+const genericDrugName = localStorage.getItem('generic_drug_name');
 
 // Set the searched drug name and synonyms as text content of the span element
 if (searchedDrugName) {
   var cleanedDrugName = searchedDrugName.split(" ")[0];
   document.getElementById('searched_drug_name').textContent = cleanedDrugName;
 }
-	
+
 if (searchedDrugNameOriginal) {
   document.getElementById('searched_drug_name_original').textContent = searchedDrugNameOriginal;
+}
+
+// If the generic drug name is available, display it in the HTML
+if (genericDrugName) {
+  document.getElementById('generic_drug_name').textContent = genericDrugName;
 }
 </script>
 
