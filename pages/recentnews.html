@@ -3,7 +3,7 @@
 
 <head>
 	
-  <title>Recent Drug News</title>
+  <title>Mediplex Pharmacy Library Home</title>
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
 	
   <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
@@ -63,213 +63,133 @@
     <section class="bannerImage" style="background: url('img/pillindex_banner.jpg') no-repeat center; background-size: cover; height: 300px;"></section>
 	  
     <!---------------------------------Banner End---------------------------------> 
+	 
+    <!---------------------------------Input Bar--------------------------------->
 
+    <section>
+      <div class="bannerImage banner-table" style="text-align:center; background-size: cover; height: 50px; padding: 40px 0px 160px 2%;">
+        <label for="rxterms"></label>
+	<input type="text" id="rxterms" placeholder="Drug name, Medical condition, etc..." style="border-radius: 12px 0 0 12px; height: 80px; font-size: 16px; padding: 10px; margin: 0; width: 60%; margin-left: 10px; transform: translateX(5px);">
 
+	<label for="drug_strengths"></label>
+	<input type="text" id="drug_strengths" placeholder="Strength list" style="border-radius: 0px 12px 12px 0; height: 80px; font-size: 16px; padding: 10px; margin: 0; border-left: none; width: 30%;">
 
-<!doctype>
-<html>
-
-<head>
-  <title>Pharmaceutical Library Home</title>
-  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="js/menu.js"></script>
-
-  <style>
-    .menu-recentnews {
-      color: rgb(255, 255, 255) !important;
-      opacity: 1 !important;
-      font-weight: 700 !important;
-    }
-
-	  
-    * {
-      box-sizing: border-box;
-    }
-	  
-    /* Style the header */
-    .header {
-      grid-area: header;
-      background-color: #f1f1f1;
-      padding: 30px;
-      text-align: center;
-      font-size: 35px;
-    }
-
-    /* The grid container */
-    .grid-container {
-      display: grid;
-      grid-template-areas: 
-        'header header header header header header' 
-        'left middle middle middle middle right' 
-        'footer footer footer footer footer footer';
-      /* grid-column-gap: 10px; - if you want gap between the columns */
-    } 
-
-    .left,
-    .middle,
-    .right {
-      padding: 10px;
-      height:500px; /* Should be removed. Only for demonstration */
-    }
-
-    /* Style the left column */
-    .left {
-      grid-area: left;
-    }
-
-    /* Style the middle column */
-    .middle {
-      grid-area: middle;
-    }
-
-    /* Style the right column */
-    .right {
-      grid-area: right;
-    }
-
-    /* Style the footer */
-    .footer {
-      grid-area: footer;
-      background-color: #f1f1f1;
-      padding: 10px;
-      text-align: center;
-    }
-	  
-    @media (max-width: 600px) {
-      .grid-container  {
-        grid-template-areas: 
-          'header header header header header header' 
-          'left left left left left left' 
-          'middle middle middle middle middle middle' 
-          'right right right right right right' 
-          'footer footer footer footer footer footer';
-      }
-  }
-
-  </style>
-	
-  <body>
-
-  <div class="menu-container"></div>
-  <div class="content-container">
-	  
-   <!---------------------------------banner--------------------------------->
-	  
-   <div class="bannerImage" style="background: url('img/pillindex_banner.jpg') no-repeat center; background-size: cover; height: 300px;">
-    <div class="banner-table flex-column"></div>
-   </div>
-
-   <div class="banner" style="background-color: #ffffff; color: #000000;">
-    <div class="banner-table flex-column">
-      <div class="flex-row">
-        <div class="flex-item flex-column">
-          <h2 class="add-top-margin-small">Multi<span style="color: #57cbcc;">X</span> @ UvA Informatics Institute, Amsterdam</h2>
-          <p class="text">
-            We research multimedia analytics by developing AI techniques for getting the richest information possible from the data, visualizations, and interactions surpassing human and machine intelligence.
-            We blend multi-modal data in effective interfaces for applications and social impact in public health, forensics and law enforcement, cultural heritage, and data-driven business.
-          </p>
-        </div>
+        
+        
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+        <script src='https://clinicaltables.nlm.nih.gov/autocomplete-lhc-versions/17.0.2/autocomplete-lhc.min.js'></script>
       </div>
-    </div>
-   </div>    
-   <!---------------------------------banner end---------------------------------> 
-	  
-   <div class="grid-container">
+    </section>
+
+
+	
+    <!---------------------------------Input Bar End--------------------------------->
+    
+    <!---------------------------------News--------------------------------->
+    
+    <footer>
+      <hr style="border: none; height: 1px; background-color: grey;"></hr>
+      
+      <h3 style="padding: 5px; text-align: center; color: grey;"><u>Latest News</u></h3>
+      
+      <section style="padding: 50px 0 50px 0;">
+          <div class="polaroid">
+          <a href="http://www.example.com"><img src="img/NewsArticleTest.jpg" style="width:100%"></a>
+            <div class="container">
+            <p>News Article 1</p>
+            </div>
+          </div>
+          
+          <div class="polaroid">
+          <a href="http://www.example.com"><img src="img/NewsArticleTest.jpg" style="width:100%;"></a>
+            <div class="container">
+            <p>News Article 2</p>
+            </div>
+          </div>
+          
+          <div class="polaroid">
+          <a href="http://www.example.com"><img src="img/NewsArticleTest.jpg" style="width:100%"></a>
+            <div class="container">
+            <p>News Article 3</p>
+            </div>
+          </div>
+      </section>
+    </footer>
+    
+    <!---------------------------------News End--------------------------------->
 	 
-   <div class="left" style="background-color:#aaa;"></div>
-	 
-   <!---------------------------------input bar--------------------------------->
-	    
-   <div class="middle" style="background-color:#ffffff; text-align:center; padding-top:100px;">
-     <label for="search-input" class="search-label"><b>Drug Name:</b></label>
-     <input type="text" placeholder="Drug Name" value="" id="search-input" name="search-input" autocomplete="on" class="search-input">
-     <button id="search-btn" class="search-button">Search</button>
-     <div id="drug-dropdown" class="drug-dropdown"> <!add formatting>
-       <ul id="drug-list" class="drug-list"></ul>
-     </div>
-       <div class="footer" style="text-align:center; background-color:#ffffff;">
-       <div id="output" class="output" style="text-align:left;  width: 500px; overflow-x: auto;"></div>
-     </div>
-   </div>  
-	 
-   <!---------------------------------input bar end--------------------------------->
-	 
-   <!---------------------------------Socials--------------------------------->
-	      
-   <div class="right" style="background-color:#ffffff; border-radius: 0px 20px 20px 0px; padding: 20px;">  
-   
-   <div style="text-align:center;">
-     <h2>About Us</h2>
-   </div>
-	    
-   <div style="text-align:left;">
-     <b>Social media:</b>
-   </div>
-   
-   <div class="footer">
-   <div style="text-align:left; background-color:#ffffff;">
-     <b>Instagram:</b>	  
-     <div class="control-group">
-       <a href="https://www.instagram.com/" target="_blank" class="custom-image-button">
-         <img src="img/instagram.png" width="50">
-       </a>
-     </div>
-   </div>
-   </div>
-   
-   <div class="footer">
-   <div style="text-align:left; background-color:#ffffff;">
-     <b>LinkedIn:</b>	  
-     <div class="control-group">
-       <a href="https://www.linkedin.com/" target="_blank" class="custom-image-button">
-         <img src="img/linkedin.png" width="50">
-       </a>
-     </div>
-   </div>
-   </div>
+    <!---------------------------------Footer--------------------------------->
+		
+    <footer>
+      <hr style="border: none; height: 1px; background-color: grey;"></hr>
+      <section style="color: black; padding: 100px 0 100px 0; display: flex; align-items: stretch;">
+        <div>
+          <i class="fa-solid fa-address-card"></i>
+          <p style="margin-left: -31%;"><a href="https://www.yourpharmacy.com/reviews">About Us</a></p>
+          <p style="margin-left: -31%;"><a href="https://www.yourpharmacy.com/reviews">Privacy Policy</a></p>
+          <p style="margin-left: -31%;"><a href="https://www.yourpharmacy.com/reviews">Social Media</a></p>
+          <br> <! adjust height !>
+        </div>
+        <div>
+          <i class="fa-solid fa-certificate"></i>
+          <p style="margin-left: -18%;"><a href="https://www.yourpharmacy.com/reviews">Partnerships</a></p>
+          <p style="margin-left: -18%;"><a href="https://www.yourpharmacy.com/reviews">Reviews</a></p>
+          <p style="margin-left: -18%;"><a href="https://www.yourpharmacy.com/reviews">Hours of Operation</a></p>
+          <p style="margin-left: -18%;"><a href="https://www.yourpharmacy.com/shipping">Customer Service</a></p>
+        </div>
+      </section>
+    </footer>
+
+    <footer>
+    
+    	<hr>
+          <br>
+	    Copyright © 2023 MediPlexPharmacy. All rights reserved.
+
+    </footer>
 	   
-   <!---------------------------------Socials End--------------------------------->
+	   
+    <!---------------------------------Footer End--------------------------------->
+	    
+</body>
+    
+<script>
+	
+  new Def.Autocompleter.Prefetch('drug_strengths', []);
+  new Def.Autocompleter.Search('rxterms', 'https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?ef=STRENGTHS_AND_FORMS', { matchSubset: false }); // add matchSubset option
 
-	 </body>
-
-
-   <script>
-      // Google Analytics code
-      (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-          (i[r].q = i[r].q || []).push(arguments);
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-          m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m);
-      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-      ga('create', 'UA-10682694-20', 'auto');
-      ga('send', 'pageview');
-
-      // Create custom tabs
-      function init() {
-        widgets = new edaplotjs.Widgets();
-
-        $(".custom-tab").each(function (i, element) {
-          widgets.createCustomTab({
-            selector: element,
-          });
+  $('#rxterms').keypress(function(e) {
+    if (e.which == 13) {
+      var drugName = $('#rxterms')[0].value.trim();
+      if (drugName.length === 0) {
+        // Redirect to pagenotfound.html if drug is not entered
+        window.location.href = "pagenotfound.html";
+      } else {
+        // Check if drug name exists
+        $.getJSON('https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?terms=' + drugName + '&ef=STRENGTHS_AND_FORMS', function(data) {
+          if (data[0]) {
+          	// Store the searched drug name in localStorage
+          	localStorage.setItem('searched_drug_name', drugName);//$('#searched_drug_name').text(drugName);
+          
+          
+            // Redirect to drugs.html if drug is valid
+            window.location.href = "drugs.html";
+          } else {
+            // Redirect to pagenotfound.html if drug is not valid
+            window.location.href = "pagenotfound.html";
+          }
         });
       }
+    }
+  });
 
-      $(document).ready(function() {
-        init();
-      });
+
+  function toggleDropdown(event) {
+  	event.preventDefault();
+  	var dropdown = document.getElementById("dropdown-menu");
+  	dropdown.classList.toggle("show");
+  }
+</script>
 
 </html>
