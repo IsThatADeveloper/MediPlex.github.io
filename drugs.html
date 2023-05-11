@@ -166,7 +166,7 @@ $(document).ready(function() {
               if (conceptGroup.tty === 'IN') { // IN = Ingredient
                 genericName = conceptGroup.conceptProperties[0].name;
               } else if (conceptGroup.tty === 'BN') { // BN = Brand Name
-                brandName = conceptGroup.conceptProperties[0].name;
+                brandName = searchedDrugName && conceptGroup.conceptProperties[0].name ? conceptGroup.conceptProperties[0].name : '';
               }
             }
           }
@@ -181,6 +181,11 @@ $(document).ready(function() {
             if (data.itemListElement.length > 0) {
               var description = data.itemListElement[0].result.detailedDescription.articleBody;
               $('#drug-info').html('<p>' + description + '</p>');
+         
+              document.getElementById('generic_name').textContent = "generic name: " + nameToSearch;
+              
+              document.getElementById('brand_name').textContent = "brand name: " + brandName;
+                        
             } else {
               $('#drug-info').html('<p>No information found for ' + nameToSearch + '</p>');
             }
