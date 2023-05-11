@@ -152,12 +152,6 @@
     return str.replace(/(?<!\(.*) (?!\(.*\))|(?<=\([^)]*) (?=\w)/g, '_');
   }
 
-
-  function addUnderscores(str) {
-    return str.replace(/(?<!\(.*) (?!\(.*\))|(?<=\([^)]*) (?=\w)/g, '_');
-  }
-
-
 $(document).ready(function() {
     var searchedDrugName = localStorage.getItem('searched_drug_name');
     var drugName = searchedDrugName ? searchedDrugName.split(" ")[0] : ''; // Use the searched drug name if available, otherwise set the drug name here
