@@ -216,6 +216,17 @@ $(document).ready(function() {
   if (searchedDrugNameOriginal) {
     document.getElementById('searched_drug_name_original').textContent = searchedDrugNameOriginal;
   }
+	
+  $.ajax({
+    url: "https://api.fda.gov/drug/label.json?search=openfda.generic_name:" + drugName,
+    type: "GET",
+    success: function(response) {
+      // Handle the API response
+      var brandedName = response.results[0].openfda.brand_name[0];
+      localStorage.setItem('brand_name', brandedName);
+      document.getElementById('brand_name').textContent = "brand name: " + brandedName;
+    }
+  });
 </script>
 
 
