@@ -153,12 +153,17 @@
   }
 
 
+  function addUnderscores(str) {
+    return str.replace(/(?<!\(.*) (?!\(.*\))|(?<=\([^)]*) (?=\w)/g, '_');
+  }
+
+
 $(document).ready(function() {
     var searchedDrugName = localStorage.getItem('searched_drug_name');
-    var drugName = searchedDrugName ? addUnderscores(searchedDrugName.split(" ")[0]) : ''; // Use the searched drug name if available, otherwise set the drug name here
+    var drugName = searchedDrugName ? searchedDrugName.split(" ")[0] : ''; // Use the searched drug name if available, otherwise set the drug name here
     
     // Use RxNorm API to get the generic name of the drug
-    var rxNormUrl = 'https://rxnav.nlm.nih.gov/REST/rxcui.json?name=' + encodeURIComponent(drugName);
+    var rxNormUrl = 'https://rxnav.nlm.nih.gov/REST/rxcui.json?name=' + encodeURIComponent(addUnderscores(drugName));
     $.getJSON(rxNormUrl, function(rxData) {
       if (rxData.idGroup.rxnormId.length > 0) {
         var rxNormId = rxData.idGroup.rxnormId[0];
