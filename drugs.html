@@ -154,7 +154,8 @@
 
 $(document).ready(function() {
     var searchedDrugName = localStorage.getItem('searched_drug_name');
-    var drugName = searchedDrugName ? searchedDrugName.split(" ")[0] : ''; // Use the searched drug name if available, otherwise set the drug name here
+    var drugName = searchedDrugName ? searchedDrugName.split(" ")[0] : '';
+    drugName = drugName.replace(/\s+\(.*\)/, ''); // Remove everything in parentheses
     
     // Use RxNorm API to get the generic name of the drug
     var rxNormUrl = 'https://rxnav.nlm.nih.gov/REST/rxcui.json?name=' + encodeURIComponent(addUnderscores(drugName));
