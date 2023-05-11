@@ -153,12 +153,12 @@
   }
 
 $(document).ready(function() {
-    var searchedDrugName = localStorage.getItem('searched_drug_name');
+    var searchedDrugName = 'Peginterferon alfa-2a (Injectable)';
+    searchedDrugName = addUnderscores(searchedDrugName.replace(/\s+\(.*\)/, ''));
     var drugName = searchedDrugName ? searchedDrugName.split(" ")[0] : '';
-    drugName = drugName.replace(/\s+\(.*\)/, ''); // Remove everything in parentheses
     
     // Use RxNorm API to get the generic name of the drug
-    var rxNormUrl = 'https://rxnav.nlm.nih.gov/REST/rxcui.json?name=' + encodeURIComponent(addUnderscores(drugName));
+    var rxNormUrl = 'https://rxnav.nlm.nih.gov/REST/rxcui.json?name=' + encodeURIComponent(drugName);
     $.getJSON(rxNormUrl, function(rxData) {
       if (rxData.idGroup.rxnormId.length > 0) {
         var rxNormId = rxData.idGroup.rxnormId[0];
