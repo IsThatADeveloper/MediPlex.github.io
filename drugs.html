@@ -167,7 +167,7 @@ $(document).ready(function() {
               if (conceptGroup.tty === 'IN') { // IN = Ingredient
                 genericName = conceptGroup.conceptProperties[0].name;
               } else if (conceptGroup.tty === 'BN') { // BN = Brand Name
-                brandName = searchedDrugName && conceptGroup.conceptProperties[0].name ? conceptGroup.conceptProperties[0].name : '';
+                brandName = conceptGroup.conceptProperties[0].name;
               }
             }
           }
