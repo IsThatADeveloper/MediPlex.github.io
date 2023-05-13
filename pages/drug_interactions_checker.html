@@ -49,22 +49,15 @@
       }
     </style>
   </head>
+  <h1> DRUG INTERACTIONS CHECKER</h1>
+  </head>
   <body>
-   <div class="contentBox">
-<h1>Drug Interactions Checker</h1>
-<p class='noprint'>Enter a drug name and select the best match from the list of suggestions; repeat the process to add multiple drugs. Check for drug interactions and save your list for future reference.</p>
-<div class="ddc-box ddc-box-secondary">
-	<form class="interactions-search" method="get" action="/interaction/list/">
-		<div class="ddc-input-group-action">
-			<label>
-				<span class="ddc-form-label-placeholder">Drug name</span>
-				<input type="text" id="livesearch-interaction-basic" class="livesearch" name='searchterm' placeholder='Enter a drug name' aria-describedby='hint-interactions-search'>
-			</label>
-			<input class="ddc-btn" type="submit" value="Add">
-		</div>
-		<span id='hint-interactions-search' class='ddc-form-hint noprint'>Type a drug name in the box above to get started.</span>
-	</form>
-</div>
+    <form role="search" id="form">
+      <input type="search" id="query" name="q" placeholder="Enter Drug Name..." aria-label="Search through site content">
+      <button>
+        <svg viewBox="0 0 1024 1024"><path class="path1" d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z"></path></svg>
+      </button>
+    </form>
     <script>
       const f = document.getElementById('form');
       const q = document.getElementById('query');
