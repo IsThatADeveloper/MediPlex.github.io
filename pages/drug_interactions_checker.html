@@ -1,102 +1,136 @@
 <!doctype>
 <html>
+
 <head>
-  <title>Drug Interactions Checker</title>
+	
+  <title>Mediplex Pharmacy Library Home</title>
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+	
   <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/index.css" media="screen" rel="stylesheet" type="text/css" />
+	
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="js/menu.js"></script>
-  <style>
-    .menu-drug_interactions_checker { 
-      color: rgb(255, 255, 255) !important;
-      opacity: 1 !important;
-      font-weight: 700 !important;
-    }
-	  
-    * {
-      box-sizing: border-box;
-    }
-	  
-    /* Style the header */
-    .header {
-      grid-area: header;
-      background-color: #f1f1f1;
-      padding: 30px;
-      text-align: left;
-      font-size: 17px;
-    }
-    /* The grid container */
-    .grid-container {
-      display: grid;
-      grid-template-areas: 
-        'header header header header header header' 
-        'left middle middle middle right right' 
-        'footer footer footer footer footer footer';
-      /* grid-column-gap: 10px; - if you want gap between the columns */
-    } 
-    .left,
-    .middle,
-    .right {
-      padding: 10px;
-      height:500px; /* Should be removed. Only for demonstration */
-    }
-    /* Style the left column */
-    .left {
-      grid-area: left;
-    }
-    /* Style the middle column */
-    .middle {
-      grid-area: middle;
-    }
-    /* Style the right column */
-    .right {
-      grid-area: right;
-    }
-    /* Style the footer */
-    .footer {
-      grid-area: footer;
-      background-color: #f1f1f1;
-      padding: 10px;
-      text-align: center;
-    }
-  }
-  </style>
-	
-  <body>
-  <div class="menu-container"></div>
-  <div class="content-container">
-	  
-   <!---------------------------------banner--------------------------------->
-  <head>
-	<style>
-		.banner {
-		   position: relative;
-		   background-image: url('img/Interactions_wallpaper_2.jpg');
-		   background-size: cover;
-		   height: 270px;
-		   color: #7c9aa6;
-		  }
-		 
-		.banner-text {
-	            position: absolute;
-		    top: 50%;
-		    left: 50%;
-	            transform: translate(-50%, -50%);
-	            text-align: center;
-		    font-size: 1em;
-		  }
-	   </style>
+  <script src="js/drug_info.js"></script>
+  <script src="https://kit.fontawesome.com/de329c76bd.js" crossorigin="anonymous"></script>
+  <script src="js/autocomplete.js"></script>
+
 </head>
+	 
 <body>
-	<div class="banner">
-		<div class="banner-text">
-			<h1>Drug Interactions Checker</h1>
-		</div>
-	</div>
+
+     <!---------------------------------Nav Bar--------------------------------->
+
+     <header>
+        <nav>
+          <ul style="height: 25px;">
+            <li class="dropdown" style="position: relative; width: 200px; height: 50px;">
+              <a href="#" class="dropdown-toggle">
+                <img src="img/menu.png" onclick="toggleDropdown(event)" width="25" height="25">
+              </a>
+              <ul class="dropdown-menu" id="dropdown-menu">
+                <li style="display: block;"><a href="pages/medical.html">Mediplex Pharmacy</a></li>
+                <li style="display: block;"><a href="pages/how_do_drugs_work.html">Information On Drugs</a></li>
+                <li style="display: block;"><a href="pages/recentnews.html">Recent News</a></li>
+		<li style="display: block;"><a href="pages/drug_interactions_checker.html">Drug Interactions Checker</a></li>
+              </ul>
+            </li>
+            <li style="position: absolute; left: 82px; top: -1.6%; transform: translateY(-3%);"><h2 style="color: black;"><a href="index.html">Mediplex Pharmacy</a></h2></li>
+            <li style="position: absolute; right: 30px; top: 3%; transform: translateY(-3%);">
+              <div style="display: inline-block; margin-left: 10px;">
+                <a href="https://www.linkedin.com/" target="_blank" class="custom-image-button">
+                  <i class="fa-brands fa-linkedin"></i>
+                  <span class="hover-text">Follow us on LinkedIn</span>
+                </a>
+              </div>
+              <div style="display: inline-block; margin-left: 10px;">
+                <a href="https://www.instagram.com/" target="_blank" class="custom-image-button">
+                  <i class="fa-brands fa-instagram"></i>
+                  <span class="hover-text">Follow us on Instagram</span>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+     </header>
+    
+  <!---------------------------------Nav Bar End--------------------------------->
+	
+  <!---------------------------------Footer--------------------------------->
+		
+    <footer>
+      <hr style="border: none; height: 1px; background-color: grey;"></hr>
+      <section style="color: black; padding: 100px 0 100px 0; display: flex; align-items: stretch;">
+        <div>
+          <i class="fa-solid fa-address-card"></i>
+          <p style="margin-left: -31%;"><a href="https://www.yourpharmacy.com/reviews">About Us</a></p>
+          <p style="margin-left: -31%;"><a href="https://www.yourpharmacy.com/reviews">Privacy Policy</a></p>
+          <p style="margin-left: -31%;"><a href="https://www.yourpharmacy.com/reviews">Social Media</a></p>
+          <br> <! adjust height !>
+        </div>
+        <div>
+          <i class="fa-solid fa-certificate"></i>
+          <p style="margin-left: -18%;"><a href="https://www.yourpharmacy.com/reviews">Partnerships</a></p>
+          <p style="margin-left: -18%;"><a href="https://www.yourpharmacy.com/reviews">Reviews</a></p>
+          <p style="margin-left: -18%;"><a href="https://www.yourpharmacy.com/reviews">Hours of Operation</a></p>
+          <p style="margin-left: -18%;"><a href="https://www.yourpharmacy.com/shipping">Customer Service</a></p>
+        </div>
+      </section>
+    </footer>
+
+    <footer>
+    
+    	<hr>
+          <br>
+	    Copyright © 2023 MediPlexPharmacy. All rights reserved.
+
+    </footer>
+	   
+	   
+    <!---------------------------------Footer End--------------------------------->
+	    
 </body>
-  <!--------------------------End of Banner------------------------------------->
+    
+<script>
+	
+  new Def.Autocompleter.Prefetch('drug_strengths', []);
+  new Def.Autocompleter.Search('rxterms', 'https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?ef=STRENGTHS_AND_FORMS', { matchSubset: false }); // add matchSubset option
+
+  $('#rxterms').keypress(function(e) {
+    if (e.which == 13) {
+      var drugName = $('#rxterms')[0].value.trim();
+      if (drugName.length === 0) {
+        // Redirect to pagenotfound.html if drug is not entered
+        window.location.href = "pagenotfound.html";
+      } else {
+        // Check if drug name exists
+        $.getJSON('https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?terms=' + drugName + '&ef=STRENGTHS_AND_FORMS', function(data) {
+          if (data[0]) {
+          	// Store the searched drug name in localStorage
+          	localStorage.setItem('searched_drug_name', drugName);//$('#searched_drug_name').text(drugName);
+          
+          
+            // Redirect to drugs.html if drug is valid
+            window.location.href = "drugs.html";
+          } else {
+            // Redirect to pagenotfound.html if drug is not valid
+            window.location.href = "pagenotfound.html";
+          }
+        });
+      }
+    }
+  });
+
+
+  function toggleDropdown(event) {
+  	event.preventDefault();
+  	var dropdown = document.getElementById("dropdown-menu");
+  	dropdown.classList.toggle("show");
+  }
+</script>
+
+</html>
+	  
