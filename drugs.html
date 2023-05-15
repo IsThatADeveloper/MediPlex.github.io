@@ -148,93 +148,50 @@
 </body>
 
 <script>
-$(document).ready(function() {
-  var searchedDrugName = localStorage.getItem('searched_drug_name');
-  var drugName = searchedDrugName ? searchedDrugName.split(" ")[0] : ''; // Use the searched drug name if available, otherwise set the drug name here
+  function addUnderscores(str) {
+    return str.replace(/(?<!\(.*) (?!\(.*\))|(?<=\([^)]*) (?=\w)/g, '_');
+  }
   
-  var apiKey = 'AIzaSyD0vQjjfejlI1ztfnf-IOqgnlPSQsvXJKg';
-  var url = 'https://kgsearch.googleapis.com/v1/entities:search';
-  url += '?query=' + encodeURIComponent(drugName);
-  url += '&types=Drug';
-  url += '&limit=1';
-  url += '&key=' + apiKey;
-  
-  $.getJSON(url, function(data) {
-    if (data.itemListElement.length > 0) {
-      var description = data.itemListElement[0].result.detailedDescription.articleBody;
-      $('#drug-info').html('<p>' + description + '</p>');
-    } else {
-	    
-      //if it doesnt find info
-      var searchedDrugName = localStorage.getItem('searched_drug_name');
-      searchedDrugName = addUnderscores(searchedDrugName.replace(/\s+\(.*\)/, ''));
-      var drugName = searchedDrugName ? searchedDrugName.split(" ")[0] : '';
+  $(document).ready(function() {
+    var searchedDrugName = localStorage.getItem('searched_drug_name');
+    searchedDrugName = addUnderscores(searchedDrugName.replace(/\s+\(.*\)/, ''));
+    var drugName = searchedDrugName ? searchedDrugName.split(" ")[0] : '';
 
-      // Use RxNorm API to get the generic name of the drug
-      var rxNormUrl = 'https://rxnav.nlm.nih.gov/REST/rxcui.json?name=' + encodeURIComponent(drugName);
-      $.getJSON(rxNormUrl, function(rxData) {
-        if (rxData.idGroup.rxnormId.length > 0) {
-          var rxNormId = rxData.idGroup.rxnormId[0];
-          var rxInfoUrl = 'https://rxnav.nlm.nih.gov/REST/rxcui/' + rxNormId + '/related.json?tty=IN';
-          $.getJSON(rxInfoUrl, function(rxInfoData) {
-            var genericName = '';
-            var brandName = '';
-            if (rxInfoData.relatedGroup.conceptGroup) {
-              for (var i = 0; i < rxInfoData.relatedGroup.conceptGroup.length; i++) {
-                var conceptGroup = rxInfoData.relatedGroup.conceptGroup[i];
-                if (conceptGroup.tty === 'IN') { // IN = Ingredient
-                  genericName = conceptGroup.conceptProperties[0].name;
-                } else if (conceptGroup.tty === 'BN') { // BN = Brand Name
-                  brandName = conceptGroup.conceptProperties[0].name;
-                }
-              }
-            }
-            var nameToSearch = genericName !== '' ? genericName : brandName !== '' ? brandName : drugName;
-            var apiKey = 'AIzaSyD0vQjjfejlI1ztfnf-IOqgnlPSQsvXJKg';
-            var url = 'https://kgsearch.googleapis.com/v1/entities:search';
-            url += '?query=' + encodeURIComponent(nameToSearch);
-            url += '&types=Drug';
-            url += '&limit=1';
-            url += '&key=' + apiKey;
-            $.getJSON(url, function(data) {
-              if (data.itemListElement.length > 0) {
-                var description = data.itemListElement[0].result.detailedDescription.articleBody;
-                $('#drug-info').html('<p>' + description + '</p>');
+    var apiKey = 'AIzaSyD0vQjjfejlI1ztfnf-IOqgnlPSQsvXJKg';
+    var url = 'https://kgsearch.googleapis.com/v1/entities:search';
+    url += '?query=' + encodeURIComponent(drugName);
+    url += '&types=Drug';
+    url += '&limit=1';
+    url += '&key=' + apiKey;
 
-                document.getElementById('generic_name').textContent = "generic name: " + nameToSearch;
-
-              } else {
-                $('#drug-info').html('<p>No information found for ' + nameToSearch + '</p>');
-              }
-            });
-          });
-        } else {
-          $('#drug-info').html('<p>No information found for ' + drugName + '</p>');
-	      }
-	    });
-	  }); 
-    }
+    $.getJSON(url, function(data) {
+      if (data.itemListElement.length > 0) {
+        var description = data.itemListElement[0].result.detailedDescription.articleBody;
+        $('#drug-info').html('<p>' + description + '</p>');
+      } else {
+        $('#drug-info').html('<p>No information found for ' + drugName + '</p>');
+      }
+    });
   });
-});
 
-function toggleDropdown(event) {
-  event.preventDefault();
-  var dropdown = document.getElementById("dropdown-menu");
-  dropdown.classList.toggle("show");
-}
+  function toggleDropdown(event) {
+    event.preventDefault();
+    var dropdown = document.getElementById("dropdown-menu");
+    dropdown.classList.toggle("show");
+  }
 
-const searchedDrugName = localStorage.getItem('searched_drug_name');
-const searchedDrugNameOriginal = localStorage.getItem('searched_drug_name');
+  const searchedDrugName = localStorage.getItem('searched_drug_name');
+  const searchedDrugNameOriginal = localStorage.getItem('searched_drug_name');
 
-// Set the searched drug name and synonyms as text content of the span element
-if (searchedDrugName) {
-  var cleanedDrugName = searchedDrugName.split(" ")[0];
-  document.getElementById('searched_drug_name').textContent = cleanedDrugName;
-}
-	
-if (searchedDrugNameOriginal) {
-  document.getElementById('searched_drug_name_original').textContent = searchedDrugNameOriginal;
-}
+  // Set the searched drug name and synonyms as text content of the span element
+  if (searchedDrugName) {
+    var cleanedDrugName = searchedDrugName.split(" ")[0];
+    document.getElementById('searched_drug_name').textContent = cleanedDrugName;
+  }
+
+  if (searchedDrugNameOriginal) {
+    document.getElementById('searched_drug_name_original').textContent = searchedDrugNameOriginal;
+  }
 </script>
 
 
