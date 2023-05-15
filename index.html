@@ -158,7 +158,7 @@
 <script>
 	
   new Def.Autocompleter.Prefetch('drug_strengths', []);
-  new Def.Autocompleter.Search('rxterms', 'https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?ef=STRENGTHS_AND_FORMS', { matchSubset: false }); // add matchSubset option
+  new Def.Autocompleter.Search('rxterms', 'https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?ef=DISPLAY_NAME', { matchSubset: false }); // add matchSubset option
 
   $('#rxterms').keypress(function(e) {
     if (e.which == 13) {
