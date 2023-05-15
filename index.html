@@ -168,7 +168,7 @@
         window.location.href = "pagenotfound.html";
       } else {
         // Check if drug name exists
-        $.getJSON('https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?terms=' + drugName + '&ef=STRENGTHS_AND_FORMS', function(data) {
+        $.getJSON('https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?terms=' + drugName + '&ef=DISPLAY_NAME', function(data) {
           if (data[0]) {
           	// Store the searched drug name in localStorage
           	localStorage.setItem('searched_drug_name', drugName);//$('#searched_drug_name').text(drugName);
