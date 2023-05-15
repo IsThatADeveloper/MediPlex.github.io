@@ -169,7 +169,9 @@
         var description = data.itemListElement[0].result.detailedDescription.articleBody;
         $('#drug-info').html('<p>' + description + '</p>');
       } else {
-        getDrugInformation();
+	if(description == null) {
+           getDrugInformation();
+	}
       }
     });
   });
