@@ -147,36 +147,25 @@
       if (searchedDrugName) {
           const apiURL = 'https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?terms=' + searchedDrugName + '&ef=SXDG_RXCUI';
 
-          $.get(apiURL)
-            .done(function(data) {
-              console.log('API response:', data);
-              const sxdgRxcui = data[2].SXDG_RXCUI;
-              console.log('SXDG_RXCUI:', sxdgRxcui);
+      $.get(apiURL)
+        .done(function(data) {
+          console.log('API response:', data);
+          const names = data[1]; // Array of names
+          const sxdgRxcui = data[2].SXDG_RXCUI;     
+          console.log('SXDG_RXCUI:', sxdgRxcui);
 
-              // Iterate over each SXDG_RXCUI value
-              for (let i = 0; i < sxdgRxcui.length; i++) {
-                const rxcui = sxdgRxcui[i];
+          // Pair names with corresponding RXCUI values
+          const nameRxcuiPairs = [];
+          for (let i = 0; i < names.length; i++) {
+            const name = names[i];
+            const rxcui = sxdgRxcui[i];
+            nameRxcuiPairs.push({ name, rxcui });
+          }
 
-                // Make a request to the drug info API using the rxcui value
-                const drugInfoURL = `https://rxnav.nlm.nih.gov/REST/rxcui/${rxcui}/allrelated.json`;
-
-                $.get(drugInfoURL)
-                  .done(function(drugData) {
-                    console.log(`Drug Info for rxcui ${rxcui}:`, drugData);
-
-                    const conceptProperties = drugData.allRelatedGroup.conceptGroup.reduce((acc, conceptGroup) => {
-                      if (conceptGroup.conceptProperties) {
-                        acc.push(...conceptGroup.conceptProperties);
-                      }
-                      return acc;
-                    }, []);
-
-                    const nameRxcuiPairs = conceptProperties.map(property => ({ name: property.name, rxcui }));
-                    const formattedPairs = nameRxcuiPairs.map(pair => `<div><i class='fa-solid fa-angles-right'></i> <b>You searched for:</b> ${pair.name} (RXCUI: ${pair.rxcui})<br></div>`);
-
-                    drugNameAndRxcui.innerHTML = formattedPairs.join('<br>');
-                  });
-              }
+          console.log('Name-RXCUI pairs:', nameRxcuiPairs);
+          // Do something with the name-rxcui pairs
+        });
+    }
             });
         }
     });    
