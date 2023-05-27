@@ -166,7 +166,7 @@
         
         let formattedPairs;
         if (nameRxcuiPairs.length === 1) {
-          formattedPairs = ["only one name"];
+          formattedPairs = ["only one name" + { rxcui }];
         } else {
           formattedPairs = nameRxcuiPairs.map(pair => `<div><i class='fa-solid fa-angles-right'></i> <b>You searched for:</b> ${pair.name} (RXCUI: ${pair.rxcui})<br></div>`);
         }
