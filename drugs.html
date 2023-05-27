@@ -128,48 +128,45 @@
 </body>
 
 <script>
-    function toggleDropdown(event) {
-      event.preventDefault();
-      var dropdown = document.getElementById("dropdown-menu");
-      dropdown.classList.toggle("show");
-    }
-    
+  function toggleDropdown(event) {
+    event.preventDefault();
+    var dropdown = document.getElementById("dropdown-menu");
+    dropdown.classList.toggle("show");
+  }
+
+  const searchedDrugName = localStorage.getItem('searched_drug_name');
+
+  if (searchedDrugName) {
+    document.getElementById('searched_drug_name').textContent = searchedDrugName;
+  }
+
+  const drugNameAndRxcui = document.getElementById('drug_name_and_rxcui');
+
+  $(document).ready(function() {
     const searchedDrugName = localStorage.getItem('searched_drug_name');
-    
     if (searchedDrugName) {
-        document.getElementById('searched_drug_name').textContent = searchedDrugName;
-    }
-    
-    const drugNameAndRxcui = document.getElementById('drug_name_and_rxcui');
+      const apiURL = 'https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?terms=' + searchedDrugName + '&ef=SXDG_RXCUI';
 
-    $(document).ready(function() {
-      const searchedDrugName = localStorage.getItem('searched_drug_name');
-      if (searchedDrugName) {
-          const apiURL = 'https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?terms=' + searchedDrugName + '&ef=SXDG_RXCUI';
+      $.get(apiURL).done(function(data) {
+        console.log('API response:', data);
+        const names = data[1]; // Array of names
+        const sxdgRxcui = data[2].SXDG_RXCUI;
+        console.log('SXDG_RXCUI:', sxdgRxcui);
 
-      $.get(apiURL)
-        .done(function(data) {
-          console.log('API response:', data);
-          const names = data[1]; // Array of names
-          const sxdgRxcui = data[2].SXDG_RXCUI;     
-          console.log('SXDG_RXCUI:', sxdgRxcui);
-
-          // Pair names with corresponding RXCUI values
-          const nameRxcuiPairs = [];
-          for (let i = 0; i < names.length; i++) {
-            const name = names[i];
-            const rxcui = sxdgRxcui[i];
-            nameRxcuiPairs.push({ name, rxcui });
-          }
-
-          console.log('Name-RXCUI pairs:', nameRxcuiPairs);
-          // Do something with the name-rxcui pairs
-        });
-    }
-            });
+        // Pair names with corresponding RXCUI values
+        const nameRxcuiPairs = [];
+        for (let i = 0; i < names.length; i++) {
+          const name = names[i];
+          const rxcui = sxdgRxcui[i];
+          nameRxcuiPairs.push({ name, rxcui });
         }
-    });    
-    
+
+        console.log('Name-RXCUI pairs:', nameRxcuiPairs);
+        const formattedPairs = nameRxcuiPairs.map(pair => `<div><i class='fa-solid fa-angles-right'></i> <b>You searched for:</b> ${pair.name} (RXCUI: ${pair.rxcui})<br></div>`);
+        drugNameAndRxcui.innerHTML = formattedPairs.join('<br>');
+      });
+    }
+  });
 </script>
 
 </html>
