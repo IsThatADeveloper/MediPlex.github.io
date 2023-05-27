@@ -142,9 +142,10 @@
                     }, []);
 
                     const nameRxcuiPairs = conceptProperties.map(property => ({ name: property.name, rxcui }));
-                    console.log(`Name-RXCUI Pairs for rxcui ${rxcui}:`, nameRxcuiPairs);
-                  
-                    drugNameAndRxcui.innerHTML = `<i class='fa-solid fa-angles-right'></i> <b>You searched for:</b><br><br>&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa-solid fa-arrow-right'></i> ${nameRxcuiPairs}<br>`;
+                    const formattedPairs = nameRxcuiPairs.map(pair => `${pair.name} (RXCUI: ${pair.rxcui})`).join(', ');
+
+
+                    drugNameAndRxcui.innerHTML = `<i class='fa-solid fa-angles-right'></i> <b>You searched for:</b><br><br>&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa-solid fa-arrow-right'></i> ${formattedPairs}<br>`;
                   });
               }
             });
