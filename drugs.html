@@ -98,23 +98,23 @@
   </footer>
 
   <script>
-    function toggleDropdown(event) {
-      event.preventDefault();
-      var dropdown = document.getElementById("dropdown-menu");
-      dropdown.classList.toggle("show");
-    }
-    
-    const searchedDrugName = localStorage.getItem('searched_drug_name');
-    
-    if (searchedDrugName) {
-        document.getElementById('searched_drug_name').textContent = searchedDrugName;
-    }
-    
-    const drugNameAndRxcui = document.getElementById('drug_name_and_rxcui');
+      function toggleDropdown(event) {
+        event.preventDefault();
+        var dropdown = document.getElementById("dropdown-menu");
+        dropdown.classList.toggle("show");
+      }
 
-    $(document).ready(function() {
       const searchedDrugName = localStorage.getItem('searched_drug_name');
+
       if (searchedDrugName) {
+        document.getElementById('searched_drug_name').textContent = searchedDrugName;
+      }
+
+      const drugNameAndRxcui = document.getElementById('drug_name_and_rxcui');
+
+      $(document).ready(function() {
+        const searchedDrugName = localStorage.getItem('searched_drug_name');
+        if (searchedDrugName) {
           const apiURL = 'https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?terms=' + searchedDrugName + '&ef=SXDG_RXCUI';
 
           $.get(apiURL)
@@ -122,6 +122,8 @@
               console.log('API response:', data);
               const sxdgRxcui = data[2].SXDG_RXCUI;
               console.log('SXDG_RXCUI:', sxdgRxcui);
+
+              const drugNameAndRxcui = document.getElementById('rxterms_properties');
 
               // Iterate over each SXDG_RXCUI value
               for (let i = 0; i < sxdgRxcui.length; i++) {
@@ -144,14 +146,13 @@
                     const nameRxcuiPairs = conceptProperties.map(property => ({ name: property.name, rxcui }));
                     const formattedPairs = nameRxcuiPairs.map(pair => `<div><i class='fa-solid fa-angles-right'></i> <b>You searched for:</b> ${pair.name} (RXCUI: ${pair.rxcui})<br></div>`);
 
-                    drugNameAndRxcui.innerHTML = formattedPairs.join('<br>');
+                    // Display the name-RXCUI pairs on the webpage
+                    drugNameAndRxcui.innerHTML += formattedPairs.join('<br>');
                   });
               }
             });
         }
-    });
-    
-    
+      });
   </script>
 </body>
 
