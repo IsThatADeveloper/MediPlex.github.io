@@ -112,9 +112,9 @@
     
     const drugNameAndRxcui = document.getElementById('drug_name_and_rxcui');
 
-$(document).ready(function() {
-  const searchedDrugName = localStorage.getItem('searched_drug_name');
-  if (searchedDrugName) {
+    $(document).ready(function() {
+      const searchedDrugName = localStorage.getItem('searched_drug_name');
+      if (searchedDrugName) {
           const apiURL = 'https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?terms=' + searchedDrugName + '&ef=SXDG_RXCUI';
 
           $.get(apiURL)
@@ -144,7 +144,7 @@ $(document).ready(function() {
                     const nameRxcuiPairs = conceptProperties.map(property => ({ name: property.name, rxcui }));
                     console.log(`Name-RXCUI Pairs for rxcui ${rxcui}:`, nameRxcuiPairs);
                   
-                    drugNameAndRxcui.innerHTML = "<i class='fa-solid fa-angles-right'></i> <b>You searched for:</b><br><br>" + "&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa-solid fa-arrow-right'></i> " + nameRxcuiPairs + "<br>";
+                    drugNameAndRxcui.innerHTML = `<i class='fa-solid fa-angles-right'></i> <b>You searched for:</b><br><br>&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa-solid fa-arrow-right'></i> ${nameRxcuiPairs}<br>`;
                   });
               }
             });
