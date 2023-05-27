@@ -32,18 +32,18 @@
         </li>
         <li style="position: absolute; left: 82px; top: -1.6%; transform: translateY(-3%);"><h2 style="color: black;"><a href="index.html">Mediplex Pharmacy</a></h2></li>
         <li style="position: absolute; right: 30px; top: 3%; transform: translateY(-3%);">
-          <divnav style="display: inline-block; margin-left: 10px;">
+          <div style="display: inline-block; margin-left: 10px;">
             <a href="https://www.linkedin.com/" target="_blank" class="custom-image-button">
               <i class="fa-brands fa-linkedin"></i>
               <span class="hover-text">Follow us on LinkedIn</span>
             </a>
-          </divnav>
-          <divnav style="display: inline-block; margin-left: 10px;">
+          </div>
+          <div style="display: inline-block; margin-left: 10px;">
             <a href="https://www.instagram.com/" target="_blank" class="custom-image-button">
               <i class="fa-brands fa-instagram"></i>
               <span class="hover-text">Follow us on Instagram</span>
             </a>
-          </divnav>
+          </div>
         </li>
       </ul>
     </nav>
@@ -52,6 +52,9 @@
   <section>
     <h1>General Layout (brands and drugs)</h1>
     <p><div><i class='fa-solid fa-angles-right'></i> <b>You searched for</b>: <span id="searched_drug_name"></span></div></p>
+  
+    <p id="drug_name_and_rxcui"></p>
+  
   </section>
 
   <section>
@@ -106,12 +109,47 @@
     if (searchedDrugName) {
         document.getElementById('searched_drug_name').textContent = searchedDrugName;
     }
-
     
+    const drugNameAndRxcui = document.getElementById('drug_name_and_rxcui');
+
     $(document).ready(function() {
       
-      var searchedDrugName = localStorage.getItem('searched_drug_name');
-      
+        if (searchedDrugName) {
+
+          const apiURL = 'https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?terms=' + searchedDrugName + '&ef=SXDG_RXCUI';
+
+          $.get(apiURL)
+            .done(function(data) {
+              console.log('API response:', data);
+              const sxdgRxcui = data[2].SXDG_RXCUI;
+              console.log('SXDG_RXCUI:', sxdgRxcui);
+
+              // Iterate over each SXDG_RXCUI value
+              for (let i = 0; i < sxdgRxcui.length; i++) {
+                const rxcui = sxdgRxcui[i];
+
+                // Make a request to the drug info API using the rxcui value
+                const drugInfoURL = `https://rxnav.nlm.nih.gov/REST/rxcui/${rxcui}/allrelated.json`;
+
+                $.get(drugInfoURL)
+                  .done(function(drugData) {
+                    console.log(`Drug Info for rxcui ${rxcui}:`, drugData);
+
+                    const conceptProperties = drugData.allRelatedGroup.conceptGroup.reduce((acc, conceptGroup) => {
+                      if (conceptGroup.conceptProperties) {
+                        acc.push(...conceptGroup.conceptProperties);
+                      }
+                      return acc;
+                    }, []);
+
+                    const nameRxcuiPairs = conceptProperties.map(property => ({ name: property.name, rxcui }));
+                    console.log(`Name-RXCUI Pairs for rxcui ${rxcui}:`, nameRxcuiPairs);
+                  
+                    drugNameAndRxcui.innerHTML = "<i class='fa-solid fa-angles-right'></i> <b>You searched for:</b><br><br>" + "&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa-solid fa-arrow-right'></i> " + nameRxcuiPairs + "<br>";
+                  });
+              }
+            });
+        }
     });
     
     
