@@ -163,19 +163,34 @@
         }
 
         console.log('Name-RXCUI pairs:', nameRxcuiPairs);
-        
+
         let formattedPairs;
         if (nameRxcuiPairs.length === 1) {
-          formattedPairs = ["only one name..." + sxdgRxcui];
+          const drugInfoURL = `https://rxnav.nlm.nih.gov/REST/rxcui/sxdgRxcui/allrelated.json`;
+
+          $.get(drugInfoURL)
+            .done(function(drugData) {
+              console.log(`Drug Info for rxcui ${rxcui}:`, drugData);
+
+              const conceptProperties = drugData.allRelatedGroup.conceptGroup.reduce((acc, conceptGroup) => {
+                if (conceptGroup.conceptProperties) {
+                  acc.push(...conceptGroup.conceptProperties);
+                }
+                return acc;
+              }, []);
+
+              const nameRxcuiPairs = conceptProperties.map(property => ({ name: property.name, rxcui }));
+              const formattedPairs = nameRxcuiPairs.map(pair => `<div><i class='fa-solid fa-angles-right'></i> <b>You searched for:</b> ${pair.name} (RXCUI: ${pair.rxcui})<br></div>`);
+
+              drugNameAndRxcui.innerHTML = formattedPairs.join('<br>');
+            });
         } else {
           formattedPairs = nameRxcuiPairs.map(pair => `<div><i class='fa-solid fa-angles-right'></i> <b>You searched for:</b> ${pair.name} (RXCUI: ${pair.rxcui})<br></div>`);
+          drugNameAndRxcui.innerHTML = formattedPairs.join('<br>');
         }
-        
-        drugNameAndRxcui.innerHTML = formattedPairs.join('<br>');
       });
     }
   });
 </script>
-
 
 </html>
