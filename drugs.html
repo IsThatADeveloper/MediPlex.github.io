@@ -142,8 +142,7 @@
                     }, []);
 
                     const nameRxcuiPairs = conceptProperties.map(property => ({ name: property.name, rxcui }));
-                    const formattedPairs = nameRxcuiPairs.map(pair => `${pair.name} (RXCUI: ${pair.rxcui})`).join(', ');
-
+                    const formattedPairs = nameRxcuiPairs.map(pair => `${pair.name}<br>(RXCUI: ${pair.rxcui})`);
 
                     drugNameAndRxcui.innerHTML = `<i class='fa-solid fa-angles-right'></i> <b>You searched for:</b><br><br>&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa-solid fa-arrow-right'></i> ${formattedPairs}<br>`;
                   });
