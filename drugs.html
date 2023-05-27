@@ -166,11 +166,10 @@
 
         let formattedPairs;
         if (nameRxcuiPairs.length === 1) {
-          const drugInfoURL = `https://rxnav.nlm.nih.gov/REST/rxcui/sxdgRxcui/allrelated.json`;
+          const drugInfoURL = 'https://rxnav.nlm.nih.gov/REST/rxcui/' + sxdgRxcui + '/allrelated.json';
 
           $.get(drugInfoURL)
             .done(function(drugData) {
-              console.log(`Drug Info for rxcui ${rxcui}:`, drugData);
 
               const conceptProperties = drugData.allRelatedGroup.conceptGroup.reduce((acc, conceptGroup) => {
                 if (conceptGroup.conceptProperties) {
