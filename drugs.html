@@ -178,8 +178,8 @@
                 return acc;
               }, []);
 
-              const nameRxcuiPairs = conceptProperties.map(property => ({ name: property.name, rxcui }));
-              const formattedPairs = nameRxcuiPairs.map(pair => `<div><i class='fa-solid fa-angles-right'></i> <b>You searched for:</b> ${pair.name} (RXCUI: ${pair.rxcui})<br></div>`);
+              const nameRxcuiPairssolo = conceptProperties.map(property => ({ name: property.name, rxcui }));
+              const formattedPairs = nameRxcuiPairssolo.map(pair => `<div><i class='fa-solid fa-angles-right'></i> <b>You searched for:</b> ${pair.name} (RXCUI: ${pair.rxcui})<br></div>`);
 
               drugNameAndRxcui.innerHTML = formattedPairs.join('<br>');
             });
