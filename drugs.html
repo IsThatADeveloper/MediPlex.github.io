@@ -170,19 +170,24 @@
 
           $.get(drugInfoURL)
             .done(function(drugData) {
+              const conceptGroup = drugData.allRelatedGroup.conceptGroup;
 
-              const conceptProperties = drugData.allRelatedGroup.conceptGroup.reduce((acc, conceptGroup) => {
-                if (conceptGroup.conceptProperties) {
-                  acc.push(...conceptGroup.conceptProperties);
+              // Iterate over each concept group
+              for (let j = 0; j < conceptGroup.length; j++) {
+                const conceptProperties = conceptGroup[j].conceptProperties;
+
+                // Iterate over each concept property
+                for (let k = 0; k < conceptProperties.length; k++) {
+                  const name = conceptProperties[k].name;
+                  const rxcui = conceptProperties[k].rxcui;
+
+                  const nameRxcuiPairssolo = conceptProperties.map(property => ({ name: property.name, rxcui }));
+                  const formattedPairs = nameRxcuiPairssolo.map(pair => `<div><i class='fa-solid fa-angles-right'></i> <b>You searched for:</b> ${pair.name} (RXCUI: ${pair.rxcui})<br></div>`);
+
+                  drugNameAndRxcui.innerHTML = formattedPairs.join('<br>');
                 }
-                return acc;
-              }, []);
-
-              const nameRxcuiPairssolo = conceptProperties.map(property => ({ name: property.name, rxcui }));
-              const formattedPairs = nameRxcuiPairssolo.map(pair => `<div><i class='fa-solid fa-angles-right'></i> <b>You searched for:</b> ${pair.name} (RXCUI: ${pair.rxcui})<br></div>`);
-
-              drugNameAndRxcui.innerHTML = formattedPairs.join('<br>');
-            });
+              }
+          });
         } else {
           formattedPairs = nameRxcuiPairs.map(pair => `<div><i class='fa-solid fa-angles-right'></i> <b>You searched for:</b> ${pair.name} (RXCUI: ${pair.rxcui})<br></div>`);
           drugNameAndRxcui.innerHTML = formattedPairs.join('<br>');
