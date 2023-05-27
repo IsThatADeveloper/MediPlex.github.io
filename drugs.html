@@ -112,10 +112,9 @@
     
     const drugNameAndRxcui = document.getElementById('drug_name_and_rxcui');
 
-    $(document).ready(function() {
-      
-        if (searchedDrugName) {
-
+$(document).ready(function() {
+  const searchedDrugName = localStorage.getItem('searched_drug_name');
+  if (searchedDrugName) {
           const apiURL = 'https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?terms=' + searchedDrugName + '&ef=SXDG_RXCUI';
 
           $.get(apiURL)
