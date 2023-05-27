@@ -95,58 +95,57 @@
   </footer>
 
   <script>
-function toggleDropdown(event) {
-  event.preventDefault();
-  var dropdown = document.getElementById("dropdown-menu");
-  dropdown.classList.toggle("show");
-}
+    function toggleDropdown(event) {
+      event.preventDefault();
+      var dropdown = document.getElementById("dropdown-menu");
+      dropdown.classList.toggle("show");
+    }
 
-$(document).ready(function() {
-  var searchedDrugName = localStorage.getItem('searched_drug_name');
-  
-  const searchedDrugNameOriginal = "ABILIFY (Oral Pill)";
+    $(document).ready(function() {
+      var searchedDrugName = localStorage.getItem('searched_drug_name');
 
-  if (searchedDrugNameOriginal) {
-    document.getElementById('searched_drug_name_original').textContent = searchedDrugNameOriginal;
+      const searchedDrugNameOriginal = "ABILIFY (Oral Pill)";
 
-    const apiURL = 'https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?terms=' + searchedDrugNameOriginal + '&ef=SXDG_RXCUI';
+      if (searchedDrugNameOriginal) {
+        document.getElementById('searched_drug_name_original').textContent = searchedDrugNameOriginal;
 
-    $.get(apiURL)
-      .done(function(data) {
-        console.log('API response:', data);
-        const sxdgRxcui = data[2].SXDG_RXCUI;
-        console.log('SXDG_RXCUI:', sxdgRxcui);
+        const apiURL = 'https://clinicaltables.nlm.nih.gov/api/rxterms/v3/search?terms=' + searchedDrugNameOriginal + '&ef=SXDG_RXCUI';
 
-        // Iterate over each SXDG_RXCUI value
-        for (let i = 0; i < sxdgRxcui.length; i++) {
-          const rxcui = sxdgRxcui[i];
+        $.get(apiURL)
+          .done(function(data) {
+            console.log('API response:', data);
+            const sxdgRxcui = data[2].SXDG_RXCUI;
+            console.log('SXDG_RXCUI:', sxdgRxcui);
 
-          // Make a request to the drug info API using the rxcui value
-          const drugInfoURL = `https://rxnav.nlm.nih.gov/REST/rxcui/${rxcui}/allrelated.json`;
+            // Iterate over each SXDG_RXCUI value
+            for (let i = 0; i < sxdgRxcui.length; i++) {
+              const rxcui = sxdgRxcui[i];
 
-          $.get(drugInfoURL)
-            .done(function(drugData) {
-              console.log(`Drug Info for rxcui ${rxcui}:`, drugData);
+              // Make a request to the drug info API using the rxcui value
+              const drugInfoURL = `https://rxnav.nlm.nih.gov/REST/rxcui/${rxcui}/allrelated.json`;
 
-              const conceptProperties = drugData.allRelatedGroup.conceptGroup.reduce((acc, conceptGroup) => {
-                if (conceptGroup.conceptProperties) {
-                  acc.push(...conceptGroup.conceptProperties);
-                }
-                return acc;
-              }, []);
+              $.get(drugInfoURL)
+                .done(function(drugData) {
+                  console.log(`Drug Info for rxcui ${rxcui}:`, drugData);
 
-              const nameRxcuiPairs = conceptProperties.map(property => ({ name: property.name, rxcui }));
-              console.log(`Name-RXCUI Pairs for rxcui ${rxcui}:`, nameRxcuiPairs);
-            });
-        }
+                  const conceptProperties = drugData.allRelatedGroup.conceptGroup.reduce((acc, conceptGroup) => {
+                    if (conceptGroup.conceptProperties) {
+                      acc.push(...conceptGroup.conceptProperties);
+                    }
+                    return acc;
+                  }, []);
+
+                  const nameRxcuiPairs = conceptProperties.map(property => ({ name: property.name, rxcui }));
+                  console.log(`Name-RXCUI Pairs for rxcui ${rxcui}:`, nameRxcuiPairs);
+                });
+            }
+        });
+      }
+
+      if (searchedDrugName) {
+        document.getElementById('searched_drug_name').textContent = searchedDrugName;
+      }
     });
-  }
-
-  if (searchedDrugName) {
-    document.getElementById('searched_drug_name').textContent = searchedDrugName;
-  }
-});
-
   </script>
 </body>
 
