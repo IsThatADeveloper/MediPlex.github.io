@@ -172,7 +172,7 @@
           const drugInfoURL = 'https://rxnav.nlm.nih.gov/REST/rxcui/'+ sxdgRxcui +'/allrelated.json';
 
           $.get(drugInfoURL).done(function(drugData) {
-	    drugNameAndRxcui.innerHTML = (`Drug Info for rxcui ${nameRxcuiPairs[0].rxcui}:`, drugData);
+	    drugNameAndRxcui.innerHTML = `Drug Info for rxcui ${nameRxcuiPairs[0].rxcui}: ${JSON.stringify(drugData)}`;
           });
         } else {
           formattedPairs = nameRxcuiPairs.map(pair => `<div><i class='fa-solid fa-angles-right'></i> <b>You searched for:</b> ${pair.name} (RXCUI: ${pair.rxcui})<br></div>`);
