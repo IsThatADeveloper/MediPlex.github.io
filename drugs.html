@@ -171,9 +171,12 @@
         if (nameRxcuiPairs.length === 1) {
           const drugInfoURL = 'https://rxnav.nlm.nih.gov/REST/rxcui/'+ sxdgRxcui +'/allrelated.json';
 
-          $.get(drugInfoURL).done(function(drugData) {
-	    drugNameAndRxcui.innerHTML = `Drug Info for rxcui ${nameRxcuiPairs[0].rxcui}: ${JSON.stringify(drugData)}`;
-          });
+					$.get(drugInfoURL).done(function(drugData) {
+						const conceptProperties = drugData.allRelatedGroup.conceptGroup.find(group => group.tty === 'BN').conceptProperties;
+						const drugName = conceptProperties[0].name;
+						const drugRxcui = conceptProperties[0].rxcui;
+						drugNameAndRxcui.innerHTML = `Drug Info for rxcui ${drugRxcui}: ${drugName}`;
+					});
         } else {
           formattedPairs = nameRxcuiPairs.map(pair => `<div><i class='fa-solid fa-angles-right'></i> <b>You searched for:</b> ${pair.name} (RXCUI: ${pair.rxcui})<br></div>`);
           drugNameAndRxcui.innerHTML = formattedPairs.join('<br>');
