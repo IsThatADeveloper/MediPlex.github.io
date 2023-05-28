@@ -173,8 +173,7 @@
             
           $.get(drugInfoURL)
             .done(function(drugData) {
-            console.log(`Drug Info for rxcui ${rxcui}:`, drugData);
-		  
+
             drugNameAndRxcui.innerHTML = (`Drug Info for rxcui ${rxcui}:`, drugData);
             });
         } else {
