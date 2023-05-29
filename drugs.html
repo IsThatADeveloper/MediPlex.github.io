@@ -171,12 +171,20 @@
         if (nameRxcuiPairs.length === 1) {
           const drugInfoURL = 'https://rxnav.nlm.nih.gov/REST/rxcui/' + sxdgRxcui + '/allrelated.json';
             
-	$.get(drugInfoURL).done(function(drugData) {
-	  const conceptProperties = drugData.allRelatedGroup.conceptGroup.find(group => group.tty === 'BN').conceptProperties;
-	  const drugName = conceptProperties[0].name;
-	  const drugRxcui = conceptProperties[0].rxcui;
-	  drugNameAndRxcui.innerHTML = `Drug Info for rxcui ${drugRxcui}: ${drugName}`;
-	});
+		$.get(drugInfoURL).done(function(drugData) {
+		  const conceptProperties = drugData.allRelatedGroup.conceptGroup.find(group => group.tty === 'BN').conceptProperties;
+		  const drugNames = conceptProperties.map(property => property.name);
+		  const drugRxcuis = conceptProperties.map(property => property.rxcui);
+
+		  let formattedPairs = [];
+		  for (let i = 0; i < drugNames.length; i++) {
+		    const drugName = drugNames[i];
+		    const drugRxcui = drugRxcuis[i];
+		    formattedPairs.push(`Drug Info for rxcui ${drugRxcui}: ${drugName}`);
+		  }
+
+		  drugNameAndRxcui.innerHTML = formattedPairs.join('<br>');
+		});
 
         } else {
           formattedPairs = nameRxcuiPairs.map(pair => '<div><i class="fa-solid fa-angles-right"></i> <b>You searched for:</b> ' + pair.name + ' (RXCUI: ' + pair.rxcui + ')</div>');
