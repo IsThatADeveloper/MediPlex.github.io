@@ -172,7 +172,7 @@
 	  const drugInfoURL = 'https://rxnav.nlm.nih.gov/REST/rxcui/' + sxdgRxcui + '/allrelated.json';
 
 	  $.get(drugInfoURL).done(function(drugData) {
-	    const conceptGroups = drugData.allRelatedGroup.conceptGroup;
+	    const conceptGroups = drugData.allRelatedGroup.conceptGroup || [];
 
 	    let formattedPairs = [];
 	    conceptGroups.forEach(group => {
