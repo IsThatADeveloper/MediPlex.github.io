@@ -178,7 +178,7 @@
 
 	    let formattedPairs = [];
 	    conceptGroups.forEach(group => {
-	      const conceptProperties = group.conceptProperties;
+	      const conceptProperties = group.conceptProperties || [];
 	      conceptProperties.forEach(property => {
 		const drugName = property.name;
 		const drugRxcui = property.rxcui;
