@@ -66,8 +66,6 @@
       <p id="drug_name_and_rxcui"></p>
 	
       <p id="drug_name_and_rxcui_solo"></p>
-	
-	hi
 	    
     </section>
   
@@ -181,9 +179,7 @@
 	      const conceptProperties = group.conceptProperties || [];
 	      conceptProperties.forEach(property => {
 		const drugName = property.name;
-		const drugRxcui = property.rxcui;
-		formattedPairs.push(`Drug Info for rxcui ${drugRxcui}: ${drugName}`);
-		      
+		const drugRxcui = property.rxcui;	      
 		formattedPairs.push(`<div><i class="fa-solid fa-angles-right"></i> <b>You searched for:</b>  ${drugName} (RXCUI: ${drugRxcui})</div>`);
 	      });
 	    });
