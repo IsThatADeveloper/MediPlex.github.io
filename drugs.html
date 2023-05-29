@@ -63,9 +63,7 @@
 	    
       <p><div><i class='fa-solid fa-angles-right'></i> <b>You searched for</b>: <span id="searched_drug_name"></span></div></p>
 	    
-      <p id="drug_name_and_rxcui"></p>
-	
-      <p id="drug_name_and_rxcui_solo"></p>
+      <p id="drug_name_and_rxcui" onclick="redirectToDrugs2()">Click here</p>
 	    
     </section>
   
@@ -136,6 +134,10 @@
     var dropdown = document.getElementById("dropdown-menu");
     dropdown.classList.toggle("show");
   }
+	
+  function redirectToDrugs2() {
+    window.location.href = "drugs2.html";
+  }
 
   const searchedDrugName = localStorage.getItem('searched_drug_name');
 
@@ -144,7 +146,6 @@
   }
 
   const drugNameAndRxcui = document.getElementById('drug_name_and_rxcui');
-  const drugNameAndRxcuiSolo = document.getElementById('drug_name_and_rxcui_solo');
 
   $(document).ready(function() {
     const searchedDrugName = localStorage.getItem('searched_drug_name');
