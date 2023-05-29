@@ -135,10 +135,6 @@
     dropdown.classList.toggle("show");
   }
 	
-  function redirectToDrugs2() {
-    window.location.href = "drugs2.html";
-  }
-
   const searchedDrugName = localStorage.getItem('searched_drug_name');
 
   if (searchedDrugName) {
@@ -194,6 +190,14 @@
       });
     }
   });
+	
+  function redirectToDrugs2() {
+    window.location.href = "drugs2.html";
+  }
+
+  var drugNameAndRxcui = document.getElementById('drug_name_and_rxcui');
+  drugNameAndRxcui.addEventListener('mouseenter', redirectToDrugs2);
+
 </script>
 
 </html>
