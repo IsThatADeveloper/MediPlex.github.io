@@ -183,6 +183,8 @@
 		const drugName = property.name;
 		const drugRxcui = property.rxcui;
 		formattedPairs.push(`Drug Info for rxcui ${drugRxcui}: ${drugName}`);
+		      
+		formattedPairs.push(`<div><i class="fa-solid fa-angles-right"></i> <b>You searched for:</b>  ${drugName} (RXCUI: ${drugRxcui})</div>`);
 	      });
 	    });
 
