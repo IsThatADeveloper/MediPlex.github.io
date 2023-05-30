@@ -177,14 +177,14 @@
 	      conceptProperties.forEach(property => {
 		const drugName = property.name;
 		const drugRxcui = property.rxcui;	      
-		formattedPairs.push(`<div class="hoverable-div"><i class="fa-solid fa-angles-right"></i> <b>You searched for:</b>  ${drugName} (RXCUI: ${drugRxcui})</div>`);
+		formattedPairs.push(`<div class="hoverable-div"><i class="fa-solid fa-angles-right"></i> <b>You searched for:</b>  ${drugName} <br> (RXCUI: ${drugRxcui})</div>`);
 	      });
 	    });
 
 	    drugNameAndRxcui.innerHTML = formattedPairs.join('<br>');
 	  });
 	} else {
-	  formattedPairs = nameRxcuiPairs.map(pair => '<div class="hoverable-div"><i class="fa-solid fa-angles-right"></i> <b>You searched for:</b> ' + pair.name + ' (RXCUI: ' + pair.rxcui + ')</div>');
+	  formattedPairs = nameRxcuiPairs.map(pair => '<div class="hoverable-div"><i class="fa-solid fa-angles-right"></i> <b>You searched for:</b> ' + pair.name + '<br> (RXCUI: ' + pair.rxcui + ')</div>');
 	  drugNameAndRxcui.innerHTML = formattedPairs.join('<br>');
 	}
       });
