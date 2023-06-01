@@ -146,8 +146,7 @@
   
   const apiURL = 'https://api.fda.gov/drug/label.json?search=openfda.rxcui:' + selectedRxcui;
 
-  const request = new XMLHttpRequest();
-  request.open('GET', apiURL);
+  $.get(apiURL).done(function(data) {
      console.log('Info:', data);
      selectedInfo.innerHTML = 'Info: ' + data;
 </script>
