@@ -148,49 +148,8 @@
 
   const request = new XMLHttpRequest();
   request.open('GET', apiURL);
-  request.onload = function() {
-    if (request.status === 200) {
-      const data = JSON.parse(request.responseText);
-      console.log('Info:', data);
-      selectedInfo.innerHTML = 'Info: ' + data;
-
-      if (data.code === "NOT_FOUND") {
-        const apiKey = 'AIzaSyD0vQjjfejlI1ztfnf-IOqgnlPSQsvXJKg'; // Replace with your actual Google API key
-        const searchEngineId = '532f7ea6d2bfb4275'; // Replace with your actual Google Custom Search Engine ID
-        const drugName = selectedDrug; // Replace with the drug name you want to search for
-
-        const searchUrl = `https://www.googleapis.com/customsearch/v1?cx=${searchEngineId}&key=${apiKey}&q=${encodeURIComponent(drugName)}`;
-
-        const searchRequest = new XMLHttpRequest();
-        searchRequest.open('GET', searchUrl);
-        searchRequest.onload = function() {
-          if (searchRequest.status === 200) {
-            const searchData = JSON.parse(searchRequest.responseText);
-            // Process the search results
-            if (searchData.items && searchData.items.length > 0) {
-              const firstResult = searchData.items[0];
-              const snippet = firstResult.snippet;
-      	      selectedInfo.innerHTML = 'Drug information:' + snippet;
-            } else {
-      	      selectedInfo.innerHTML = 'No drug information found.';
-            }
-          } else {
-      	    selectedInfo.innerHTML = 'An error occurred while searching for drug information:' + searchRequest.status;
-          }
-        };
-        searchRequest.onerror = function() {
-      	  selectedInfo.innerHTML = 'An error occurred while making the search request.';
-        };
-        searchRequest.send();
-      }
-    } else {
-      selectedInfo.innerHTML = 'An error occurred while retrieving FDA drug label information:', request.status;
-    }
-  };
-  request.onerror = function() {
-    selectedInfo.innerHTML = 'An error occurred while making the FDA drug label request.';
-  };
-  request.send();
+     console.log('Info:', data);
+     selectedInfo.innerHTML = 'Info: ' + data;
 </script>
 
 </html>
