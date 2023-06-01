@@ -15,186 +15,6 @@
   <script src="https://kit.fontawesome.com/de329c76bd.js" crossorigin="anonymous"></script>
   <script src="index.html"></script>
 </head>
-	
-<style>
-    body { 
-    	background: white;
-        color: Black;
-        font-family: Helvetica-neue, Helvetica, Arial, sans-serif;
-  	margin: 0;
-  	padding: 0;   
-    }
-        
-    header {
-	background: grey;
-	color: white;
-	padding: 20px 0;
-	margin: 0;
-    }
-    
-    section { 
-        background: white;
-        color: black;
-        padding: 20px;
-        display: block;
-    }
-    
-    footer {
-  	background: white;
-    	color: black;
-  	padding: 10px 20px;
-    }
-    
-    div {
-        padding: 15px;
-        border-radius: 8px;
-	border: 1.5px solid rgba(0, 0, 0, 0.3);
-        width: 50%;
-	overflow-wrap: break-word;
-        min-height: 50px;
-        overflow: auto;
-        text-align: left;
-      	font-size: 15px;
- 	  	margin-left: 10%;
-    }
-    
-    div:hover {
-    	margin: 0;
-        padding: 15px;
-        border-radius: 10px;
-        background-color: lightgrey;
-	border: 1.5px solid rgba(0, 0, 0, 0.4);
-        width: 49.5%;
-  	overflow-wrap: break-word;
-        min-height: 50px;
-        overflow: auto;
-        text-align: left;
-      	font-size: 15px;
-        color: black;
- 	margin-left: 10%;
-    	text-decoration: underline; 
-    }
-    
-    .div p {
-    	margin-bottom: 10px;
-	}
-   
-    ul {
-    	margin: 0;
-        padding 0;
-        list-style-type: none;
-    }
-    
-    li {
-    	display: inline-block;
-        margin: 0 20px 0 0;
-        padding 0;
-    }
-
-    h1 {
-       font-size: 16px;
-       font-weight: bold;
-       background-color: lightblue;
-       width: 60%;
-       height: auto;
-       border-radius: 5px;
-       border: black solid 1.5px;
-       padding: 10px;
- 	   margin-left: 10%;
-    }
-    
-    divnav {
-    	margin: auto;
-    }
-    
-    a {
-      	text-decoration: none; /* Removes the underline */
-      	color: inherit; /* Keeps the color of the text the same */
-    }
-    
-    .search-button i {
-      	font-size: 2em; /* set the font size of the icon to 2 times the default size */
-    }
-    
-    .fa-brands {
-    	width: 30px;
-        height: 20px;
-      	font-size: 2em;
-        padding: 0;
-        margin: 0;
-        color: black;
-    }
-    
-    .custom-image-button:hover .hover-text {
-        display: block;
-    }
-
-    .hover-text {
-        display: none;
-        position: absolute;
-        padding: 5px;
-        border-radius: 5px;
-        color: white;
-        font-size: 12px;
-        background: black;
-    	transform: translateX(0%);
-    	transform: translateY(25px);
-    }
-    
-    .dropdown-menu {
-	display: none;
-	padding: 5px 0 0 10px;
-	margin: 0;
-	list-style: none;
-	bottom: 100%;
-    	border-radius: 7px;
-        color: black;
-  	transform: translateY(15px);
-  	background-color: white;
-    }
-		
-    .dropdown-menu li {
-	padding: 10px 0px 10px 0px;
-    }
-		
-    .dropdown-menu li:hover {
-	background-color: #f5f5f5;
-    	border-radius: 8px;
-	padding: 10px 5px 10px 5px;
-    }
-		
-    .show {
-	display: block;
-    }
-    
-    .left-aligned {
-      	width: 64%;
-      	display: block;
-      	margin: 0;
-     	border: none;
-      	border-top: 1px solid #000;
-      	text-align: left;
- 	margin-left: 10%;
-    }
-    
-    .dose ul {
-      	list-style-type: disc;
-      	margin-left: -2.5em;
-	text-align:left;
-    }
-    
-    .dose ul li {
-      	list-style-type: disc;
-    	display: block;
-        padding: 2px;
-        text-align: left;
-        margin: 0;
-    }
-    
-    footer a:hover {
-      	text-decoration: underline;
-    }
-</style>
   
 <body>
   
@@ -309,10 +129,10 @@
     var dropdown = document.getElementById("dropdown-menu");
     dropdown.classList.toggle("show");
   }
-	
+  
   const selectedDrug = localStorage.getItem('selected_drug_name');
-  const selectedRxcui = localStorage.getItem('selected_rxcui'); // Retrieve the stored rxcui value
-	
+  const selectedRxcui = localStorage.getItem('selected_rxcui');
+  
   if (selectedDrug) {
     document.getElementById('selected_drug_name').textContent = selectedDrug;
   }
@@ -321,9 +141,53 @@
     document.getElementById('selected_rxcui').textContent = selectedRxcui;
   }
   
-  /* if info is given using https://api.fda.gov/drug/label.json?search=openfda.substance_name:aripiprazole+AND+openfda.brand_name:abilify then keep it
-  if it is not given then use google api
-  */
+  const apiURL = 'https://api.fda.gov/drug/label.json?search=openfda.rxcui:' + selectedRxcui;
+
+  const request = new XMLHttpRequest();
+  request.open('GET', apiURL);
+  request.onload = function() {
+    if (request.status === 200) {
+      const data = JSON.parse(request.responseText);
+      console.log('Info:', data);
+
+      if (data.code === "NOT_FOUND") {
+        const apiKey = 'AIzaSyD0vQjjfejlI1ztfnf-IOqgnlPSQsvXJKg'; // Replace with your actual Google API key
+        const searchEngineId = '532f7ea6d2bfb4275'; // Replace with your actual Google Custom Search Engine ID
+        const drugName = selectedDrug; // Replace with the drug name you want to search for
+
+        const searchUrl = `https://www.googleapis.com/customsearch/v1?cx=${searchEngineId}&key=${apiKey}&q=${encodeURIComponent(drugName)}`;
+
+        const searchRequest = new XMLHttpRequest();
+        searchRequest.open('GET', searchUrl);
+        searchRequest.onload = function() {
+          if (searchRequest.status === 200) {
+            const searchData = JSON.parse(searchRequest.responseText);
+            // Process the search results
+            if (searchData.items && searchData.items.length > 0) {
+              const firstResult = searchData.items[0];
+              const snippet = firstResult.snippet;
+              console.log('Drug information:');
+              console.log(snippet);
+            } else {
+              console.log('No drug information found.');
+            }
+          } else {
+            console.error('An error occurred while searching for drug information:', searchRequest.status);
+          }
+        };
+        searchRequest.onerror = function() {
+          console.error('An error occurred while making the search request.');
+        };
+        searchRequest.send();
+      }
+    } else {
+      console.error('An error occurred while retrieving FDA drug label information:', request.status);
+    }
+  };
+  request.onerror = function() {
+    console.error('An error occurred while making the FDA drug label request.');
+  };
+  request.send();
 </script>
 
 </html>
