@@ -65,6 +65,7 @@
       <p><div onclick="redirectToDrugs2()" class="hoverable-div"><i class='fa-solid fa-angles-right'></i> <b>You searched for</b>: <span id="searched_drug_name"></span></div></p>
 	
       <p id="drug_name_and_rxcui" onclick="redirectToDrugs2()"></p>
+	
 	    
     </section>
   
@@ -200,7 +201,7 @@ function redirectToDrugs2() {
     const drugName = drugNameElement ? drugNameElement.textContent.trim() : '';
 
     const rxcuiElement = hoveredDiv.querySelector('.rxcui');
-    const rxcui = rxcuiElement ? rxcuiElement.textContent.match(/\d+/)[0] : '';
+    const rxcui = rxcuiElement ? rxcuiElement.textContent.split('RXCUI:')[1].trim() : '';
 
     localStorage.setItem('selected_drug_name', drugName); // Store the drug name value in localStorage
     localStorage.setItem('selected_rxcui', rxcui); // Store the rxcui value in localStorage
@@ -208,6 +209,7 @@ function redirectToDrugs2() {
     window.location.href = "drugsInformation.html";
   }
 }
+
 
 </script>
 
