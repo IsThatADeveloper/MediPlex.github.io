@@ -134,7 +134,6 @@
   
   const selectedDrug = localStorage.getItem('selected_drug_name');
   const selectedRxcui = localStorage.getItem('selected_rxcui');
-  const selectedInfo = document.getElementById('drug_info');
   
   if (selectedDrug) {
     document.getElementById('selected_drug_name').textContent = selectedDrug;
@@ -144,11 +143,6 @@
     document.getElementById('selected_rxcui').textContent = selectedRxcui;
   }
   
-  const apiURL = 'https://api.fda.gov/drug/label.json?search=openfda.rxcui:' + selectedRxcui;
-
-  $.get(apiURL).done(function(data) {
-     console.log('Info:', data);
-     selectedInfo.innerHTML = 'Info: ' + data;
 </script>
 
 </html>
