@@ -240,6 +240,10 @@
 
     <section>
       <h1>Drug Name</h1>
+	    
+      <p><div><i class='fa-solid fa-angles-right'></i> <b>You searched for</b>: <span id="selected_drug_name"></span></div></p>
+      <p><div><i class='fa-solid fa-angles-right'></i> <b>You searched for</b>: <span id="selected_rxcui"></span></div></p>
+       
     </section>
   
     <!---------------------------------Drugs End--------------------------------->
@@ -305,7 +309,23 @@
     var dropdown = document.getElementById("dropdown-menu");
     dropdown.classList.toggle("show");
   }
+	
+  const selectedDrug = localStorage.getItem('selected_drug_name');
+  const selectedRxcui = localStorage.getItem('selected_rxcui'); // Retrieve the stored rxcui value
+	
+  if (selectedDrug) {
+    document.getElementById('selected_drug_name').textContent = selectedDrug;
+  }
 
+  if (selectedRxcui) {
+    document.getElementById('searched_rxcui').textContent = selectedRxcui;
+  }
+	
+  
+		
+  /* if info is given using https://api.fda.gov/drug/label.json?search=openfda.substance_name:aripiprazole+AND+openfda.brand_name:abilify then keep it
+  if it is not given then use google api
+  */
 </script>
 
 </html>
