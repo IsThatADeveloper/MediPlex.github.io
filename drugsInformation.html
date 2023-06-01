@@ -73,6 +73,8 @@
     <section>
       <hr class="left-aligned">
       <h1>What does the drug do (and treat) (pictures and all)</h1>
+	    
+      <p><div><i class='fa-solid fa-angles-right'></i> <b>RXCUI</b>: <span id="drug_info"></span></div></p>
     </section>
   
     
@@ -132,6 +134,7 @@
   
   const selectedDrug = localStorage.getItem('selected_drug_name');
   const selectedRxcui = localStorage.getItem('selected_rxcui');
+  const selectedInfo = document.getElementById('drug_info');
   
   if (selectedDrug) {
     document.getElementById('selected_drug_name').textContent = selectedDrug;
@@ -149,6 +152,7 @@
     if (request.status === 200) {
       const data = JSON.parse(request.responseText);
       console.log('Info:', data);
+      selectedInfo.innerHTML = 'Info: ' + data;
 
       if (data.code === "NOT_FOUND") {
         const apiKey = 'AIzaSyD0vQjjfejlI1ztfnf-IOqgnlPSQsvXJKg'; // Replace with your actual Google API key
@@ -166,26 +170,25 @@
             if (searchData.items && searchData.items.length > 0) {
               const firstResult = searchData.items[0];
               const snippet = firstResult.snippet;
-              console.log('Drug information:');
-              console.log(snippet);
+      	      selectedInfo.innerHTML = 'Drug information:' + snippet;
             } else {
-              console.log('No drug information found.');
+      	      selectedInfo.innerHTML = 'No drug information found.';
             }
           } else {
-            console.error('An error occurred while searching for drug information:', searchRequest.status);
+      	    selectedInfo.innerHTML = 'An error occurred while searching for drug information:' + searchRequest.status;
           }
         };
         searchRequest.onerror = function() {
-          console.error('An error occurred while making the search request.');
+      	  selectedInfo.innerHTML = 'An error occurred while making the search request.';
         };
         searchRequest.send();
       }
     } else {
-      console.error('An error occurred while retrieving FDA drug label information:', request.status);
+      selectedInfo.innerHTML = 'An error occurred while retrieving FDA drug label information:', request.status;
     }
   };
   request.onerror = function() {
-    console.error('An error occurred while making the FDA drug label request.');
+    selectedInfo.innerHTML = 'An error occurred while making the FDA drug label request.';
   };
   request.send();
 </script>
