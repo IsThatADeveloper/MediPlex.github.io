@@ -196,8 +196,13 @@ function redirectToDrugs2() {
   // Check if the hovered class is present on the div
   const hoveredDiv = document.querySelector('.hoverable-div:hover');
   if (hoveredDiv) {
-    const drugName = hoveredDiv.textContent.trim(); // Get the drug name from the div's content
-    const rxcui = hoveredDiv.dataset.rxcui; // Get the rxcui value from the dataset attribute
+    const divContent = hoveredDiv.innerHTML.trim(); // Get the inner HTML content of the div
+
+    const drugNameMatch = divContent.match(/<b>You searched for:<\/b>\s*(.*?)\s*(?:<br>|\))/);
+    const drugName = drugNameMatch ? drugNameMatch[1] : '';
+
+    const rxcuiMatch = divContent.match(/RXCUI:\s*(.*?)\)/);
+    const rxcui = rxcuiMatch ? rxcuiMatch[1] : '';
 
     localStorage.setItem('selected_drug_name', drugName); // Store the drug name value in localStorage
     localStorage.setItem('selected_rxcui', rxcui); // Store the rxcui value in localStorage
@@ -205,6 +210,7 @@ function redirectToDrugs2() {
     window.location.href = "drugsInformation.html";
   }
 }
+
 
 	
 </script>
