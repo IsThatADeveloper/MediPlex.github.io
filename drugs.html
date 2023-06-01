@@ -197,6 +197,8 @@ function redirectToDrugs2() {
   const hoveredDiv = document.querySelector('.hoverable-div:hover');
   if (hoveredDiv) {
     const rxcui = hoveredDiv.dataset.rxcui; // Get the rxcui value from the dataset attribute
+    const drugName = hoveredDiv.dataset.drugName; // Get the drug name value from the dataset attribute
+    localStorage.setItem('selected_drug_name', drugName); // Store the drug name value in localStorage
     localStorage.setItem('selected_rxcui', rxcui); // Store the rxcui value in localStorage
     window.location.href = "drugsInformation.html";
   }
