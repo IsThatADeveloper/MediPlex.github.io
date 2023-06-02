@@ -233,7 +233,7 @@ li ul {
 third value applies to bottom-right corner, and fourth value applies to bottom-left corner)*/
 
 .bannerImage {
-  border-radius: 0px 0px 20px 20px;
+  border-radius: 10px 10px 10px 10px;
   padding: 20px; 
 }
 
