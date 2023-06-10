@@ -189,7 +189,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #ffffff;
+    color: #000000;
     font-weight: bold;
     border-radius: 5px;
     border: #7c7b7b;
@@ -204,7 +204,7 @@ header {
     height: 100%;
     width: 100%;
     text-decoration: none;
-    color: #f6f4f4;
+    color: #ffffff;
   }
 
   .box a:hover {
