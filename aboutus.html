@@ -154,8 +154,7 @@
         </div>  
     </footer>
 
-    <script>
-
+   <script>
       // Get the URL path
       var path = window.location.pathname;
     
@@ -164,18 +163,23 @@
         return segment.trim() !== '';
       });
     
+      // Get the page title from the last segment
+      var pageTitle = segments[segments.length - 1].replace('.html', '');
+    
       // Create the breadcrumbs HTML
       var breadcrumbsHTML = '<a href="index.html">Home</a>';
       var currentPath = '/';
-      for (var i = 0; i < segments.length; i++) {
+      for (var i = 0; i < segments.length - 1; i++) {
         currentPath += segments[i] + '/';
-        breadcrumbsHTML += '<a href="' + currentPath + '">' + segments[i] + '</a>';
+        breadcrumbsHTML += ' / <a href="' + currentPath + '">' + segments[i] + '</a>';
       }
+    
+      // Add the page title as the current page
+      breadcrumbsHTML += ' / <span>' + pageTitle + '</span>';
     
       // Display the breadcrumbs
       var breadcrumbsContainer = document.getElementById('breadcrumbs');
       breadcrumbsContainer.innerHTML = breadcrumbsHTML;
     </script>
-
 </body>
 </html>
