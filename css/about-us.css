@@ -139,8 +139,7 @@ header {
     }
 
     #breadcrumbs a:not(:last-child):after {
-        content: " / ";
-        margin: 0 5px;
+        margin: 0 3px;
     }
 
     .title {
@@ -192,7 +191,7 @@ header {
     color: #000000;
     font-weight: bold;
     border-radius: 5px;
-    border: #7c7b7b;
+    border: #bfbdbd;
     border-style: solid;
     border-width: 1px;
   }
@@ -204,7 +203,7 @@ header {
     height: 100%;
     width: 100%;
     text-decoration: none;
-    color: #ffffff;
+    color: #1ab8bb;
   }
 
   .box a:hover {
@@ -215,10 +214,8 @@ header {
   .box:hover {
     background-color: #1ab8bb;
 
-
   }
 
- 
 .footer-title1 {
     margin-left: 67px;
     margin-top: 45px;
