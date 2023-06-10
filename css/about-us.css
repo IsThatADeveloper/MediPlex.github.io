@@ -1,8 +1,9 @@
+
 header {
     background: #0F7375;
     position: sticky;
     top: 0;
-    max-width: 1000px;
+    max-width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -13,7 +14,7 @@ header {
     body {
         margin: 0;
         padding: 0;
-        background-color: #ffffff;
+        background-color: white;
         left: 0;
         right: 0;
         width: auto;
@@ -22,7 +23,7 @@ header {
 
     hr {
         width: 90%;
-        margin-top: 45px;
+        margin-top: 6%;
         background-color:#106f70;
     }
 
@@ -212,7 +213,7 @@ header {
   }
 
   .box:hover {
-    background-color: #ffffff;
+    background-color: #1ab8bb;
 
 
   }
